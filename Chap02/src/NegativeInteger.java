@@ -5,7 +5,7 @@ public class NegativeInteger {
         String binaryString = Integer.toBinaryString(a);
         String formattedBinaryString = String.format("%" + bits + "s", binaryString)
                 .replace(' ', '0')
-                .substring(Math.max(0, binaryString.length() - bits));
+                .substring(0);
         System.out.println("a =  " + a + "     (" + formattedBinaryString + ")");
         a = ~a;
         binaryString = Integer.toBinaryString(a);
@@ -14,7 +14,7 @@ public class NegativeInteger {
                 .substring(Math.max(0, binaryString.length() - bits));
         System.out.println("a = ~a    " + " (" + formattedBinaryString + ")");
 
-        a = a + 1;
+        a += 1;
         binaryString = Integer.toBinaryString(a);
         formattedBinaryString = String.format("%" + bits + "s", binaryString)
                 .replace(' ', '0')
