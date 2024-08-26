@@ -1,0 +1,715 @@
+﻿1
+00:00:00,000 --> 00:00:01,230
+Page 1 I will introduce the lesson
+
+2
+00:00:01,230 --> 00:00:05,430
+plan for the 2nd semester of 2024,
+
+3
+00:00:05,430 --> 00:00:09,900
+Object-Oriented Programming 2 class (CCO1102.02)
+
+4
+00:00:09,900 --> 00:00:11,080
+Page 2
+
+5
+00:00:11,080 --> 00:00:13,850
+Class hours are three hours per week
+
+6
+00:00:13,850 --> 00:00:16,460
+Among these, two hours from 1pm on Wednesday
+
+7
+00:00:16,460 --> 00:00:18,470
+will be held as offline classes,
+
+8
+00:00:18,470 --> 00:00:20,380
+and one hour on Friday
+
+9
+00:00:20,380 --> 00:00:22,700
+late evening will be replaced with a video lecture
+
+10
+00:00:22,700 --> 00:00:24,240
+The classroom for Wednesday
+
+11
+00:00:24,240 --> 00:00:27,190
+classes is D504 in the 4th Engineering Building
+
+12
+00:00:27,190 --> 00:00:31,110
+The lecture is taught by Professor Lee In-kwon of the Department of Computer Science,
+
+13
+00:00:31,110 --> 00:00:36,050
+and his email address is iklee@yonsei.ac.kr
+
+14
+00:00:36,050 --> 00:00:37,750
+Professor Lee In-kwon's lab
+
+15
+00:00:37,750 --> 00:00:41,410
+is in room D719 of the 4th Engineering Building
+
+16
+00:00:41,410 --> 00:00:43,050
+Interview times are basically available
+
+17
+00:00:43,050 --> 00:00:45,550
+one hour before or after class,
+
+18
+00:00:45,550 --> 00:00:48,590
+but please make reservations via email if possible
+
+19
+00:00:48,590 --> 00:00:51,960
+TA is made up of two people: Im Do-gyu and Baek Ha-neul
+
+20
+00:00:51,960 --> 00:00:56,090
+Please check TA's email address in the notes
+
+21
+00:00:56,090 --> 00:00:59,320
+TAs reside in the Computer Graphics Lab, Room
+
+22
+00:00:59,320 --> 00:01:02,650
+D712, Building 4
+
+23
+00:01:02,650 --> 00:01:03,930
+Page 3
+
+24
+00:01:03,930 --> 00:01:07,690
+This course uses the Java programming language
+
+25
+00:01:07,690 --> 00:01:09,580
+and provides theory
+
+26
+00:01:09,580 --> 00:01:12,240
+and practice of object-oriented programming
+
+27
+00:01:12,240 --> 00:01:14,280
+This course is intended for students
+
+28
+00:01:14,280 --> 00:01:15,810
+who already have programming experience,
+
+29
+00:01:15,810 --> 00:01:18,220
+not beginners
+
+30
+00:01:18,220 --> 00:01:20,060
+Object-oriented programming, or OOP for short,
+
+31
+00:01:20,060 --> 00:01:23,220
+is a programming language
+
+32
+00:01:23,220 --> 00:01:25,470
+that includes the basic
+
+33
+00:01:25,470 --> 00:01:27,170
+concepts of Class, Object,
+
+34
+00:01:27,170 --> 00:01:31,560
+Inheritance, Polymorphism,
+
+35
+00:01:31,560 --> 00:01:34,010
+and encapsulation
+
+36
+00:01:34,010 --> 00:01:35,370
+Through these concepts,
+
+37
+00:01:35,370 --> 00:01:37,870
+you will learn how to design
+
+38
+00:01:37,870 --> 00:01:39,120
+and implement efficient software systems
+
+39
+00:01:39,120 --> 00:01:42,240
+that are robust,
+
+40
+00:01:42,240 --> 00:01:45,110
+reusable, and maintainable
+
+41
+00:01:45,110 --> 00:01:48,040
+The overall course covers the skills
+
+42
+00:01:48,040 --> 00:01:50,300
+needed to solve real-world programming problems
+
+43
+00:01:50,300 --> 00:01:52,790
+using the Java language
+
+44
+00:01:52,790 --> 00:01:54,070
+Page 4
+
+45
+00:01:54,070 --> 00:01:54,830
+This course is intended for students
+
+46
+00:01:54,830 --> 00:01:57,340
+who have experience learning
+
+47
+00:01:57,340 --> 00:02:00,990
+at least one programming language
+
+48
+00:02:00,990 --> 00:02:02,780
+If you look at the basic programming courses
+
+49
+00:02:02,780 --> 00:02:05,670
+offered at Yonsei University,
+
+50
+00:02:05,670 --> 00:02:07,040
+there are a wide variety of courses
+
+51
+00:02:07,040 --> 00:02:09,610
+listed in this slide
+
+52
+00:02:09,610 --> 00:02:12,310
+Of course, in addition to this,
+
+53
+00:02:12,310 --> 00:02:13,830
+you can also learn basic programming courses
+
+54
+00:02:13,830 --> 00:02:15,780
+offered by each college
+
+55
+00:02:15,780 --> 00:02:18,050
+or department, or through other means
+
+56
+00:02:18,050 --> 00:02:21,470
+such as online lectures
+
+57
+00:02:21,470 --> 00:02:22,910
+even if the course is not offered in our university
+
+58
+00:02:22,910 --> 00:02:27,140
+That is, although this course
+
+59
+00:02:27,140 --> 00:02:29,800
+covers the basic programming part,
+
+60
+00:02:29,800 --> 00:02:31,940
+it is not suitable for people who are new to programming
+
+61
+00:02:31,940 --> 00:02:34,270
+because the basic part progresses very quickly
+
+62
+00:02:34,270 --> 00:02:36,210
+I hope these facts will help
+
+63
+00:02:36,210 --> 00:02:39,290
+you decide whether or not to take the course
+
+64
+00:02:39,290 --> 00:02:40,600
+Page 5 There is no separate textbook,
+
+65
+00:02:40,600 --> 00:02:43,470
+and classes are conducted solely with lecture notes
+
+66
+00:02:43,470 --> 00:02:47,210
+and video lectures
+
+67
+00:02:47,210 --> 00:02:50,760
+In fact, there are many
+
+68
+00:02:50,760 --> 00:02:53,060
+good textbooks that cover the Java language
+
+69
+00:02:53,060 --> 00:02:55,150
+and object-oriented programming,
+
+70
+00:02:55,150 --> 00:02:57,470
+and there are many good lectures, both paid and free, on the Internet
+
+71
+00:02:57,470 --> 00:03:01,150
+Among them, if we look at the references
+
+72
+00:03:01,150 --> 00:03:04,990
+that have recently received good reviews,
+
+73
+00:03:04,990 --> 00:03:07,320
+there is a Korean textbook called "This is Java" by Shin Yong-kwon and Lim
+
+74
+00:03:07,320 --> 00:03:08,980
+Gyeong-gyun, and among the English textbooks, there is "Java:
+
+75
+00:03:08,980 --> 00:03:15,870
+The Comprehensive Guide to Java
+
+76
+00:03:15,870 --> 00:03:17,360
+Programming for Professionals" by Christian Ullenboom
+
+77
+00:03:17,360 --> 00:03:18,640
+Page 6 I will introduce the class
+
+78
+00:03:18,640 --> 00:03:21,620
+organization
+
+79
+00:03:21,620 --> 00:03:24,070
+Students watch the lecture
+
+80
+00:03:24,070 --> 00:03:26,860
+notes and recorded video lectures
+
+81
+00:03:26,860 --> 00:03:29,170
+provided each week and take and submit quizzes
+
+82
+00:03:29,170 --> 00:03:31,350
+Additionally, students are given three or four programming assignment
+
+83
+00:03:31,350 --> 00:03:34,290
+problems each week
+
+84
+00:03:34,290 --> 00:03:36,980
+Students can discuss and solve these problems with their teammates
+
+85
+00:03:36,980 --> 00:03:39,170
+during the practice class
+
+86
+00:03:39,170 --> 00:03:44,030
+held during offline lectures on Wednesdays
+
+87
+00:03:44,030 --> 00:03:46,300
+Any problems that were not solved during the practice class
+
+88
+00:03:46,300 --> 00:03:49,990
+must be submitted by midnight the following Tuesday
+
+89
+00:03:49,990 --> 00:03:52,240
+Programming exercises and assignment
+
+90
+00:03:52,240 --> 00:03:55,060
+submissions are conducted through an auto-judge server
+
+91
+00:03:55,060 --> 00:03:58,040
+The auto-judge server automatically grades the programs
+
+92
+00:03:58,040 --> 00:03:59,550
+submitted by students
+
+93
+00:03:59,550 --> 00:04:02,770
+and accepts assignment submissions
+
+94
+00:04:02,770 --> 00:04:05,000
+if the submitted programs function properly
+
+95
+00:04:05,000 --> 00:04:07,860
+and satisfy all the conditions of the problem
+
+96
+00:04:07,860 --> 00:04:12,160
+The midterm and final exams,
+
+97
+00:04:12,160 --> 00:04:14,460
+which are the most important in evaluating grades, are closed-book
+
+98
+00:04:14,460 --> 00:04:18,090
+written exams and include various types of questions such as coding,
+
+99
+00:04:18,090 --> 00:04:21,270
+subjective, short answer, and multiple choice
+
+100
+00:04:21,270 --> 00:04:22,630
+Page 7
+
+101
+00:04:22,630 --> 00:04:24,480
+Let me tell you about the grading criteria
+
+102
+00:04:24,480 --> 00:04:27,780
+that you are most interested in
+
+103
+00:04:27,780 --> 00:04:30,730
+This subject is a relative evaluation subject
+
+104
+00:04:30,730 --> 00:04:35,090
+Therefore, the maximum ratio of A and B grades is limited
+
+105
+00:04:35,090 --> 00:04:37,420
+For reference, I have been giving almost the maximum ratio of A and B grades
+
+106
+00:04:37,420 --> 00:04:41,620
+in cases where there are no special circumstances
+
+107
+00:04:41,620 --> 00:04:47,300
+The detailed grading criteria are: midterm and final exams are 35% each,
+
+108
+00:04:47,300 --> 00:04:52,900
+Programming assignments are graded at 15%, quizzes at 10%, attendance
+
+109
+00:04:52,900 --> 00:04:56,580
+at 3%, and Classum participation at 2%
+
+110
+00:04:56,580 --> 00:05:00,340
+All questions and answers will be made through Classum
+
+111
+00:05:00,340 --> 00:05:02,900
+Students can anonymously share questions, answers,
+
+112
+00:05:02,900 --> 00:05:05,800
+useful information, etc
+
+113
+00:05:05,800 --> 00:05:08,680
+Participation scores are based on your engagement with answers
+
+114
+00:05:08,680 --> 00:05:11,290
+and helpful information
+
+115
+00:05:11,290 --> 00:05:16,250
+In addition to attendance, this course uses a designated seating system
+
+116
+00:05:16,250 --> 00:05:20,720
+From the second week onwards, three members of the same team will sit together
+
+117
+00:05:20,720 --> 00:05:24,090
+Therefore, attendance check will be done by TA
+
+118
+00:05:24,090 --> 00:05:26,340
+Also, attendance for one hour on Friday
+
+119
+00:05:26,340 --> 00:05:30,250
+will be automatically checked based on whether or not you watched the video lecture,
+
+120
+00:05:30,250 --> 00:05:33,490
+so please be sure to watch the lecture video
+
+121
+00:05:33,490 --> 00:05:34,850
+Page 8 Let's take a quick
+
+122
+00:05:34,850 --> 00:05:38,640
+look at the weekly study schedule
+
+123
+00:05:38,640 --> 00:05:42,560
+In the first week,
+
+124
+00:05:42,560 --> 00:05:44,550
+we will set up the programming environment with an introduction to
+
+125
+00:05:44,550 --> 00:05:47,080
+object-oriented programming and the Java language
+
+126
+00:05:47,080 --> 00:05:49,620
+Any lectures that were not completed during offline
+
+127
+00:05:49,620 --> 00:05:51,890
+class hours must be viewed as video lectures and submitted by solving the quiz
+
+128
+00:05:51,890 --> 00:05:55,910
+by midnight of the following Tuesday
+
+129
+00:05:55,910 --> 00:05:58,460
+Starting from the second week,
+
+130
+00:05:58,460 --> 00:06:00,820
+video lectures and quizzes will be uploaded every Wednesday
+
+131
+00:06:00,820 --> 00:06:03,400
+Students will watch the video lectures
+
+132
+00:06:03,400 --> 00:06:07,400
+and take the quizzes by midnight the following Tuesday
+
+133
+00:06:07,400 --> 00:06:09,310
+During offline classes on Wednesdays,
+
+134
+00:06:09,310 --> 00:06:12,700
+programming practice assignments will be given
+
+135
+00:06:12,700 --> 00:06:16,170
+based on the content learned in video lectures the previous week
+
+136
+00:06:16,170 --> 00:06:19,800
+Students can discuss and solve problems with their team members
+
+137
+00:06:19,800 --> 00:06:21,370
+during the Wednesday lab time,
+
+138
+00:06:21,370 --> 00:06:25,240
+and are free to ask questions to TAs and professors
+
+139
+00:06:25,240 --> 00:06:28,660
+Solutions to the coding assignments must be submitted to the auto-judge
+
+140
+00:06:28,660 --> 00:06:32,450
+server and accepted by midnight the following Tuesday
+
+141
+00:06:32,450 --> 00:06:37,000
+The learning content for the second week includes Java
+
+142
+00:06:37,000 --> 00:06:40,140
+basic programming before OOP concepts, i.e
+
+143
+00:06:40,140 --> 00:06:44,520
+Operator, Control Structure, Screen Input/Output, and String class
+
+144
+00:06:44,520 --> 00:06:48,590
+In the third week, we will learn about reference types,
+
+145
+00:06:48,590 --> 00:06:53,010
+arrays, and enumeration types that we need to know before learning the full-fledged OOP concepts
+
+146
+00:06:53,010 --> 00:06:58,310
+The class on September 18, which is the Chuseok holiday period, will be replaced with a video lecture
+
+147
+00:06:58,310 --> 00:07:00,170
+Over the 4th and 5th weeks, we will learn about classes,
+
+148
+00:07:00,170 --> 00:07:04,680
+the most basic OOP concept
+
+149
+00:07:04,680 --> 00:07:07,920
+Since the content is large, we split it over two weeks
+
+150
+00:07:07,920 --> 00:07:12,670
+In the 4th week, we will learn about
+
+151
+00:07:12,670 --> 00:07:15,280
+the concepts of class, object, instance,
+
+152
+00:07:15,280 --> 00:07:18,100
+fields such as variables and constants, and constructors
+
+153
+00:07:18,100 --> 00:07:22,250
+In week 5, we will learn about methods,
+
+154
+00:07:22,250 --> 00:07:26,220
+the difference between instances and static members, packages and access modifiers
+
+155
+00:07:26,220 --> 00:07:29,290
+In week 6, we will learn about inheritance,
+
+156
+00:07:29,290 --> 00:07:33,640
+a very important concept in OOP
+
+157
+00:07:33,640 --> 00:07:36,470
+We will learn about the concepts of type conversion and polymorphism,
+
+158
+00:07:36,470 --> 00:07:40,330
+and the meaning of abstract classes
+
+159
+00:07:40,330 --> 00:07:43,240
+In week 7, we learn about interfaces,
+
+160
+00:07:43,240 --> 00:07:45,450
+which have more freedom than classes, and about nested classes
+
+161
+00:07:45,450 --> 00:07:50,050
+and nested interfaces
+
+162
+00:07:50,050 --> 00:07:52,920
+There will be a midterm exam in the 8th week
+
+163
+00:07:52,920 --> 00:07:54,280
+Page 9
+
+164
+00:07:54,280 --> 00:07:57,140
+In week 9, we will learn about exception
+
+165
+00:07:57,140 --> 00:07:58,090
+handling mechanisms that can handle avoidable
+
+166
+00:07:58,090 --> 00:08:01,910
+software errors
+
+167
+00:08:01,910 --> 00:08:05,860
+In week 10, we will be introduced the Object class,
+
+168
+00:08:05,860 --> 00:08:08,090
+which is the ancestor of all classes,
+
+169
+00:08:08,090 --> 00:08:10,470
+and generics that can be used by changing types
+
+170
+00:08:10,470 --> 00:08:14,270
+In week 11, we will learn how to perform multiple tasks simultaneously
+
+171
+00:08:14,270 --> 00:08:17,160
+and control their order using the
+
+172
+00:08:17,160 --> 00:08:20,820
+multi-threading feature provided by Java
+
+173
+00:08:20,820 --> 00:08:24,860
+In week 12, we will learn about the Collection Framework,
+
+174
+00:08:24,860 --> 00:08:28,260
+a powerful, fundamental data structure provided by Java
+
+175
+00:08:28,260 --> 00:08:32,340
+In week 13, we will learn about Lambda Expressions,
+
+176
+00:08:32,340 --> 00:08:35,520
+which allow you to create anonymous functions and process them concisely
+
+177
+00:08:35,520 --> 00:08:37,610
+In week 14, we will learn about Swing as a standard for
+
+178
+00:08:37,610 --> 00:08:42,420
+Java Graphical User Interface
+
+179
+00:08:42,420 --> 00:08:45,450
+There will be a final exam in the 15th week

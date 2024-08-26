@@ -1,0 +1,224 @@
+Page 1
+
+In this lecture, we will learn about
+
+the concepts of object-oriented programming
+
+
+Page 2
+
+Object-Oriented Programming,
+
+So, what is this object-oriented programming,
+
+abbreviated as OOP?
+
+OOP is a programming paradigm
+
+based on the concept of Objects
+
+Here, an object refers to a unit that combines data
+
+and the operation
+
+(or method, function) that processes it
+
+OOP was developed in the 1960s
+
+to increase the maintainability
+
+and reusability of code
+
+It was first introduced through languages
+
+such as Smalltalk,
+
+and was later widely adopted by languages such as C++ and Java
+
+Most programming languages today
+
+have OOP language features
+
+Examples include Java, C++,
+
+Python, C#, Ruby, Swift, Kotlin, Javascript, Dart, Go, etc
+
+
+Page 3 
+
+What are the advantages of
+
+using OOP?
+
+First, modularity
+
+Code management becomes easier by dividing the code
+
+into independent objects
+
+Second, reusability
+
+Once we create an object,
+
+we can reuse it in multiple programs
+
+Third, scalability
+
+We can also systematically manage
+
+large-scale programming projects
+
+Fourth, it is easy to maintain
+
+That means it's easy to debug and update
+
+
+Page 4 
+
+Let's compare
+
+Procedural Programming
+
+and Object-Oriented Programming
+
+Procedural programming is a style of writing
+
+code centered around functions and procedures,
+
+and is mainly structured in a top-down manner
+
+OOP, on the other hand,
+
+writes code centered around objects and their interactions
+
+Objects allow us to model real world
+
+objects more naturally
+
+
+Page 5 
+
+Let's look at some Python code
+
+using procedural programming
+
+techniques
+
+First, prepare a list
+
+called student_grades to store the students' names
+
+and grades
+
+Define the function "add_student_grade",
+
+which receives the student name and grade as parameters
+
+and adds them to the student_grades list
+
+The "append" function of the list is used for this
+
+Function "get_average_grade" finds the average of all grades
+
+in the current list
+
+As we can see so far,
+
+the lists and functions used in the program are all defined independently
+
+Now, we complete the desired task
+
+by executing procedures, or functions
+
+First, we call add_student_grade twice
+
+to store the grades of two students,
+
+Alice and Bob, in the student_grades list
+
+Then call the get_average_grade function
+
+to calculate the average score
+
+and print it on the screen. 
+
+
+Page 6
+
+This Python program
+
+shows the characteristics of OOP well
+
+We can see that Classes representing Objects
+
+are defined
+
+First, the Student class has two variables
+
+called name and grade as data,
+
+which represent one entry object
+
+that stores the names and grades of students
+
+The Classroom object has a list
+
+of students as data
+
+In the Constructor, the list
+
+is initialized to an empty list
+
+In addition to data, the Classroom class
+
+has functions that handle data
+
+First, the add_student function
+
+adds one entry to the students list
+
+with the given student name and grade parameters
+
+The get_average_grade function calculates
+
+the average score of all entries
+
+in the current list
+
+In OOP, data and functions (or methods) come together to form a single object
+
+Program execution consists of creating objects with appropriate data
+
+and calling methods of the objects
+
+Here, after creating an object of the Classroom class,
+
+the add_student function of that object is called twice
+
+to add two data entries to the list
+
+We can see that the data entry parameter being added
+
+is an object of the Student class
+
+After the data is added,
+
+the get_average_grade function of the classroom object
+
+is called to calculate the average
+
+and then display it on the screen
+
+In this example, it may seem that
+
+there is no difference between procedural
+
+programming and object-oriented programming
+
+However, I would like to emphasize that in OOP, Student and Classroom
+
+are classes that consist of a combination of data and functions,
+
+and that these classes are easy to use and manage by transplanting
+
+their codes to other programs as they are

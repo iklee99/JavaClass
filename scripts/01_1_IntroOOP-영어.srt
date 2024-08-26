@@ -1,0 +1,423 @@
+﻿1
+00:00:00,000 --> 00:00:01,460
+Page 1
+
+2
+00:00:01,460 --> 00:00:05,120
+In this lecture, we will learn about
+
+3
+00:00:05,120 --> 00:00:06,820
+the concepts of object-oriented programming
+
+4
+00:00:06,820 --> 00:00:08,230
+Page 2
+
+5
+00:00:08,230 --> 00:00:10,740
+Object-Oriented Programming,
+
+6
+00:00:10,740 --> 00:00:13,250
+So, what is this object-oriented programming,
+
+7
+00:00:13,250 --> 00:00:16,650
+abbreviated as OOP?
+
+8
+00:00:16,650 --> 00:00:19,170
+OOP is a programming paradigm
+
+9
+00:00:19,170 --> 00:00:21,560
+based on the concept of Objects
+
+10
+00:00:21,560 --> 00:00:23,750
+Here, an object refers to a unit that combines data
+
+11
+00:00:23,750 --> 00:00:27,900
+and the operation
+
+12
+00:00:27,900 --> 00:00:30,590
+(or method, function) that processes it
+
+13
+00:00:30,590 --> 00:00:32,700
+OOP was developed in the 1960s
+
+14
+00:00:32,700 --> 00:00:35,990
+to increase the maintainability
+
+15
+00:00:35,990 --> 00:00:37,750
+and reusability of code
+
+16
+00:00:37,750 --> 00:00:40,960
+It was first introduced through languages
+
+17
+00:00:40,960 --> 00:00:44,160
+such as Smalltalk,
+
+18
+00:00:44,160 --> 00:00:46,080
+and was later widely adopted by languages such as C++ and Java
+
+19
+00:00:46,080 --> 00:00:47,810
+Most programming languages today
+
+20
+00:00:47,810 --> 00:00:51,830
+have OOP language features
+
+21
+00:00:51,830 --> 00:00:58,730
+Examples include Java, C++,
+
+22
+00:00:58,730 --> 00:01:02,100
+Python, C#, Ruby, Swift, Kotlin, Javascript, Dart, Go, etc
+
+23
+00:01:02,100 --> 00:01:03,620
+Page 3 What are the advantages of
+
+24
+00:01:03,620 --> 00:01:06,860
+using OOP?
+
+25
+00:01:06,860 --> 00:01:09,050
+First, modularity
+
+26
+00:01:09,050 --> 00:01:12,530
+Code management becomes easier by dividing the code
+
+27
+00:01:12,530 --> 00:01:14,930
+into independent objects
+
+28
+00:01:14,930 --> 00:01:17,330
+Second, reusability
+
+29
+00:01:17,330 --> 00:01:18,990
+Once we create an object,
+
+30
+00:01:18,990 --> 00:01:22,060
+we can reuse it in multiple programs
+
+31
+00:01:22,060 --> 00:01:24,250
+Third, scalability
+
+32
+00:01:24,250 --> 00:01:26,240
+We can also systematically manage
+
+33
+00:01:26,240 --> 00:01:28,740
+large-scale programming projects
+
+34
+00:01:28,740 --> 00:01:31,480
+Fourth, it is easy to maintain
+
+35
+00:01:31,480 --> 00:01:34,670
+That means it's easy to debug and update
+
+36
+00:01:34,670 --> 00:01:36,790
+Page 4 Let's compare
+
+37
+00:01:36,790 --> 00:01:41,200
+Procedural Programming
+
+38
+00:01:41,200 --> 00:01:43,640
+and Object-Oriented Programming
+
+39
+00:01:47,440 --> 00:01:49,120
+Procedural programming is a style of writing
+
+40
+00:01:49,120 --> 00:01:52,800
+code centered around functions and procedures,
+
+41
+00:01:52,800 --> 00:01:56,850
+and is mainly structured in a top-down manner
+
+42
+00:01:56,850 --> 00:01:59,190
+OOP, on the other hand,
+
+43
+00:01:59,190 --> 00:02:03,010
+writes code centered around objects and their interactions
+
+44
+00:02:03,010 --> 00:02:05,330
+Objects allow us to model real world
+
+45
+00:02:05,330 --> 00:02:08,630
+objects more naturally
+
+46
+00:02:08,630 --> 00:02:10,120
+Page 5 Let's look at some Python code
+
+47
+00:02:10,120 --> 00:02:13,150
+using procedural programming
+
+48
+00:02:13,150 --> 00:02:15,940
+techniques
+
+49
+00:02:15,940 --> 00:02:19,450
+First, prepare a list
+
+50
+00:02:19,450 --> 00:02:22,370
+called student_grades to store the students' names
+
+51
+00:02:22,370 --> 00:02:25,460
+and grades
+
+52
+00:02:25,460 --> 00:02:28,590
+Define the function "add_student_grade",
+
+53
+00:02:28,590 --> 00:02:31,410
+which receives the student name and grade as parameters
+
+54
+00:02:31,410 --> 00:02:35,120
+and adds them to the student_grades list
+
+55
+00:02:35,120 --> 00:02:37,120
+The "append" function of the list is used for this
+
+56
+00:02:37,120 --> 00:02:39,640
+Function "get_average_grade" finds the average of all grades
+
+57
+00:02:39,640 --> 00:02:41,960
+in the current list
+
+58
+00:02:41,960 --> 00:02:44,960
+As we can see so far,
+
+59
+00:02:44,960 --> 00:02:49,170
+the lists and functions used in the program are all defined independently
+
+60
+00:02:49,170 --> 00:02:52,230
+Now, we complete the desired task
+
+61
+00:02:52,230 --> 00:02:54,730
+by executing procedures, or functions
+
+62
+00:02:54,730 --> 00:02:58,180
+First, we call add_student_grade twice
+
+63
+00:02:58,180 --> 00:03:00,800
+to store the grades of two students,
+
+64
+00:03:00,800 --> 00:03:04,060
+Alice and Bob, in the student_grades list
+
+65
+00:03:04,060 --> 00:03:07,030
+Then call the get_average_grade function
+
+66
+00:03:07,030 --> 00:03:10,720
+to calculate the average score
+
+67
+00:03:10,720 --> 00:03:12,180
+and print it on the screen. Page 6
+
+68
+00:03:12,180 --> 00:03:14,840
+This Python program
+
+69
+00:03:14,840 --> 00:03:16,880
+shows the characteristics of OOP well
+
+70
+00:03:16,880 --> 00:03:19,010
+We can see that Classes representing Objects
+
+71
+00:03:19,010 --> 00:03:21,660
+are defined
+
+72
+00:03:21,660 --> 00:03:25,470
+First, the Student class has two variables
+
+73
+00:03:25,470 --> 00:03:27,250
+called name and grade as data,
+
+74
+00:03:27,250 --> 00:03:29,300
+which represent one entry object
+
+75
+00:03:29,300 --> 00:03:32,790
+that stores the names and grades of students
+
+76
+00:03:32,790 --> 00:03:34,830
+The Classroom object has a list
+
+77
+00:03:34,830 --> 00:03:37,570
+of students as data
+
+78
+00:03:37,570 --> 00:03:40,880
+In the Constructor, the list
+
+79
+00:03:40,880 --> 00:03:43,210
+is initialized to an empty list
+
+80
+00:03:43,210 --> 00:03:45,480
+In addition to data, the Classroom class
+
+81
+00:03:45,480 --> 00:03:49,270
+has functions that handle data
+
+82
+00:03:49,270 --> 00:03:52,640
+First, the add_student function
+
+83
+00:03:52,640 --> 00:03:53,910
+adds one entry to the students list
+
+84
+00:03:53,910 --> 00:03:57,840
+with the given student name and grade parameters
+
+85
+00:03:57,840 --> 00:03:59,740
+The get_average_grade function calculates
+
+86
+00:03:59,740 --> 00:04:04,870
+the average score of all entries
+
+87
+00:04:04,870 --> 00:04:08,430
+in the current list
+
+88
+00:04:08,430 --> 00:04:11,400
+In OOP, data and functions (or methods) come together to form a single object
+
+89
+00:04:11,400 --> 00:04:15,890
+Program execution consists of creating objects with appropriate data
+
+90
+00:04:15,890 --> 00:04:19,550
+and calling methods of the objects
+
+91
+00:04:19,550 --> 00:04:23,680
+Here, after creating an object of the Classroom class,
+
+92
+00:04:23,680 --> 00:04:27,140
+the add_student function of that object is called twice
+
+93
+00:04:27,140 --> 00:04:30,760
+to add two data entries to the list
+
+94
+00:04:30,760 --> 00:04:33,340
+We can see that the data entry parameter being added
+
+95
+00:04:33,340 --> 00:04:37,190
+is an object of the Student class
+
+96
+00:04:37,190 --> 00:04:38,680
+After the data is added,
+
+97
+00:04:38,680 --> 00:04:42,210
+the get_average_grade function of the classroom object
+
+98
+00:04:42,210 --> 00:04:46,720
+is called to calculate the average
+
+99
+00:04:46,720 --> 00:04:49,960
+and then display it on the screen
+
+100
+00:04:49,960 --> 00:04:52,000
+In this example, it may seem that
+
+101
+00:04:52,000 --> 00:04:55,030
+there is no difference between procedural
+
+102
+00:04:55,030 --> 00:04:58,170
+programming and object-oriented programming
+
+103
+00:04:58,170 --> 00:05:01,800
+However, I would like to emphasize that in OOP, Student and Classroom
+
+104
+00:05:01,800 --> 00:05:03,990
+are classes that consist of a combination of data and functions,
+
+105
+00:05:03,990 --> 00:05:06,690
+and that these classes are easy to use and manage by transplanting
+
+106
+00:05:06,690 --> 00:05:10,570
+their codes to other programs as they are
