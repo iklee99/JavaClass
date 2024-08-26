@@ -27,6 +27,5 @@ public class NegativeInteger {
                 .replace(' ', '0')
                 .substring(Math.max(0, binaryString.length() - bits));
         System.out.println("a = " + a + "     (" + formattedBinaryString + ")");
-
     }
 }
