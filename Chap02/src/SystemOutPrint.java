@@ -7,5 +7,6 @@ public class SystemOutPrint {
         System.out.println("Number: " + 123);
         System.out.println("Boolean: " + true);
         System.out.println("Character: " + 'A');
+        System.out.println("" + false);
     }
 }
