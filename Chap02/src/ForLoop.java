@@ -12,8 +12,8 @@ public class ForLoop {
         }
         // for-each
         int[] numbers = {1, 2, 3, 4, 5};
-        for (int number : numbers) {
-            System.out.println(number);
+        for (int n : numbers) {
+            System.out.println(n);
         }
     }
 }
