@@ -1,0 +1,273 @@
+﻿In this lecture, we will talk about Screen I/O
+
+Page 2 The Scanner class
+
+required to receive keyboard
+
+input is included in the java.util package
+
+The java.util package is not imported by default in Java,
+
+so it must be imported explicitly
+
+So, if you look at the first line,
+
+we included the Scanner class with ‘import java.util.Scanner’
+
+If you want to include all classes
+
+in the java.util package
+
+when importing, you can do ‘import java.util.*’, but here,
+
+since we only need the Scanner class, we only imported that
+
+To create a scanner object within the main method,
+
+execute new Scanner(System.in);
+
+This makes scanner a reference type variable
+
+that points to a single Scanner object
+
+The program needs to guide the user
+
+who uses the program to accept keyboard input
+
+So, the words that guide you on what input to enter
+
+and in what format are displayed on the screen, and these are called prompts
+
+In this example, we first print
+
+the prompt “Enter an integer: “ to receive an integer input
+
+To ensure that the cursor
+
+for keyboard input is positioned directly behind the prompt,
+
+we display the prompt using Sytem.out.print rather than System.out.println
+
+The Scanner method that takes an integer as input is nextInt()
+
+When you input an integer using the keyboard and press enter, the integer value is read,
+
+returned, and stored in the program's variable 'number'
+
+To check whether the input was successful,
+
+the entered value is displayed on the screen along with the String “You entered: “
+
+Below that is the code to input a double number via the keyboard
+
+The Scanner's method for inputting a double number is nextDouble()
+
+In this example, a double number, for example 32.534, was entered using the keyboard
+
+Page 3
+
+This section demonstrates inputting a single String using the keyboard
+
+The Scanner method used at this time is next()
+
+The part below ignores blanks
+
+and reads all characters from the current cursor
+
+to a new line
+
+as a single String. It uses the nextLine() method
+
+Ultimately, the intention of this program was to read a word
+
+without a blank space as a word,
+
+then input another line and input the entire line with nextLine()
+
+However, if you look at the output of the comment section,
+
+after reading the single word
+
+“Korea” as a String, nextLine() is automatically read,
+
+and after the Enter a line of text: prompt, You entered: () appears
+
+That means nextLine() reads an empty String
+
+even though the user didn't input anything
+
+This is because after reading a word
+
+with next(), nextLine() treats the remaining “\n” as a valid input,
+
+so the string right before \n, i.e. the empty String, is read with nextLine()
+
+Page 4
+
+Therefore, we need to prepare for this phenomenon
+
+This slide presents a simple solution
+
+As in the previous case,
+
+a single word String was input using scanner.next()
+
+However, after that, before receiving a complete line of text input,
+
+there is a need to remove the “\n” remaining in the current input buffer
+
+So in this example, we added a step to call scanner.nextLine()
+
+once to receive the remaining input part before “\n” as a dummy
+
+String and ignore it
+
+This will cause all remaining input to disappear,
+
+and the part that accepts a new line
+
+as an entirely new input will work normally
+
+Page 5
+
+In this section, we show another example of inputting
+
+and outputting a dummy String
+
+First, we receive an int input with nextInt()
+
+I read a dummy2 String with nextLine() to discard the remaining “\n”
+
+before reading the next line completely
+
+After that, read a new line of text with nextLine()
+
+Instead of getting input
+
+from the keyboard,
+
+you can also have the input be a String
+
+We also imported java.util.Scanner
+
+We defined the String to be used as input
+
+In this example, a String,
+
+double, and int data are defined inside a String called input
+
+And when creating a Scanner object,
+
+we specified String input instead of System.in
+
+as the constructor parameter of Scanner
+
+This way, you can read the input from a String
+
+rather than reading it from the keyboard
+
+Next, read String, float, and int data one by one normally
+
+In addition to blank space on page 7,
+
+you can use other delimiters to separate
+
+input data
+
+The first half of the program
+
+normally receives input from a String and outputs three integers: 10, 20, and 30
+
+The second Scanner object uses the useDelimiter
+
+method to specify a comma as the delimiter
+
+Therefore, you can input the input
+
+String “10, 20, 30” by dividing it into three integers: 10, 20, 30
+
+Page 8
+
+This is an example program that uses System.out.print and System.out.println,
+
+which have been used a lot so far
+
+System.out.print does not change the line after printing,
+
+so the output continues on the same line
+
+System.out.println changes the line after printing
+
+It is possible to output by concatenating with other types
+
+such as String, int, boolean, and char
+
+If you look at the very last line,
+
+you can see that we printed it by doing “” + false
+
+In this case, if we do System.out.println(false), a compile error will occur,
+
+so we can change false to a String type
+
+by concatenating it with an empty String and then print it
+
+The method that allows you to align lines
+
+or print in various formats on page 9
+
+output is System.out.printf
+
+In fact, printf was originally used in C and C++,
+
+but it was not long ago that it was added to Java to supplement
+
+Java's simple output function
+
+printf has a feature called format specifier
+
+You can select an appropriate specifier depending on the type of data to be printed
+
+It can be printed in formats such as integer, floating-point,
+
+String, character, boolean, etc
+
+The integer 123 was printed using %d
+
+If you want to specify the width occupied by the output, you can do it like %10d
+
+In this example, an integer is printed with a width of 10
+
+By default, it is printed on the right side,
+
+and any remaining part of the width is displayed as blank space
+
+For real number output, you can specify the number of digits for the integer
+
+and decimal parts, such as %5.3f %10.2f
+
+This example shows an example where the integer part is unrestricted
+
+and the decimal part is limited to two digits
+
+If you want to print by pulling to the left,
+
+you can specify the number of spaces by adding a negative integer after the percent
+
+Page 10
+
+This example shows how to properly align the cells in the output
+
+and print it in a tabular format
+
+I aligned the rows well
+
+by justifying the field titles of the table,
+
+such as Name, Age, and Score, and the data entries of the table,
+
+by taking ten spaces each and justifying them left and right
+
+In the last statement, I placed a dollar sign in front of the percent,
+
+so that the dollar sign would be printed in front of output
