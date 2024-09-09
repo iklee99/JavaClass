@@ -1,0 +1,255 @@
+﻿In this lecture, before we dive into object-oriented techniques,
+
+we will learn about Java's reference types
+
+Page 2
+
+Let's review again the data types of the Java language that we looked at before
+
+First, primitive types include byte, char, short, int, long, etc.,
+
+which represent integers; float, double,
+
+which represent real numbers;
+
+char, which represents characters; and boolean,
+
+which is a logical type
+
+This primitive type is a simple type that has only one value,
+
+and those values are stored in the stack area of memory
+
+Page 3
+
+Here we will learn about the Memory structure of Java JVM
+
+The Method Area stores class variables, i.e
+
+static variables, along with class information used in Java programs
+
+This area reads .class files,
+
+which are bytecodes, and stores
+
+runtime constants for classes and interfaces,
+
+variables of various types, constructors, and methods
+
+This area is loaded just before the program starts and destroyed
+
+when the program ends
+
+It contains numeric literals known at compile time,
+
+methods that need to be resolved at runtime, and various constants
+
+The method area exists in the lowest address area of memory
+
+and its size does not change
+
+The heap area stores instances of all class objects for Java programs
+
+The moment the New operator is executed,
+
+the object is dynamically allocated
+
+and the object data is managed by the JVM at runtime
+
+The heap expands from the lowest address in memory toward higher addresses
+
+Stack is the area where the stack frame of a method
+
+is stored when the method is called in a Java program
+
+When a method is called in a Java program,
+
+the JVM stores local variables and parameter variables related to the method call in the stack area
+
+This stack area is allocated with a method call
+
+and is destroyed when the method execution ends
+
+Method call information stored in the stack area is called a stack frame
+
+The stack area inputs data through push and outputs data through pop
+
+These stacks operate in a LIFO (Last in, First out) fashion,
+
+meaning the last data stored is the first to be popped
+
+Stack areas are allocated from high to low addresses in memory
+
+The PC register contains the address of the currently executing JVM instruction
+
+It corresponds to the PC (Program
+
+Counter) of the CPU, and program execution is done by issuing commands to the CPU
+
+While executing an instruction, the CPU stores necessary
+
+information in the CPU's memory, called registers
+
+The CPU stores the information it needs while executing instructions in registers
+
+A register is a memory device inside the CPU
+
+that stores the results of operations
+
+before transferring them to memory
+
+So, these roles of CPU
+
+registers refer to logical memory areas in the JVM
+
+The native method stack area is a stack for using code
+
+written in a language other than Java together with Java
+
+For example, it is a stack for executing codes such as C, C++, etc. together with Java code
+
+Native method parameters, local variables, etc. are saved as bytecode
+
+Page 4
+
+Reference type saves a reference (address).
+
+It points the set of data  of object or array by storing a reference (address)
+
+The values of reference variables in the stack area
+
+can be considered as the addresses of objects in the method area or heap area
+
+In Java, all literals are located in the Method area, which holds class information. 
+
+The literal Korea in str1 is located in the Method area 
+
+and has the address 0x93AB.
+
+str2, the literal “Seoul”, is also in the Method area 
+
+and has an address of 0x867A. 
+
+The literal “Korea” appears again in str3. 
+
+In this case, literals are not recreated once they have occurred, 
+
+it points to a literal that already exists. 
+
+So str3 will have the same address as str1. 
+
+On the other hand, the object you create with new
+
+is created whenever we call new. 
+
+ “Korea” in str4 was created with new
+
+and has address 0x472C in heap area.
+
+and str5 is created with new. 
+
+Even though it's a String with the same content as str1, str3, and str4, 
+
+it's created with new, as a completely different new object. 
+
+So str5 will point to address 0x68D3. 
+
+Page 5 In primitive type variables, == (equal)
+
+and != (not equal)
+
+mean testing whether the values of two variables are equal or not
+
+In this example, we are testing whether the values of x and y are equal when x is 3 and y
+
+is 2, or whether the values of x and (y+2) are not equal
+
+For reference type variables, it indicates whether the references (addresses)
+
+they represent are the same or not
+
+That is, it indicates whether two reference variables are referencing
+
+the same address or not
+
+Page 6
+
+Let's take a close look at what the String variables
+
+a, b, c, d, and e that appear in the program point to and where
+
+a and b created with new String(“test”) are normal String objects,
+
+so they are created in the heap area
+
+Although the contents of the string a and b are both “test”,
+
+they are all separately created objects,
+
+so they occupy different memory areas
+
+c and d are assigned String literals, and the literals are created in the Method area,
+
+so literals with the same content are not created twice
+
+Since e was assigned a as is, it has the same reference value as a
+
+Accordingly, the equality between a, b, c, d, and e in the lower part
+
+is determined by whether their references (addresses) are the same
+
+Page 7 null represents a reference
+
+that does not point to any object
+
+In situations where you declare a class variable
+
+but cannot create an object of it, you can set the initial value to null
+
+This makes it easy to determine whether a variable points to a valid object or not
+
+by testing for equality with null
+
+On the other hand, when there is a class variable s with a null reference,
+
+calling a method like s.length()
+
+or accessing an instance variable like s.x
+
+under the mistaken belief that s points to a valid object
+
+(attempting dereferencing) will result in a NullPointException
+
+Exceptions are different from errors,
+
+and developers can prepare code in advance to handle exceptions
+
+We will learn more about exception handling later
+
+Page 8
+
+The code in the red box will cause a NullPointerException
+
+Since str has not been initialized,
+
+the test that str is not equal to null will pass as true,
+
+so an exception will be raised when str.length()
+
+of the true part is attempted
+
+So, as in the lower part,
+
+we first initialize str to null
+
+The else part prints “str is null”
+
+because testing whether str is not null is correct
+
+Page 9
+
+On the other hand, if str is initialized to “Hello”, str
+
+not null will become true
+
+and str.length() will be printed along with “Length of str: “
