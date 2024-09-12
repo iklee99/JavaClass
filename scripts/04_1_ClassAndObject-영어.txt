@@ -1,0 +1,673 @@
+﻿It's lecture about Class and Object
+
+Page 2
+
+Class is one of the most important OOP elements in Java
+
+Simply put, Java programming
+
+means implementing classes,
+
+all code must exist within a class,
+
+and all new types created by the programmer are classes
+
+Page 3
+
+So, what is the difference between class and object?
+
+A class can be said to be a template that can create objects
+
+For example, if the class is called a waffle maker,
+
+the object can be a waffle made with the waffle maker
+
+Just as you can bake a ton of waffles with a single waffle maker,
+
+you can create an infinite number of objects with a single class
+
+So, what does instance mean? Instance means a single entity
+
+that is a concrete representation of a class,
+
+so it can be seen as a term with almost the same meaning as object
+
+In fact, object and instance are used interchangeably
+
+Page 4 
+
+The Student class has two instance variables: name is a String variable
+
+representing the student's name, and id
+
+is an int variable representing the student number
+
+In the main method of the StudentDemo class,
+
+two objects of the Student class are created, s1 and s2
+
+When creating an object, use the new command
+
+Page 5 At the moment when the first instance of the Student class,
+
+s1, is created, information about the class Student
+
+is created in the method area of the JVM
+
+Now, whenever an instance is created via the new command, memory for the instance, i.e
+
+object, is allocated in the heap area
+
+Because instances are separated into independent spaces in memory,
+
+Different values can be assigned to the instance
+
+variables of each instance
+
+For example, the name of s1 can be “Tom”, the id of s1 can be 2305365,
+
+the name of s2 can be “Jane”, and the id of s2 can be 2281686
+
+When accessing instance
+
+variables like this, use objectName variable
+
+Page 6
+
+Now let's consider a class called SampleClass
+
+SampleClass has an instance
+
+variable int type x and a method called sayHello
+
+sayHello takes an int parameter
+
+called y, adds the instance
+
+variables x and y, and prints Hello x_value y_value
+
+Page 7 Let's organize the use of instance
+
+variables and methods, which are members of a class
+
+The new operator is used to create an object of a certain class
+
+When reading the value of an instance
+
+variable or assigning a value to an instance
+
+variable, the dot operator (.) is used
+
+The x value of Object
+
+c1 is assigned to 2, and the x value of Object
+
+c2 is the value of c1's x value plus 1, so it becomes 3
+
+Similarly, when calling a method of an object,
+
+the dot operator (.) is used
+
+Since the x value of c1 is 2, it will print “Hello 2 5”
+
+Similarly, c2.sayHello(7) prints “Hello 3
+
+7” because y is 7 and x in c2 is 3
+
+Page 8 Let's consider the SampleClass
+
+class again
+
+A new method called squareX has been added to this class
+
+In the squareX() method, we first call sayHello(x+1) to print “Hello
+
+x_value x_value + 1”
+
+And it returns the square of x
+
+But there is something a little strange
+
+In the previous slide, we said that when accessing an instance variable
+
+or calling a method,
+
+we write the object name first and then use the dot operator
+
+Here, we can see that the dot operator is not used
+
+when accessing x or calling sayHello
+
+This is because x and sayHello
+
+are accessed within the same class, SampleClass
+
+As in the previous slide, when accessing instance
+
+variables or methods from outside the class they belong to,
+
+you must use the dot operator
+
+Page 9
+
+Now let's look at a car rental system program as an example
+
+This program consists of three classes: Car, Customer, and CarRentalSystem
+
+First, the class Car contains information about the car
+
+As instance variables, there are String variables representing the model name and license plate number
+
+Below that, there is a totalCars variable of static int type
+
+A static variable is also called a class variable
+
+Unlike instance variables, this static variable exists only in the Car class
+
+and is shared by all objects
+
+That is, all objects of the Car class will have the same value
+
+Therefore, static variables are located in the class info of the method area,
+
+not in the instance area of the heap area
+
+The static variable totalCars increases by 1 each time a Car object is created,
+
+indicating the total number of cars at any given moment
+
+COMPANY_NAME is the unique rental system company name in this system,
+
+so it is defined as a named constant and becomes a static final
+
+String type and is initialized to “SuperCar Rentals”
+
+The displayCarDetails() method is a method that prints the model
+
+and license plate of each Car object
+
+The displayTotalCars() method is a static method that prints
+
+the static variable totalCars
+
+Since no instance variables are used in this method
+
+and only the static variable totalCars is used,
+
+this method can be shared by all Car objects
+
+These methods are called static methods,
+
+and information about static methods
+
+is also stored only in the class info of the Method area
+
+We will study static members in more detail in Chapter 5
+
+Page 10 class
+
+Customer contains information about customers
+
+who rent cars from this company
+
+There are instance variables that represent the
+
+customer's name and customer number,
+
+and displayCustomerDetails() is a method that shows
+
+the Customer's information
+
+The rentCar method accepts the car, which is a parameter of the Car class,
+
+and displays a message that the customer object
+
+calling the rentCar method has rented a car
+
+However, this program does not record
+
+which customer rented which car
+
+Page 11 The CarRentalSystem class
+
+creates Car and Customer objects,
+
+displays their information, and sends a message to the customer
+
+to rent a car
+
+First, create a Car object called car1
+
+We increase Car.totalCars, which we saw earlier, by one
+
+to maintain the current number of Car objects
+
+One thing to note is that when accessing the static variable totalCars,
+
+instead of using a specific object like car1,
+
+we can access it using the class name Car with the dot operator,
+
+using capital letters Car dot totalCars
+
+This is possible because totalCars is a static variable,
+
+so there is only one of it in the Car class
+
+Of course, you can also access it as car1.totalCars
+
+In the same way, create another Car object called car2
+
+And then call the displayCarDetails() method of each Car object to display
+
+the car's information
+
+It also shows the current totalCars value
+
+Page 12 Here we create
+
+two Customer objects
+
+Assign each name and customer ID
+
+And we use the displayCustomerDetails() method to display
+
+the Customer's information
+
+And then it shows a message to two customers
+
+that they are renting a car
+
+Finally, it shows the name of this car rental company
+
+Page 13
+
+This slide shows how multiple Java source files form
+
+a single program
+
+A source file contains only one class
+
+The class name and the source file name must be the same
+
+Class1 has public access and Class2 has default,
+
+that is, package access
+
+As long as all source files are in the same folder,
+
+there is no difference between public and package permissions
+
+We will learn more about access modifiers in Chapter 5
+
+The AATest class has a main method
+
+So, when you compile this program,
+
+an executable file called AATest.class is generated
+
+Here, we create objects of Class1 and Class2, assign values 3 and 5 to instance
+
+variable a of each object, and display the values 4 and 4,
+
+which are the values obtained by adding 1 to 3 and subtracting 1 from 5
+
+The class AATest, which has a main method,
+
+must have public permission
+
+Typically, when coding in Java,
+
+it is common to have only one class per source file
+
+This way, you can easily guess the contents of the file since the source
+
+file name directly refers to the class name
+
+However, since our auto-judge
+
+server only allows you to submit one source
+
+file, you must write all classes in one source file
+
+We will look at this case in the next slide
+
+Page 14
+
+This slide shows how to program
+
+by putting multiple classes in a single Java source file
+
+In this case, only the class that has main should have public permission
+
+Here, the AAATest class is public
+
+Also, the name of the public class must be the name of the source file
+
+All other classes should have package permissions
+
+Here, Class3 and Class4 are like that
+
+Page 15 A local variable
+
+is a variable that is declared
+
+and used within a method
+
+Also, all method
+
+parameters are considered local variables
+
+For example, args, p, and q are local variables of main
+
+b and c are local to the add method of Class3
+
+Another b is local to the sub method of Class4
+
+There are no global variables in Java
+
+All classes should interact with other classes
+
+using appropriate parameters and method calls
+
+Although it may sometimes feel like these strict rules make programming difficult,
+
+they have the advantage of preventing the possibility of errors
+
+that global variables can cause
+
+Page 16 a is a local variable in
+
+ATest's main, so it can be
+
+accessed from other blocks,
+
+such as the for loop within the main method
+
+k is a local variable of the for loop block,
+
+so it is not visible outside the for loop
+
+And since a, which is local to main, is visible within the for loop,
+
+declaring another a within the for loop block is redundant,
+
+so a compile error occurs the moment it is declared
+
+On the other hand, accessing k is a compile error because k disappears
+
+and is no longer visible once the for loop is exited
+
+The Venn diagram shows the scope of local variables
+
+Page 17
+
+This slide shows a case where other methods are defined
+
+and used within the same class
+
+in addition to the main method
+
+Ultimately, it is a case of calling another method within the main method,
+
+and in this example,
+
+MyMethod is called within main to find the sum of a, b, and c
+
+However, since main is a static method,
+
+only static methods or static variables can be used within main
+
+That is, myMethod must also be a static method
+
+Page 18 Actual parameter
+
+is a term that refers to
+
+the parameter passed when calling a method
+
+In this example, in result
+
+= myMethod(a,b,c) , a, b, and c are actual parameters
+
+On the other hand, in the definition of myMethod(int d,
+
+int e, int f), the parameters d, e, and f
+
+that receive values are formal parameters
+
+The name actual parameter refers to the value that is actually passed,
+
+and the name formal parameter refers to the formal name that is passed
+
+and used within the method
+
+Meanwhile, the terms parameter and argument have subtle differences,
+
+but in practice they are used almost interchangeably
+
+Page 19
+
+In this example, the actual parameter c is of type int,
+
+while the corresponding formal parameter f is of type double
+
+At this time, c's int value is automatically converted to double type
+
+This automatic conversion is possible because
+
+the double type has a wider range of expressions than the int type
+
+If we look at the range of expressions for this automatic conversion,
+
+byte and char are the smallest at unsigned 1
+
+byte, and the range of expressions expands in the order of short, int, long, float, and double
+
+Page 20
+
+In this slide, we will look at “this”
+
+which has a special reference value
+
+The referenceThis method of SomeClass
+
+is a method that prints the value of this as is
+
+“this” refers to the reference to the object created in this class,
+
+that is, the address of the object
+
+In the main of the ThisRefTest class,
+
+we will directly print out what value the “this” reference has
+
+First, o1 and o2 were created as objects of SomeClass
+
+o3 has the same reference as o1 because o1 was assigned as is
+
+First, if you print o1, it will say “SomeClass@6b95977”
+
+Here, SomeClass indicates what class o1 is,
+
+and 6b95977 is a reference to o1
+
+Below, I tried calling the o1
+
+dot referenceThis() method to print this
+
+this has the exact same value as the reference to o1 directly above
+
+Similarly, we can see that this of o2
+
+and o2 have exactly the same reference value
+
+Page 21 This
+
+reference can be conveniently used
+
+when referring to an instance variable
+
+Among the three formal parameters of the setMyDate method, month and day
+
+have the same names as instance variables
+
+The values of these formal parameters
+
+are assigned to instance variables
+
+Therefore, if the names of formal parameters are different
+
+from those of instance variables, for example,
+
+newMonth and newDay, they can be distinguished from instance
+
+variables, but for semantic consistency,
+
+it is more convenient
+
+to make them the same as the names of instance variables
+
+However, since the left and right sides of an assignment cannot have the same name,
+
+there must be another way
+
+In this case, you can easily solve this problem by using reference this
+
+The reference this represents a reference to the object itself,
+
+so this dot month
+
+and this dot day mean instance variables
+
+And if you just use month and day,
+
+they mean formal parameters
+
+Page 22 When SomeClass was completely empty and had no methods,
+
+two objects of this SomeClass, o1 and o2, were created, and o3
+
+was assigned to o1
+
+as is, making it point to the same object as o1
+
+When I ran o1.equals(o2) at this time, false was returned
+
+o2.equals(o3) also returned
+
+false, and o3.equals(o1) returned true
+
+Even though the equals method is not defined in SomeClass,
+
+no compile error occurs
+
+This would mean that even though we didn't explicitly define an equals method in SomeClass,
+
+an equals method already exists, even though we can't see it
+
+However, from the three prints, we can infer that the equals method returns
+
+a boolean result of comparing the reference of the object
+
+that calls equals with the object given as a parameter
+
+That is, if you write the code for the equals method, it will be implemented as simply as this
+
+In fact, the equals method already exists in every class,
+
+although it is not visible
+
+It is difficult to give a clear reason for this at this time
+
+We will study the exact reason later when we learn inheritance
+
+Page 23
+
+However, if we want the equals method to compare
+
+whether the contents of two objects are truly the same
+
+rather than simply comparing references, we need to redefine the equals method
+
+In this example, SomeClass has two instance variables, name and x
+
+We redefined equals so that it returns true
+
+only if both the name and x values are the same
+
+In order to find out if name,
+
+which is a String type, is equal to other.name,
+
+we simply used the equals method of the String class
+
+The equals method of the String class is already well defined to return true
+
+when the contents of two Strings are equal
+
+If we redefine the equals method for every class
+
+we define like this,
+
+it will be very convenient to use
+
+Page 24 Similar to equals,
+
+the toString method already exists in all classes
+
+The purpose of toString is to return the contents of an object
+
+(mainly the contents of instance variables) as a String
+
+So it's a good idea to properly
+
+redeine the toString method for each class
+
+In this example, we first mark that this object is an object of SomeClass,
+
+and then add the two instance
+
+variables, name and x value, to complete the String and return it
+
+Page 25
+
+This example shows a practical use of equals and toString
+
+First, the Student class has three instance variables: name, id, and age
+
+setData is a method that assigns the name, id, and age
+
+given as parameters to three instance variables
+
+The equals method is redefined and returns true
+
+only when name, id, and age are all the same
+
+The toString method is designed to clearly display
+
+the values of instance variables
+
+Page 26 In the EqualsToString class,
+
+we first created three Student objects,
+
+st1, st2, and st3, and assigned name, id, and age to each object
+
+using the setData method
+
+We made println print “[st1] “ + st1 String
+
+When you pass an object as a parameter to println,
+
+the toString method of that object
+
+will be executed automatically
+
+You can see that the String
+
+returned by toString in OUTPUT is printed
+
+Since the contents of st1 and st3
+
+are the same, st1.equals(st3) returns true

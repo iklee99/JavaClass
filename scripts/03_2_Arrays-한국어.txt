@@ -28,7 +28,7 @@ Type과 변수이름을 쓰고 난 뒤에 빈 bracket을 쓰는 두번째 방법
 
 이 중에 첫번째 방법이 더 많이 쓰이고 있습니다.
 
-또 한가지 언급할 것은, 이 상태로는 각 element를 위한 memory가
+또 한가지 언급할 것은, reference type의 array인 경우, 이 상태로는 각 element를 위한 memory가
 
 아직 allocate, 즉, 할당되지 않았다는 것입니다.
 
@@ -48,7 +48,7 @@ memory를 할당하는 방법을 사용할 수 있습니다.
 
 example 1을 보면 a1 array에는 int type 5개의 memory가 할당되었으며,
 
-a1[0], a1[3] 과 같은 형태로 array의 값을 초기화 할 수 있습니다.
+a1[0], a1[3]와 같은 형태로 array의 값을 초기화 할 수 있습니다.
 
 example 2에서는 str에 3개의 String을 위한 reference가 초기화 되었고
 
@@ -88,7 +88,7 @@ array에는 length 필드가 있는데 array의 size value를 담고 있습니�
 
 { 10, 20, 30} 으로 초기화 된 int array 의 length는 3 입니다.
 
-String에는 그 size를 return하는 length() method가 있었습니다.
+여러분은 아마 String type에 그 size를 return하는 length() method가 있었던 것을 기억할 것입니다. 
 
 그러나 array의 경우에는 length가 method가 아니라 variable 입니다.
 
@@ -136,7 +136,9 @@ play button 옆에 있는 점 세개의 메뉴 버튼을 눌러
 
 args[0]와 args[1] 으로 주어졌습니다.
 
-그리고 ‘run’ button을 누릅니다. 페이지 10
+그리고 ‘run’ button을 누릅니다.
+
+페이지 10
 
 이렇게 하면 args[0]와 args[1] 을 terminal에서 입력한 것과 같이
 

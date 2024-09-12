@@ -110,49 +110,49 @@ For example, it is a stack for executing codes such as C, C++, etc. together wit
 
 Native method parameters, local variables, etc. are saved as bytecode
 
-Page 4
+Page 4 Reference type refers to a collection of data
 
-Reference type saves a reference (address).
+gathered as an object
 
-It points the set of data  of object or array by storing a reference (address)
+or array by storing a reference (address)
 
 The values of reference variables in the stack area
 
-can be considered as the addresses of objects in the method area or heap area
+can be viewed as object addresses in the method area or heap area
 
-In Java, all literals are located in the Method area, which holds class information. 
+In Java, all literals are located in the Method area, which has class information
 
-The literal Korea in str1 is located in the Method area 
+The literal Korea in str1 is located in the Method area
 
-and has the address 0x93AB.
+and has an address of 0x93AB
 
-str2, the literal “Seoul”, is also in the Method area 
+str2 is the literal “Seoul”, which is also in the Method area
 
-and has an address of 0x867A. 
+and has an address of 0x867A
 
-The literal “Korea” appears again in str3. 
+The literal “Korea” appears again in str3,
 
-In this case, literals are not recreated once they have occurred, 
+but a literal that has already appeared once is not created again,
 
-it points to a literal that already exists. 
+and points to an existing literal
 
-So str3 will have the same address as str1. 
+So str3 will have the same address as str1
 
-On the other hand, the object you create with new
+On the other hand, objects created with new
 
-is created whenever we call new. 
+are created in the heap area every time new is called
 
- “Korea” in str4 was created with new
+First, “Korea” in str4 was created with new,
 
-and has address 0x472C in heap area.
+so it has the address 0x472C in the heap area
 
-and str5 is created with new. 
+Then, str5 was also created with new,
 
-Even though it's a String with the same content as str1, str3, and str4, 
+and although it is a String with the same contents
 
-it's created with new, as a completely different new object. 
+as str1, str3, and str4, it is created as a completely different new object
 
-So str5 will point to address 0x68D3. 
+because new was used. Therefore, str5 points to the address 0x68D3
 
 Page 5 In primitive type variables, == (equal)
 

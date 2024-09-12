@@ -1,10 +1,10 @@
 ﻿In this lecture, we will learn about arrays
 
-Page 2 An array is a data structure
+Page 2 An array is
 
-that contains data elements of the same type,
+a data structure that contains data elements of the same type,
 
-occupying a continuous space in memory,
+occupies a continuous space in memory,
 
 and each element can be accessed using an index
 
@@ -28,7 +28,7 @@ It doesn't matter which one you use,
 
 but the first method is more commonly used
 
-Another thing to note is that in this state,
+Another thing to note is that in the case of an array of reference types, in this state,
 
 the memory for each element has not been allocated yet
 
@@ -88,9 +88,9 @@ Obviously, the value of length cannot be changed
 
 The length of an int array initialized to {10, 20, 30} is 3
 
-String has a length() method that returns its size
+You probably remember that the String type had a length() method that returned its size
 
-However, in the case of arrays, length is a variable, not a method
+However, in the case of an array, length is not a method but a variable
 
 Page 7
 
@@ -136,9 +136,11 @@ In this example, ‘Seoul’ and “Korea’
 
 are given as args[0] and args[1] respectively
 
-And press the ‘run’ button
+Then press the ‘run’ button
 
-Page 10 This will allow you to input args[0] and args[1]
+Page 10
+
+This will allow you to input args[0] and args[1]
 
 as if you were typing them in the terminal
 
