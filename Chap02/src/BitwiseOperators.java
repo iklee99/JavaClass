@@ -20,6 +20,11 @@ public class BitwiseOperators {
         int leftShift = a << 1;  // a << 1 = 10  (00001010)
         System.out.println("a << 1 = " + leftShift + "  (" + binaryString(leftShift, bits) + ")");
 
+        int c = Integer.parseInt("10110000", 2);
+        System.out.println("c = " + c );
+        int leftShiftC = (c << 1);
+        System.out.println("c << 1 = " + leftShiftC + "  (" + binaryString(leftShiftC, bits) + ")");
+
         int leftShiftB = b << 1;  // b << 1 = -6  (11111010)
         System.out.println("b << 1 = " + leftShiftB + "  (" + binaryString(leftShiftB, bits) + ")");
 
