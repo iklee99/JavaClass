@@ -312,7 +312,7 @@ AATest.class 파일이라는 실행 파일이 나오게 되는 거죠.
 
 3에 1 더한 값과 5에서 1 뺀 값인 4, 4를 보여주고 있습니다.
 
-main method를 가지고 있는 class인 AATest인
+main method를 가지고 있는 class인 AATest는
 
 public 권한을 가져야 합니다.
 
@@ -432,11 +432,11 @@ a, b, c가 actual parameter입니다.
 
 반면에 myMethod(int d, int e, int f)의 definition에서
 
-값을 전달받는 parameter인 d, e, f는
+value를 전달받는 parameter인 d, e, f는
 
 formal parameter 입니다.
 
-actual parameter라는 이름은 실제 pass되는 값을 지칭하는 것이고
+actual parameter라는 이름은 실제 pass되는 value를 지칭하는 것이고
 
 formal parameter라는 이름은 pass되어 method내에서 사용되는
 
@@ -460,7 +460,7 @@ double type이 int type보다 표현 범위가 넓기 때문입니다.
 
 이러한 자동 변환을 위해 표현범위를 살펴보면
 
-byte와 char가 unsigned 1 byte로 가장 작고
+byte가 1 byte, char가 unsigned 2 bytes로 가장 작고
 
 short, int, long, float, double의 순서로 표현범위가 넓어집니다.
 
@@ -512,7 +512,7 @@ setMyDate method의 formal parameter 세개 중에
 
 month와 day는 instance variable들과 이름이 같습니다.
 
-이 formal parameter들의 값은
+이 formal parameter들의 value는
 
 instance variable들로 assign되게 됩니다.
 

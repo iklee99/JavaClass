@@ -1,0 +1,417 @@
+﻿Let me talk about constructors and overloading
+
+Page 2 Overloading means that there are two
+
+or more methods
+
+with the same name in the same class
+
+This setDate method is defined in three different forms
+
+For overloading to occur,
+
+the methods must have different signatures
+
+Here, signature refers to the method name and parameter list,
+
+and a different signature means that the number
+
+or types of parameters are different
+
+In our setDate example, the first
+
+and second have the same number of three parameters,
+
+but the type of the first parameter is different: int and String
+
+The third setDate method differs from the other two methods in that
+
+it has only one parameter
+
+Based on these differences in signature,
+
+the compiler can distinguish
+
+which method call refers to which method definition
+
+As an example of using Page 3 Overloading,
+
+let's look at
+
+the implementation of the Car3 class
+
+In the main of the CarOverloading class,
+
+we create three Car3 objects called c1, c2, and c3
+
+And you can see that we call the method set three times,
+
+all with different signatures
+
+The parameters of c1.set are String and int
+
+c2.set has only one parameter, which is int
+
+c3.set also has one parameter, which is String
+
+The set method assigns the given values to the values of the instance
+
+variables of the Car3 object
+
+In the last println, c1, c2, and c3 are accessed from parameters
+
+As we studied in the previous slide, in this case,
+
+the toString() method of the Car3 class is executed
+
+and the object's information is returned as a String as specified in advance
+
+Page 4
+
+Now let's see how the set methods are implemented
+
+Car3 has two instance variables: model and year
+
+The principle used in this program is that
+
+if both model and year are given, assign them,
+
+but if they are not given as parameters, set model
+
+NO_MODEL, and if year is not given, set it to 0
+
+We can see four different versions of the set method here
+
+Page 5
+
+The other methods are equals and toString,
+
+which we re-define as seen in the previous slide
+
+Page 6 The difference in return
+
+type is not included in the method signature
+
+that determines whether overloading is possible
+
+That is, methods that differ only in return
+
+type cannot be overloaded
+
+In this example, there are two computeSomething(int n),
+
+the number and types of parameters are the same,
+
+but the return types are different (int and double)
+
+In this case, a compile error occurs
+
+and overloading is not allowed
+
+Page 7 Constructor is a special kind of method
+
+that is used to initialize instance
+
+variables when an object is created
+
+The syntax of a constructor is similar to a regular method, but there are some differences
+
+First, the constructor's name must be exactly the same as the class's name
+
+Also, constructors do not have a return type. They do not use void
+
+Constructors are generally overloaded, so that you can prepare
+
+and use multiple versions of constructors
+
+Page 8 Constructor is executed by the new command
+
+when an object is created
+
+In other words, the part following new is a constructor call
+
+If the constructor is called multiple times,
+
+the first object is ignored and a completely new object is created
+
+The object obj1 of type Class1
+
+is created when the constructor is executed with the new command
+
+Then, obj2 is assigned the reference to obj1
+
+without creating a new object
+
+Then when the constructor of Class1 is executed again,
+
+obj1 will point to a completely new object
+
+Of course, obj2 remains pointing to the same object
+
+Page 9 Constructors are useful not only for initializing instance variables,
+
+but also for testing whether the values received
+
+as parameters are appropriate
+
+For example, you can test whether the range of values conforms to certain rules
+
+The class Date has three int variables,
+
+day, month, and year, and is a class that represents a date
+
+In the constructor, we first determine whether the given year is a leap year
+
+This is because the number of days in February varies depending on whether it is a leap year
+
+The rule for testing whether a year is a leap year
+
+is that if the year is divisible by 4,
+
+it is a leap year, but if the year is divisible by both 4 and 100, it is not a leap year
+
+However, if the year is divisible by 4, 100, and 400 at the same time, it is a leap year
+
+Accordingly, if year is a leap year, the leapYear variable becomes true
+
+Page 10 month must be
+
+in the range of 1 to 12,
+
+if it is less than 1, make month
+
+1, if it is greater than 12, make month 12
+
+In these cases, it prints a message saying that the month is incorrect
+
+and that it has been corrected
+
+day must not be negative, otherwise
+
+it will be forced to 1
+
+Also at this time, messages are printed
+
+Page 11
+
+Now it's time to determine the number of days
+
+January, March, May, July, August, October, and December all have 31 days,
+
+so if day is greater than 31, make it 31
+
+Page 12
+
+If it is a leap year, the number of days in February is greater than 29, or
+
+In the case of a common year, if the number of days in February is greater than 28,
+
+the number of days is appropriately adjusted,
+
+and the remaining months, that is, April, June,
+
+September, and November, are tested to see if the number of days is less than 30
+
+After page 13 checks are completed,
+
+a valid year, month, and day
+
+are assigned to instance variables
+
+The Date class also overrides the toString method to return
+
+an appropriate info string
+
+Page 14
+
+This part is where data for various cases are given
+
+as parameters to the constructor
+
+Here, if the year is negative, it is displayed as the year B.C.,
+
+but that part is missing
+
+from the implementation of the constructor above
+
+Please refer to the distributed source code
+
+Page 15 this can be used when calling another
+
+overloaded constructor within a constructor
+
+There are three versions
+
+of overloaded constructors
+
+in the class ThisInConstructor
+
+The first and second of these
+
+are made easier to implement by calling
+
+the third constructor
+
+Page 16
+
+This slide contains code for testing the constructors of the ThisInConstructor class
+
+in the previous slide
+
+Page 17 A default constructor
+
+is a constructor that has no parameters
+
+The example shows that the default constructor of Date is called
+
+However, in Java, if a class does not have a constructor
+
+defined by the programmer,
+
+a default constructor is automatically created
+
+Of course, the automatically generated default
+
+constructor doesn't do anything
+
+However, if the programmer has implemented at least one constructor,
+
+a default constructor is not automatically created
+
+This is a rule that applies consistently
+
+regardless of whether the constructor
+
+defined by the programmer is a default constructor
+
+Page 18 As the title of this slide suggests,
+
+Java programming
+
+recommends that programmers
+
+define a default constructor
+
+when implementing a class,
+
+even if it doesn't do anything
+
+What is the reason?
+
+For this slide, we try to create an object of the Date2 class
+
+with the default constructor in the main of Date2Test
+
+However, looking at the definition of Date2, the constructor
+
+written by the programmer is a three parameter constructor,
+
+not a default constructor
+
+Since we have already defined this one
+
+constructor, Java does not automatically create a default constructor
+
+That is, Date2 does not have a default constructor
+
+Therefore, a compile error occurs
+
+when trying to execute the default constructor of Date2
+
+Sometimes a programmer may not be sure why
+
+this situation occurs
+
+Therefore, to prevent this situation, it is a good idea
+
+to get into the habit of always implementing
+
+a default constructor for each class
+
+Page 19 Instance variables of a class
+
+are automatically initialized
+
+with default values
+
+For boolean types, the default value is false
+
+For primitive types other than those, the default value is zero
+
+For reference types, the default value is null
+
+However, a better practice
+
+is to explicitly initialize instance
+
+variables in the constructor
+
+This is because when implementing a JVM, you may forget to automatically initialize instance variables,
+
+so the implementation may not be complete
+
+On the other hand, local variables that are not instance
+
+variables do not undergo automatic initialization
+
+Therefore, if you try to read a value without assigning it,
+
+an error will occur
+
+Page 20 The main method of the ATest4 class
+
+has local variables
+
+called x and y
+
+In the second println statement, an error occurs
+
+because the values of x and y are not initialized
+
+and an attempt is made to read them
+
+Page 21 Let's take a quick
+
+look at the StringTokenizer class
+
+The StringTokenizer class helps you separate tokens
+
+(words) from a given string and process them one by one
+
+To use StringTokenizer,
+
+you must first import java.util.StringTokenizer
+
+Now, let's assume that a String called input is given as code
+
+Create a StringTokenizer object
+
+As parameters to the constructor, pass the String to be used as input
+
+and a String that contains characters that will be delimiters
+
+Here, space, comma, and semicolon are used as delimiters
+
+Now, we can use the countTokens() method of StringTokenizer
+
+to find out how many tokens
+
+separated by the above delimiter are in the input string
+
+In the while loop below, tokenizer.hasMoreTokens() used as a condition returns true
+
+when there is at least one token remaining,
+
+so all tokens can be processed one by one
+
+The command to get the next token is StringTokenizer's nextToken()
+
+Here we simply print the tokens one by one
+
+Page 22 The given input String
+
+can be divided into delimiters to process multiple token Strings
+
+one after another
+
+This is the result of printing tokens one by one in the while loop

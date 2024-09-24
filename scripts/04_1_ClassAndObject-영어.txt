@@ -302,9 +302,9 @@ We will learn more about access modifiers in Chapter 5
 
 The AATest class has a main method
 
-So, when you compile this program,
+So, when you compile this
 
-an executable file called AATest.class is generated
+program, an executable file called AATest.class is generated
 
 Here, we create objects of Class1 and Class2, assign values 3 and 5 to instance
 
@@ -668,6 +668,6 @@ You can see that the String
 
 returned by toString in OUTPUT is printed
 
-Since the contents of st1 and st3
+Since the contents of st1
 
-are the same, st1.equals(st3) returns true
+and st3 are the same, st1.equals(st3) returns true
