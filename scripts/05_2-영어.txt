@@ -1,0 +1,606 @@
+﻿05-2 I will lecture on Static
+
+Page 2 Let's learn about the difference between Instance
+
+members and Static members
+
+An instance member is a member
+
+that has a different value for each object
+
+For example, if we consider a Student class in a particular middle school,
+
+the member called
+
+student's name can be said to be an instance member
+
+Because each student can have a different name
+
+A static member is a member
+
+that is shared by all objects in a class
+
+For example, if we consider the Student class of a specific middle school
+
+as in the case above, the school name can be considered a static member
+
+Because all students are students of this particular middle school,
+
+their school name is all the same
+
+Page 3 Let's recall
+
+the memory structure of the JVM
+
+Here, static members are stored in the Method area
+
+That is, it is stored in the static area of the Method area
+
+because it exists only in the class
+
+and is shared by all objects of that class
+
+Page 4 Consider the Student class again
+
+It has private instance variables id and name,
+
+but since objects created from the Student class, i.e
+
+students, can have different names
+
+and student numbers, id
+
+and name should be instance members
+
+Information about each created object,
+
+especially the values of instance
+
+variables, are stored separately in the heap area
+
+On the other hand, schoolName and numStudent of the Student
+
+class are static members
+
+Assuming that it is a class for students who attend a specific school,
+
+schoolName has the same value for all students
+
+and the number of students at that school is also the same for all students
+
+However, in this example, schoolName is defined as public static,
+
+which can be changed, and numSudents is a named constant,
+
+which can never be changed
+
+These static members are stored in the Method area
+
+as seen in the previous slide
+
+Page 5 When accessing a static variable,
+
+you can access it
+
+using the class name without creating an object
+
+In this example, we created two objects of the Student
+
+class, st1 and st2
+
+We assigned the values of the instance variables name of st1 and st2
+
+to “John” and “Tom”, respectively
+
+Since name is a private variable, we used the mutator setName
+
+And to read the name of st1,
+
+we used the accessor method
+
+st1.getName() to read the value
+
+To access instance members like this,
+
+the typical way is to create an object
+
+and access it through the object dot operation
+
+Again, this is because instance
+
+members are different for each object
+
+However, when accessing a static variable,
+
+there is no need to create an object
+
+and you can use it like the class name dot
+
+In this example, we accessed it
+
+using the class name Student, like Student dot schoolName
+
+This type of access is possible
+
+because there is only one static member in a class
+
+Page 6
+
+Now, let's look at the static
+
+members of Java's representative built-in classes
+
+The Math class provides several standard mathematical methods
+
+The Math class belongs to the java.lang package,
+
+so you can use it without importing it
+
+All methods and data in the Math class are static
+
+There are two predefined named constants:
+
+Math.E holds the value of the base
+
+e for the natural logarithm, and Math.PI holds the value of pi
+
+This example shows how to find the area of a circle
+
+The area of a circle is pi r^2,
+
+so it can be calculated using Math.PI * radius * radius
+
+Below that, the Math.random() method returns
+
+a random real number
+
+greater than or equal to 0 and less than 1.
+Page 7
+
+The Math.random() method is a relatively simple method
+
+for generating random numbers
+
+In this example, we are generating 10 random integers
+
+in the closed interval 1 to 6
+
+Basically, Math.random() returns a random real number
+
+greater than or equal to 0 and less than 1
+
+For example, you will get a random real number like 0.366755
+
+Now we use Math.random() inside a for loop
+
+to generate 10 integers
+
+But how can we convert a real number
+
+between 0 and 1 into an integer between 1 and 6?
+
+First, Math.random() is a real number greater than or equal to 0 and less than 1
+
+Multiplying this by 6 gives a real number greater than or equal to 0 and less than 6
+
+Adding 1 to this will result in a real number greater than or equal to 1 and less than 7
+
+Finally, if we convert this error to an integer using (int), the random number will be one of the integers
+
+1, 2, 3, 4, 5, or 6
+
+In this way, it is necessary to determine the formula to be used to generate random real numbers
+
+or integers in a specific section by examining them step by step
+
+The 10 random integers obtained this way
+
+are as output
+
+Of course, the output will be different each time the program is run
+
+Page 8
+
+This time, we'll look at a program that flips a coin
+
+to get either Heads or Tails randomly
+
+In the main method of the class
+
+CoinFlipDemo , we initialize the counter to 1
+
+in order to use the while loop
+
+Of course, you can use a for loop instead of a while loop
+
+If you print “Flip number
+
+“ + counter and a colon and then run (int)(Math.random() * 2.0),
+
+you will get a real number greater than or equal to 0 and less than 2
+
+If you type convert this
+
+using (int), you will get an integer 0 or 1
+
+If it is 0, print “Heads”,
+
+if it is 1, print “Tails”
+
+And after increasing the counter by one,
+
+it goes back to the while loop condition
+
+and continues to repeat
+
+as long as the counter is less than or equal to 5
+
+Here is an example of one of the outputs
+
+from this program
+
+Of course, this output may be different each time it is run
+
+Page 9
+
+This time, we will use the java.util.Random class to generate
+
+a random number
+
+To do this, first of all,
+
+I imported the Random class by doing “import java.util.Random”
+
+The advantage of the Random class
+
+is that it can use a seed of long integer type
+
+Using a seed is especially convenient when debugging
+
+a program that uses random numbers in the same order, because
+
+as long as the same seed is used,
+
+random numbers are generated in the same order
+
+Here, we first set the seed to 365428
+
+If you create a Random object with the default constructor,
+
+you cannot use the seed
+
+In this case, we don't know what order
+
+the random number will come out in the future
+
+Below that is a case where a random seed
+
+is given using a constructor that takes a seed as a parameter
+
+Among the methods of the Random class,
+
+nextInt() generates a random integer between the smallest possible
+
+integer and the largest possible integer
+
+nextInt(int n) is a case where integer n is given as a parameter, in this case,
+
+a random integer between 0 and n-1 is generated
+
+So nextInt(3) + 4
+
+will generate a random integer between 4 and 6
+
+nextDouble() generates a random double number
+
+greater than or equal to 0 and less than 1
+
+In addition to these,
+
+there are methods such as nextBoolean(), nextByte(),
+
+nextFloat(), and nextLong() that randomly generate one of true or false
+
+The setSeed(long) method is a method
+
+that sets the seed of a Random object
+
+Using the constructor called Random(seed)
+
+and using the default constructor called Random()
+
+and then immediately calling setSeed(seed)
+
+have exactly the same behavior
+
+Page 10 Other useful methods in the Math
+
+class include double pow(b,
+
+e), which computes b raised to the power of e
+
+abs() is a method that returns the absolute value,
+
+and is overloaded
+
+so that it can use int, float, double, and long types
+
+The min method returns the smaller of the two parameters
+
+and is overloaded for int, long, float, and double types
+
+The max method returns the larger of the two
+
+round is overloaded for float and double types and returns
+
+an integer rounded to the nearest decimal place
+
+Page 11 The double ceil(double d) method returns
+
+the smallest integer greater than d as
+
+a double type
+
+That is, it is a “round up” operation
+
+The double floor(double d) method returns
+
+the largest integer less than d as a double type
+
+That is, it is a “throw away” operation
+
+double sqrt(double d) returns the square root of d
+
+Page 12 Wrapper classes
+
+are also representative classes
+
+belonging to the java.lang package
+
+There is one Wrapper class
+
+corresponding to each primitive type
+
+Byte, Short, Integer, Long, Float, Double, Character,
+
+and these are wrapper classes of byte, short,
+
+int, long, float, double, and char types, respectively
+
+These wrapper classes contain useful
+
+predefined constants and static methods
+
+Page 13 Boxing refers to the ability to directly
+
+assign a primitive type variable or literal
+
+to a corresponding wrapper class object
+
+When assigning a primitive type value,
+
+it appears as if the value
+
+is automatically boxed
+
+and assigned to the wrapper class,
+
+which is why it is called a boxing operation
+
+If you look at the example code,
+
+you can see that the value 5 is directly assigned to the Byte
+
+wrapper object bObj, 15
+
+is directly assigned to the Short wrapper object
+
+sObj, and 256 is directly assigned to the Integer wrapper object iObj
+
+On the other hand, if you want to change
+
+a wrapper class object to a value of the corresponding primitive type,
+
+you must use the … Value() method of each wrapper class
+
+That is, the primitive byte value
+
+represented by bObj, a Byte wrapper object, is returned as bObj.bytevalue()
+
+Similarly, if it is a Short wrapper object,
+
+you should use methods
+
+such as sObj.shortValue(), intValue(),
+
+longValue(), floatValue(), doubleValue(), and charValue()
+
+based on similar principles
+
+Page 14
+
+However, if you directly assign a Wrapper class
+
+object to a primitive type variable
+
+without using the Value() method,
+
+automatic unboxing will occur
+
+and appropriate values
+
+will be assigned to the primitive variable
+
+Among the useful constants in the Wrapper classes
+
+on page 15, first of all,
+
+there are the smallest number MIN_VALUE
+
+and the largest number MAX_VALUE
+
+that each primitive type can represent
+
+For example,
+
+Integer.MAX_VALUE, Double.MIN_VALUE, etc
+
+Page 16 Wrapper classes also have methods
+
+to convert a String to each primitive
+
+type value
+
+For example, Integer.parseInt(“365”) returns
+
+the int 365 and Double.parseDouble(“199.98”) returns the double 199.98
+
+I assigned the String
+
+“673.23” to the String variable theString,
+
+but there are spaces before and after it
+
+This happens a lot, especially when you receive input from users on the web,
+
+and unnecessary spaces are entered along with it
+
+To remove leading and trailing spaces,
+
+first use the String method trim() to remove unnecessary spaces
+
+So now the value of trimedString will only be “673.23”
+
+To convert this to double type,
+
+we can call the wrapper class
+
+Double.parseDouble(trimedString) to get the double value 673.23
+
+Conversely, to convert a number to a String,
+
+you can use the toString method of the wrapper class
+
+For example, Double.toString(123.99) returns
+
+the String “123.99”
+
+The Character class, which is a wrapper class
+
+for the char type,
+
+contains useful static methods for handling characters
+
+First, if you run Character.toUpperCase(‘a’), it returns the uppercase character ‘A’
+
+Character.toLowerCase does the opposite,
+
+changing uppercase letters to lowercase letters and returning them
+
+Character.isLowerCase(c) returns true if c is lowercase, or false otherwise
+
+Character.isWhiteSpace(c) returns true if c is a white space character
+
+Here, white space characters refer to space, tab, line break, etc
+
+Character.isLetter(c) returns true if c is an alphabet character
+
+Page 18 Character.isDigit(c) returns true
+
+if c is a numeric character between ‘0’ and ‘9’
+
+Character.isLetterDigit(c) returns true if isLetter(c) or isDigit(c) is true
+
+That is, it returns true if c is an alphabet character or a numeric character
+
+Page 19
+
+This time, we will write
+
+a program that uses the characteristics of static
+
+variables to count
+
+how many times all methods belonging to a class have been called
+
+First, in class InvocationCounter,
+
+the static int type numberOfInvocation is initialized to 0
+
+This variable will store the number of times each method is called
+
+When demoMethod() is called,
+
+the static numberOfInvocation is increased by 1
+
+Inside the outPutCount() method,
+
+numberOfInvocation is increased by 1
+
+and the current value of numberOfInvocation is printed
+
+Page 20 The static method
+
+numberSoFar() also increases numberOfInvocation
+
+by 1
+
+and returns that value
+
+Note that we can make this method static
+
+because no other instance variables are used inside numberSoFar()
+
+other than the static variable
+
+In the main method,
+
+we create an InvocationCounter object1
+
+At this time, the value of InvocationCounter is initialized
+
+to 0. Call object1.outPutCount()
+
+At this time, invocationCounter increases by 1, so its value is now 1
+
+outPutCount() prints this value and displays it
+
+Now, object1.demoMethod() is called five times
+
+consecutively using a for loop,
+
+and the value of invocationCounter increases by 1 for each call, becoming 6
+
+The moment object1.outPutCount() is called,
+
+invocationCounter increases by 1 again,
+
+becoming 7, and 7 is printed
+
+Now we have created one more InvocationCounter object2
+
+At this time, the static variable value is not initialized to 0
+
+Because static variable is created when the class object is first created
+
+That is, in this program, object1 is initialized only once when it is created,
+
+and then it is not initialized again
+
+Since we are calling object2.demoMethod() and object2.outPutCount() 5 times consecutively
+
+with the for loop,
+
+the value of invocationCounter is now 17
+
+In the last line,
+
+when numberSoFar() is called, invocationCounter
+
+is increased by 1 again and printed, so 18 is printed in the end
+
+In this way, static variables are shared by all objects of that class
+
+Therefore, it is useful for expressing data
+
+shared by multiple objects

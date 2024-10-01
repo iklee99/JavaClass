@@ -1,0 +1,357 @@
+﻿05-3 I will lecture on Copy Constructor
+
+Page 2 The Copy constructor is a constructor
+
+that passes an object of the same class type as a parameter
+
+and creates a new object while copying the contents as is
+
+The newly created object must be a completely new object,
+
+completely separate from the object passed as a parameter
+
+However, the values of the instance
+
+variables will be the same as those of the parameter object
+
+Page 3
+
+Here's an example of defining
+
+and using the copy constructor
+
+The Person class has two instance variables:
+
+String name and int age
+
+The Copy constructor takes a Person object, person,
+
+as a parameter
+
+And assign the values of the instance variables of the newly created object,
+
+this.name and this.age, to the values of the parameters,
+
+person.name and person.age, respectively
+
+A Person object called original
+
+was created, with name as “John Doe” and age as 30
+
+To create a new object by copying this original,
+
+you can use the copy constructor
+
+Person copy = new Person(original);
+
+When you call the copy constructor like this,
+
+an independent new object is created,
+
+but the value of the instance variable is the same
+
+Page 4
+
+Now let's look at an example program
+
+that uses the copy constructor
+
+The class Person has two instance variables: String name and int age
+
+The default constructor does nothing,
+
+but I created one as recommended
+
+I also created a constructor
+
+that takes initial values for name and age as parameters
+
+Here, this.name and this.age represent instance
+
+variable names and age represents a parameter
+
+Now, in the copy constructor,
+
+it takes a Person object, person, as a parameter
+
+and assigns person.name and person.age to this.name
+
+and this.age,
+
+which are instance variables of the newly created object
+
+Page 5 Since the instance
+
+variables name and age are private,
+
+we need accessors and mutators
+
+getName and getAge are accessors,
+
+and setName and setAge are mutators
+
+The toString method is redefined
+
+It prints the name and age of the Person object
+
+Page 6
+
+Now let's look at the main method
+
+First, we created original, a Person object with the name
+
+“John Doe” and age 30
+
+Using the Copy constructor,
+
+we copied original and created a new object, copy
+
+Here, original.equals(copy) was tested,
+
+but copy has the same content as original,
+
+but it is a new object
+
+created with a different reference
+
+If equals is not redefined, it will return false
+
+because it only compares if the references
+
+of the two objects are the same
+
+Below, the name and age of the copy object were changed to “Jane Doe”
+
+and 25, respectively, using mutators
+
+And then, if you print
+
+copy and original using toString,
+
+you can see that even if the contents of copy change,
+
+the contents of original do not change
+
+That is, privacy leaks can be prevented
+
+because a new object is created by the copy constructor
+
+Page 7
+
+This slide shows the outputs of the previous program
+
+Page 8
+
+This program Person2.java shows the difference between shallow
+
+copy and deep copy
+
+The Person2 class has instance variables
+
+such as String name and int age,
+
+and an address of Address class type
+
+There is a static
+
+variable country, and its initial value is “Unknown”
+
+It seems that country is static
+
+Presumably, these Person2 objects
+
+will have the same nationality
+
+This is because all objects
+
+share the static variable country
+
+Again, we have a formal default constructor
+
+that does nothing,
+
+and a constructor that takes three parameters:
+
+name, age, and address,
+
+and assigns them to instance variables
+
+Page 9
+
+Now define a copy constructor
+
+You can assign name and age to instance
+
+variables as before
+
+However, in the last line, the address of the person object that came in
+
+as a parameter was assigned to the address
+
+of the newly created object
+
+This way, the reference of person.address is assigned
+
+as is to this.address, so
+
+person.address and this.address
+
+point to the same memory location
+
+Assigning a reference variable
+
+like this is called a shallow copy
+
+As expected, because of shallow copy,
+
+two references point to the same memory location,
+
+and if the contents of one change,
+
+the contents of the other also change, resulting in a privacy leak
+
+Below that, although it is not a constructor,
+
+I created a method called deepCopy that
+
+deep copies the contents of the object
+
+given as a parameter and returns a new object
+
+Therefore, the return type is Person2
+
+This deepCopy method uses a constructor that takes three parameters
+
+defined in the previous slide
+
+We called the constructor
+
+with new Person2(person.name, person.age, new Address(person.address)),
+
+but the last parameter is not just person.address,
+
+but Address(person.address), which means we're calling the copy
+
+constructor of the Address class
+
+This way, the content is the same as person.address,
+
+but a new Address object is created
+
+and the reference is used as a parameter,
+
+so deepCopy completes a deep copy version,
+
+not a shallow copy, and also prevents privacy leaks
+
+Below that are accessors and mutators
+
+Page 10 Accessors
+
+and mutators continue to be defined
+
+One thing to note here is setAddress
+
+If you call the mutator
+
+with copy.setAddress(original.address);,
+
+a privacy leak issue may occur
+
+I want you to think about why that is
+
+Please also think about how you can prevent this
+
+This slide omits the implementation of class Address due to space constraints
+
+Please refer to the distributed source code for the implementation of class Address
+
+On page 11, the mutator
+
+setCountry is defined and toString of Person2
+
+is defined
+
+In the middle of the String returned by toString
+
+There is a part that says “, address = “ + address”,
+
+and I want to emphasize again that the address
+
+after this is a String
+
+returned by calling the toString() of the Address class
+
+In the main method, we first create an address
+
+object and then create the original Person2 object
+
+You can see that the
+
+pre-created address object is passed
+
+as a parameter to Person2's constructor
+
+Below that, we call
+
+Person2's copy constructor to create a shallowCopy object
+
+Page 12 I created a deepCopy
+
+object by executing original.deepCopy(original)
+
+I tried executing original.equals(shallowCopy),
+
+but shallowCopy is not done at the Person2 level,
+
+but the instance variable address within
+
+it is shallow copied,
+
+so this equals test returns false
+
+Of course, original.equals(deepCopy) below also returns false
+
+This time, I'm going to test for privacy leaks
+
+shallowCopy's name, age, and address
+
+were all changed to new values using mutators
+
+If you print shallowCopy and original at this time,
+
+you can see that the address of original has also changed
+
+In other words, a privacy leak has occurred
+
+Page 13
+
+This time, I changed the name, age, and address of the deepCopy
+
+object and printed deepCopy and original
+
+Since it is deepCopy, privacy leak is prevented,
+
+and you can see that even if you change the address of deepCopy,
+
+the original address does not change
+
+Below, I changed the static (i.e. class
+
+variable) country to “Korea”, and you can see that
+
+the country of all three objects,
+
+original, shallowCopy, and deepCopy, changed from “Unknown” to “Korea”
+
+Page 14
+
+This slide shows
+
+the output of the Person2.java program
+
+Please take a close look at the difference between shallow
+
+copy and deep copy
+
+and the part about changing static variables
