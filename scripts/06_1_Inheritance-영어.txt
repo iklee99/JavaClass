@@ -1,0 +1,407 @@
+﻿I'm going to lecture on inheritance
+
+Page 2 Inheritance, that is, the purpose of inheritance
+
+is to reduce duplicate code
+
+and create new classes by reusing
+
+well-developed classes
+
+Let class A be the parent class,
+
+A is also called base class or super class by other names
+
+Class A has instance
+
+variable field1 and method1() is defined
+
+When class B is called a child class (or derived class or sub class),
+
+the keyword “extends” is used,
+
+such as class B extends A, so a parent, child relationship is established between A and B
+
+At this time, B inherits from A, that is, B inherits from A
+
+Looking at the code alone,
+
+class B has an instance variable field2 and method2()
+
+But since B inherited from A,
+
+Although it is not visible,
+
+B also has field1 and method1() that A originally had
+
+Page 3 Let's look at the rules
+
+established for inheritance
+
+First of all, you can only have one class as a parent
+
+This is one of the major differences that the Java language has over the C++ language
+
+The C++ language allows multiple inheritance,
+
+which allows for multiple parent classes
+
+However, this property is one of the reasons why
+
+programs are difficult to understand and debug
+
+Java prohibits multiple inheritance
+
+and allows only one parent,
+
+which makes the class hierarchy
+
+clear and greatly reduces errors
+
+The second rule is that parent's private
+
+fields cannot be directly accessed from child classes
+
+Therefore, in order to access the private field of the parent class,
+
+you must use an accessor and mutator in the child
+
+The third rule is that when the child class and parent class are in different packages,
+
+the default fields and methods of the parent class
+
+cannot be directly accessed from the child
+
+A tree representing the class hierarchy is drawn
+
+as shown in the figure on page 4
+
+The edges of the tree are indicated by arrows going from child to parent
+
+By looking at this hierarchy, we can interpret the relationships between classes
+
+First, class A is the parent of B and C,
+
+so A is the grand parent of D, E, and F
+
+Ultimately, A is the ancestor of B, C, D, E, F, and G
+
+Meanwhile, G is a child of F and G
+
+is a grand child of C
+
+Therefore, G is a descendant of A, C, and F
+
+On the other hand, B is not an ancestor of E
+
+B does not exist on the path from Node E to root
+
+Also, D is not a descendant of C
+
+C does not exist on the path from Node D to root
+
+Page 5 class Animal has private instance
+
+variables name and age
+
+There is also a default constructor that does nothing, but is created as recommended
+
+There is also a constructor
+
+that takes initial values for two instance variables as parameters
+
+Since the instance variable name is private,
+
+the public method getName(),
+
+which reads its value and returns it, is defined as an accessor
+
+Page 6 Also, in order to change the value of the instance
+
+variable name, a mutator public void setName must be defined
+
+An accessor getAge() and a mutator
+
+setAge() for the private instance
+
+variable age are also defined
+
+The public method makeSound() prints
+
+a message that a certain animal's sound has been generated
+
+Below that, the toString() method has been redefined
+
+Redefinition is called “overriding” in English
+
+IntelliJ automatically adds the @Override mark
+
+in front of the method for overriding
+
+A specific symbol that follows the at
+
+(@) sign is called an annotation
+
+In fact, it doesn't matter if you don't add annotation,
+
+but our IDE kindly adds the annotation @Override to let
+
+you know that the method defined below
+
+is the method that is being overridden
+
+It is also a good idea
+
+to get into the habit of adding the @Override annotation when overriding
+
+Page 7 Cat class
+
+inherits Animal class
+
+In addition to Animal's existing instance
+
+variables (name, age), we add color as an instance variable
+
+In Cat's default constructor, super() is called,
+
+but in the child class,
+
+the corresponding constructor of its parent class must be called
+
+Also, this call must be executed first in the constructor
+
+The following constructor receives initial values for name,
+
+age, and color as parameters
+
+Name and age are instance variables of the parent class, Animal
+
+However, since they are private to Animal, direct access is not possible
+
+even from its child Cat
+
+There is a reason for that as well,
+
+so super(name, age) is called first here
+
+This will call Animal's constructor Animal(name, age),
+
+and also solve the private issue
+
+The remaining parameter, color, is assigned to this.color
+
+The getColor and setColor below are accessor and mutator methods
+
+Page 8
+
+This time, we will try to override the inherited method
+
+makeSound to provide new functionality
+
+Unlike overloading, the overriding method
+
+must have exactly the same method header
+
+as the ancestor's method
+
+In this case, we are overriding Animal’s ‘public void
+
+makeSound()’ and redefining it
+
+as Cat’s ‘public void makeSound()’
+
+Here, we print the cat's meow sound, “Meow”
+
+Below that, toString() is overridden
+
+Now we start defining a new class Dog as a child of Animal
+
+Dog has a new instance
+
+variable called String breed , which represents the breed of the dog
+
+Likewise, in the default constructor,
+
+the parent's default constructor is called with super()
+
+However, the default constructor still doesn't do anything
+
+Page 9 Dog's second constructor
+
+takes name, age, and breed
+
+as parameters, calls super(name, age) to execute
+
+the parent's constructor,
+
+and assigns breed to this.breed
+
+The two below are accessors and mutators for breed,
+
+a private instance variable
+
+In Dog, we also override the makeSound method,
+
+and here we print the “Bark” sound of the dog barking
+
+Page 10 Then
+
+we override toString()
+
+The AnimalTest class tests
+
+whether the Animal, Cat, and Dog classes
+
+defined so far work properly
+
+First, we created an animal object with the name “Generic
+
+Animal” and age 5
+
+We printed the animal’s information using toString
+
+and called the animal’s makeSound() to print
+
+“Some generic animal sound.”
+
+This time we create a Dog
+
+object with name Buddy, age 3, and breed Golden Retriever
+
+It prints the dog's information
+
+and calls makeSound to print "Bark"
+
+A similar test is being done for the cat
+
+Page 11
+
+This slide shows the output of the AnimalTest program
+
+Page 12 This time,
+
+let's look at the Vehicle class
+
+This class has instance variables called String
+
+representing the brand and int year
+
+representing the year of release
+
+There is a default constructor
+
+and a constructor that initializes the brand and year
+
+Since all the instance
+
+variables are private, there are accessors and mutators
+
+Page 13 There are accessors and mutators
+
+for the private instance
+
+variable year, and a method called startEngine
+
+that prints the string
+
+“The engine is starting …”
+
+At the very bottom, the toString() method is overridden
+
+Page 14 class Car is defined as a child
+
+class of Vehicle
+
+The number of doors is added as an instance variable
+
+In the default constructor, super() is used to call the default
+
+constructor of the parent Vehicle
+
+In the constructor that receives brand, year, and doors as parameters,
+
+the parent constructor is called to set the initial values of brand and year,
+
+and then the initial value of doors is assigned
+
+getDoors() and setDoors() are accessors and mutators for doors
+
+Page 15 I overrided the startEngine()
+
+method, first
+
+calling super.startEngine() to execute the
+
+parent's startEngine(),
+
+which prints the message “The engine is starting…”
+
+and then prints the message
+
+“The car engine is starting…”
+
+Finally, we override the toString() method to print
+
+information about the Car object
+
+Page 16
+
+Let’s revisit ‘protected’ access here
+
+Members defined as ‘protected’ are accessible within the same package
+
+even if they are outside the class,
+
+and are accessible in descendant classes
+
+(even if they are not within the same package)
+
+In particular, since the descendant class
+
+includes the members of its ancestor class in its definition,
+
+direct access is possible except for the object and dot operators
+
+We'll look at this in more detail in the next slide
+
+Page 17 In the Parent class,
+
+the String name instance variable
+
+and the display() method are defined with protected access
+
+When a Child class inherits its Parent
+
+class, name and display() automatically become its members,
+
+and since they are protected,
+
+direct access is possible without the dot operator
+
+In the showName method, name
+
+is directly accessed, and the display() method call
+
+is also directly accessed
+
+In the ProtectedExample class program,
+
+Child class c is created
+
+and c.showname() is called, and “Name: Parent Name”
+
+and “This is a protected method in Parent class.” are printed
+
+Page 18
+
+Now let's summarize the access modifiers
+
+private can only be accessed within the same class
+
+Default or package permissions only allow access within the same package
+
+Protected is accessible to descendants
+
+within the same package
+
+Finally, public is accessible from anywhere without any restrictions

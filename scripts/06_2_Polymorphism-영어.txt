@@ -1,0 +1,541 @@
+﻿I'm going to lecture on polymorphism
+
+Page 2 Automatic type
+
+conversion between classes is possible
+
+when assigning an object of a descendant class to an object
+
+of an ancestor class
+
+This is called upcasting because it assigns a descendant
+
+object to an ancestor object
+
+Since automatic type conversion occurs when upcasting,
+
+explicit type conversion is not required
+
+For example, when the Cat class is a child of the Animal class,
+
+it is possible to directly assign a cat object to an animal object
+
+Page 3
+
+This inheritance tree represents the class hierarchy
+
+First, b, c, d, and e were created as objects of class B, C, D, and E, respectively
+
+Since A is the ancestor of B, C, D, and E,
+
+b, c, d, and e
+
+can be assigned to objects of A through automatic type conversion
+
+Also, since B is the parent of D and C
+
+is the parent of E, d and e can be assigned to b1 and c1,
+
+respectively, through automatic type conversion
+
+However, since B is not an ancestor of E and C
+
+is not an ancestor of D,
+
+e cannot be directly assigned to b3
+
+and d cannot be directly assigned to c2
+
+Page 4 Let's
+
+assume that the Parent class has method1 and method2,
+
+and the Child class overrides method2
+
+and has method3
+
+In the main of the ParentChildDemo class,
+
+a child object was created and assigned to parent,
+
+which is a reference to the Parent object
+
+When calling parent.method1(), it will naturally execute method1 of the Parent class
+
+However, when calling parent.method2(), which one will be executed:
+
+method2() of the Parent class or method2() of the Child class?
+
+Considering that the parent object is the Parent class,
+
+it seems that method2() of the Parent should be executed,
+
+and considering that the child
+
+assigned to the parent was originally an object of the Child class,
+
+it seems that method2() of the overriding Child should be executed
+
+In conclusion, here we execute method2() of Child class
+
+This is because the child assigned to parent was originally an object of Child class
+
+This feature of remembering the original class
+
+from which it was created
+
+and then executing the method of the original class is called polymorphism
+
+Below, we called parent.method3(),
+
+but this causes a compile error
+
+I just said that the child assigned to the parent
+
+was created as a Child class object,
+
+so it seems right to call method3() in the Child class, but why is this an error?
+
+This is because the object assigned to parent
+
+was originally created as a Child class,
+
+but its current external form is Parent class, and Parent class does not have method3()
+
+In other words, the moment a child object is assigned to a parent,
+
+its appearance changes to that of the parent
+
+object, and therefore, information about method3() is completely lost
+
+Page 5
+
+This phenomenon of a parent class object being executed
+
+as if it were a child class object is called “polymorphism.”
+
+In other words, when a child class object is assigned to a parent class object,
+
+the parent object calls the overridden child method
+
+The reason why polymorphism can be implemented
+
+like this is because it uses a dynamic binding mechanism
+
+where a method call determines which method to execute at runtime, not compile time
+
+Dynamic binding is also called late binding
+
+Polymorphism may seem complicated, but it has several advantages,
+
+so it is important to use it well
+
+First is the flexibility of the code,
+
+which means that the same code can be commonly used for many different objects
+
+Objects of many descendant classes that inherit
+
+the parent class can be different from each other,
+
+but if the parent class object calls
+
+the overridden method that the descendants have in common, objects
+
+of each different class can perform different tasks
+
+This advantage makes it easy to maintain and add features without changing the code,
+
+since you can do new things just by adding a new
+
+descendant class without changing the method call part in the parent object
+
+Page 6
+
+Now let's look at a simple example of using polymorphism
+
+Let's assume that Dog and Cat are child classes of Animal,
+
+and that the makeSound() method of the Animal
+
+class is overridden in Dog and Cat
+
+respectively to print different sounds
+
+When we call makeSound on an Animal class object,
+
+animal, it prints “Some generic animal sound”
+
+Now, if we assign the Dog
+
+object dog to animal and call animal.makeSound(), it will print “Bark”
+
+Again, if we assign the Cat object
+
+cat to animal and call animal.makeSound(), it will print “Meow”
+
+In this way, when child class objects
+
+assigned to a parent object belong to different child classes,
+
+a method call in the parent object will find the overridden method
+
+in the child class and call it
+
+Page 7 The concept of polymorphism
+
+can also be useful
+
+in parameter passing of methods
+
+Assuming that a method receives a parameter of ancestor class type
+
+as a formal parameter
+
+p, not only objects of the same class as p,
+
+but also objects of all descendant classes of p
+
+can be passed as actual parameters corresponding to p
+
+For example, when there is a Parent class
+
+and a Child class that inherits
+
+the Parent, c and p are
+
+objects of the Child and Parent, respectively
+
+At this time, if someMethod receives Parent
+
+p as a parameter,
+
+someMethod(p); is possible, but someMethod(c); is also possible
+
+If there is a call to p.method() in someMethod,
+
+if p is from the Parent class,
+
+the Parent's method() will be executed, and if p is from the Child class,
+
+the overriding Child's method() will be executed
+
+Page 8 Let's look at
+
+a more concrete example
+
+The Shape class has a method called draw()
+
+This should actually be a method
+
+that draws something,
+
+but here we'll just print the message "Draw Something"
+
+In the Circle class, which is a child of Shape,
+
+draw() is overridden and prints
+
+“Drawing a Circle”, and in the Rectangle class,
+
+which is also a child of Shape,
+
+“Drawing a Rectangle” is printed
+
+Page 9 The ShapeDrawer class
+
+has a method called drawShape,
+
+which takes a Shape class
+
+type shape as a parameter and calls shape.draw()
+
+Now, in the main method of the ShapeDemo class,
+
+we first create a ShapeDrawer class object,
+
+shapeDrawer, and then create Shape, Circle, and Rectangle class objects,
+
+myShape, myCircle, and myRectangle
+
+Now, if we call shapeDrawer.drawShap() three times and set the parameters to myShape,
+
+myCircle, and myRectangle respectively, a different draw()
+
+method will be executed for each parameter's class
+
+type, and appropriate messages will be printed
+
+Page 10 Now let's learn about the difference
+
+between Upcasting and Downcasting
+
+Upcasting refers to the case where a descendant object is assigned to an ancestor object,
+
+as we have seen so far
+
+In this case, there is no need for explicit type conversion
+
+because automatic type conversion is supported
+
+Downcasting, on the other hand, refers to the case
+
+where a parent object is assigned to a child object
+
+This case requires explicit type conversion
+
+However, not all cases where an ancestor is assigned to a descendant
+
+are possible with downcasting
+
+As in the example, it is possible to first upcast a Child object to Parent p1
+
+and then downcast this p1 as Child c = (Child)p1;
+
+However, if the original class was Parent and not Child, like p2 in Parent
+
+p2 = new Parent(); , a runtime error
+
+will occur the moment you try to downcast p2 to c
+
+That is, before downcasting, the ancestor object
+
+to be assigned to the descendant object is
+
+You should first test whether it is originally from that descendant
+
+object and then do downcasting
+
+Page 11 Let's look at some more specific use
+
+cases of Upcasting and Downcasting
+
+The work() method of class Employee prints
+
+the message “Employee is working”
+
+The work() method of the Manager class,
+
+which is a child of Employee, prints “Manager is managing”
+
+The newly added plan() method in the Manager
+
+class prints “Manager is planning”
+
+Page 12 In the Engineer class,
+
+which is also a child class of Employee,
+
+the work() method prints “Engineer is engineering”
+
+The newly added design() method in Engineer prints “Engineer is designing”
+
+In the main method of EmployeeDemo,
+
+a Manager object is assigned to employee1,
+
+which is an Employee object
+
+This assignment is Upcasting
+
+because Manager is a child of Employee
+
+That is, explicit type conversion is not required
+
+Now, when we call employee1.work(),
+
+the work() method overridden in Manager will be executed
+
+and the message “Manager is managing” will be printed
+
+Below that, the condition if (employee1 instanceof Manager) is tested,
+
+which is a condition that tests whether the original class of the object
+
+currently assigned to employee1 is Manager
+
+If so, this instanceof operator returns true
+
+In our example, this condition is true because the object
+
+currently assigned to employee1 has an original class of Manager
+
+Since employee1's original class is Manger,
+
+employee1 can be downcasted to manager,
+
+which is a Manger object
+
+Of course, explicit type conversion is required
+
+Then, when you call manger.plan(), the message
+
+“Manger is planning” will be printed
+
+Page 13
+
+By the same principle, the Engineer class object was assigned to employee2,
+
+which is an Employee object
+
+This assignment is an upcast,
+
+so it doesn't require an explicit type conversion
+
+When you call employee2.work(), the work()
+
+defined in the original class, Engineer,
+
+is executed
+
+Therefore, the message “Engineer is engineering”
+
+is printed
+
+The if statement below tests
+
+whether employee2's original class is Engineer
+
+In our example, since this test is true,
+
+employee2 is assigned to engineer
+
+by downcasting via explicit type conversion
+
+Page 14 The instanceof operator
+
+and the getClass() method
+
+are ways to check what the original class of an object is
+
+anObject instanceof SomeClass returns true
+
+if anObject's original
+
+class is SomeClass or a descendant of SomeClass
+
+For example, in the class hirerarchy in the figure,
+
+other instanceof Worker is true if other is Worker,
+
+HWorker, SWorker, or WSWorker
+
+Page 15
+
+On the other hand, getClass() is a method that exists in any class,
+
+like toString(), so for two objects
+
+a and b, (a.getClass() == b.getClass()) is true only if the original classes of a and b are the same
+
+For example, in the class hierarchy of the figure,
+
+the original class of Designer d is ADesigner
+
+and the original class of ad is also ADesigner,
+
+so d.getClass() == ad.getClass() is true
+
+Page 16
+
+Now let's see some more
+
+examples of instanceof and getClass()
+
+Let's consider the class hierarchy of the picture
+
+Page 17 worker's original class is Worker
+
+hworker's original class is HWorker,
+
+so worker.getClass() == hworker.getClass()
+
+is false
+
+However, since the original classes of sworker1 and sworker2 are both SWorker, sowker1.getClass()
+
+== sworker2.getClass() is true
+
+Since the original class of wsworker is WSWorker,
+
+sworker1.getClass() == wsworker.getClass() is false
+
+Meanwhile, the original classes of hworker and designer
+
+are HWorker and Designer respectively,
+
+and they are not ancestor-descendant in the class hierarchy,
+
+so the comparison of hworker.getClass() == designer.getClass()
+
+cannot be made
+
+and causes a compile error
+
+Considering the instanceof operator,
+
+the original class of wsworker is WSWorker,
+
+which is a descendant of Worker,
+
+so wsworker instanceof Worker is true,
+
+and the original class of sworker1 is SWorker,
+
+but WSWorker is a child of SWorker, so sworker1 instanceof WSWorker is false
+
+Also, the original class of designer
+
+is Designer, and Designer is a descendant of Object,
+
+so designer instanceof Object becomes true
+
+On the other hand, worker instanceof Designer generates a compile error
+
+because there is no ancestor-descendant relationship between the worker's original
+
+class, Worker, and the Designer class
+
+Page 18
+
+Now let's summarize Automatic Type Conversion
+
+First, in cases where Automatic Type Conversion is possible,
+
+automatic type conversion is possible from a smaller range to a larger range
+
+among the primitive types belonging to Numbers
+
+For example, assignment from int to double
+
+is possible without explicit type conversion
+
+Secondly, direct assignment of a descendant class object to an ancestor class object is possible,
+
+and this is called upcasting
+
+Page 19
+
+On the other hand, if you want to assign
+
+a type with a large range of primitive types
+
+belonging to Numbers to a type with a small range of primitive types
+
+when Auto Type Conversion is not possible, you must do explicit type conversion
+
+For example, if you are assigning double y to int x,
+
+it should be in the form int x = (int) y;
+
+The second is the case of downcasting,
+
+which assigns an ancestor class type to a descendant class type
+
+Thirdly, conversion between two unrelated types is impossible
+
+For example, if you assign boolean b to int x,
+
+a compile error will occur
+
+even if you do explicit type conversion x = (int)b;
