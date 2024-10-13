@@ -1,0 +1,321 @@
+﻿I will lecture about Nested Class
+
+Page 2 To understand the types of Nested Classes,
+
+we will first use
+
+the term Outer class
+
+Outer class refers to a class
+
+that has nested classes inside it
+
+Nested classes can be divided into static
+
+nested, inner, and local inner classes
+
+First, there is something called a static
+
+nested class inside OuterClass
+
+Since it is static, it is a nested class shared by all objects in OuterClass
+
+Next, there is an Inner class, which is a non-static class
+
+included within the OuterClass
+
+Finally, there is a Local inner class
+
+defined within some method
+
+This local inner class
+
+is only available within this method
+
+The types and creation methods of these three nested classes are all different
+
+First of all, SNClass,
+
+a static nested class, is of type OuterClass.SNClass
+
+and can be simply created with new OuterClass.SNClass()
+
+This is because the static nested class is a class
+
+that all objects in OuterClass have in common,
+
+and therefore the object also exists uniquely
+
+Meanwhile, the non-static inner class
+
+is of type OuterClass.InnerClass,
+
+and to create an object of this inner class,
+
+you must first create an OuterClass object, outObject
+
+After creating outObject in this way,
+
+the inner class object,
+
+inObject, can be created with outObject.new InnerClass()
+
+Finally, a local inner class
+
+can be created by calling someMethod
+
+in the OuterClass object
+
+outObject as outObject.someMethod()
+
+Page 3
+
+Now let’s look at a more concrete example of using nested classes
+
+There is an OuterClass, and inside
+
+it is a static nested class, SNClass
+
+SNClass has a display() method that prints the message “Inside
+
+static nested class”
+
+Below that, a non-static InnerClass is defined
+
+There is also a display() method inside this,
+
+which outputs the message “Inside inner class”
+
+Page 4
+
+Then, inside the myMethod() method,
+
+there is a local inner class LIClass
+
+The display() method contained within it prints
+
+the message “Inside local inner class”
+
+Since creating this local inner class
+
+is only possible within the myMethod() method,
+
+the code to create the LIClass object
+
+liObject and call liObject.display()
+
+is included within myMethod()
+
+Page 5
+
+Meanwhile, in the main method of the OuterClassDemo class,
+
+we create an object of the static nested class, snObject
+
+This snObject is of type OuterClass.SNClass
+
+and can be created with new OuterClass.SNClass()
+
+After creation, I called snObject.display() to print
+
+the message “Inside static nested class”
+
+Below that, outObject, which is an object of OuterClass,
+
+is created with new OuterClass()
+
+inObject, a non-static class object,
+
+is of type OuterClass.InnerClass
+
+and can be created with outObject.new InnerClass()
+
+When inObject.display() is called, “Inside
+
+inner class” is printed
+
+Finally, when we call outObject.myMethod()
+
+to create a local inner class,
+
+it creates a local inner class
+
+LIObject inside it and prints “Inside local inner class”
+
+Page 6
+
+The code in this slide
+
+shows an example of creating nested non-static inner classes
+
+The outermost class is AClass, and within it,
+
+BClass is defined, and within BClass,
+
+CClass is defined
+
+Now, in the main method,
+
+we create the outermost class, aObject, with AClass
+
+aObject = new AClass();
+
+Below that, an inner class was created with AClass.BClass bObject
+
+= aObject.new BClass()
+
+Also, you can create a CClass object,
+
+which is an inner class of BClass, like this:
+
+AClass.BClass.CClass cObject = bObject.new CClass()
+
+Page 7 Let's look at some important rules
+
+for nested classes
+
+First, the name of an inner class cannot be reused within an outer class
+
+If the inner class is private,
+
+the inner class cannot be accessed directly by name from outside the outer class
+
+To access a private inner class, you can access it through an accessor method,
+
+which is a method with public or package permissions
+
+However, private variables and private methods of the inner
+
+and outer classes can be accessed from each other without restrictions
+
+Page 8 Let's look at an example
+
+of using Private Inner Class
+
+InnerClass is defined as private inside OuterClass
+
+In this case, createInnerObject is defined with package access
+
+so that it can be used when you want to create an InnerClass object outside of OuterClass
+
+First, within the Main class, which is outside of OuterClass,
+
+we create an OuterClass object called outer,
+
+and then call outer.createInnerObject()
+
+to create a private inner class object
+
+However, if you try to create an inner class directly,
+
+like OuterClass.InnerClass inner = outer.new InnerClass(),
+
+a compile error will occur
+
+Because InnerClass is defined private within OuterClass
+
+Page 9
+
+First, assign the String “Outer Private
+
+Variable” to outerPrivateVar,
+
+which is a private String variable of OuterClass
+
+Declare and initialize innerPrivateVar,
+
+which is also private, inside InnerClass defined inside
+
+The accessOuterClass() method shows that the private
+
+variable of OuterClass can be accessed directly
+
+from inside InnerClass
+
+Meanwhile, in OuterClass's accessInnerClass(),
+
+we can create an InnerClass
+
+object and directly access
+
+its private instance variable
+
+Page 10 Finally,
+
+let's learn about Anonymous Class
+
+Anonymous Class can be used
+
+when an interface needs to be implemented
+
+only once, and in this case
+
+the implemented class will not be reused anywhere else
+
+So, if there is a tool that is absolutely necessary at a certain time
+
+and place in our lives,
+
+but is not used again in any other case, it can be made by hand so that it can be used only once,
+
+and there is no need to send the blueprint to a factory
+
+and prepare a mold to make multiple objects
+
+Anonymous classes are in some ways easier to understand
+
+because the implementation of the class is placed right next
+
+to the variable
+
+Anonymous classes are widely used to implement callback methods,
+
+especially in Graphical User Interface
+
+(GUI) applications, where callback methods are executed when an event
+
+such as a button click occurs
+
+Page 11 This is an example program for
+
+the Anonymous class
+
+First, there is a compute() method in the interface Computer
+
+In the main of the AnonymousClassDemo class,
+
+the Computer interface is implemented
+
+and an object called computer1 is created
+
+However, instead of using a class name defined somewhere after new,
+
+we directly created a class object that implemented a compute method
+
+that outputs the String
+
+“This is the computer1” using an anonymous class
+
+An anonymous class is a method that allows you to use
+
+a class object only once
+
+when creating it without having to create a separate class definition
+
+The computer2 object below was also created
+
+using an anonymous class
+
+that implements a compute method
+
+that prints the String
+
+“This is the computer2”
+
+Now when we call computer1.compute(),
+
+“This is the computer1” will be printed,
+
+and when we call computer2.compute(),
+
+“This is the computer2” will be printed

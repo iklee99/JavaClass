@@ -1,0 +1,549 @@
+﻿I'm going to lecture on interface
+
+Page 2 An interface is not a class,
+
+but it is similar to an abstract class
+
+Any class can implement an interface
+
+Unlike class hierarchy, interfaces
+
+allow multiple inheritance
+
+That is, it is possible for a class to implement multiple interfaces
+
+at the same time
+
+If you look at the grammar of an interface, the interface keyword comes first,
+
+followed by the name of the interface,
+
+and inside the interface, there can be named constants
+
+starting with public static final,
+
+their initial values, and the signature of public abstract methods
+
+Since public static final for named constants
+
+is always the same, it is often omitted in the actual definition of an interface
+
+Also, since the public abstract in front of the method
+
+signature must always be present,
+
+it is often omitted in practice
+
+Page 3
+
+Now, let's define an Ordered interface as a practical example of an interface
+
+The public interface Ordered
+
+does not have named constants
+
+It has a precedes method of abstract public boolean type,
+
+but note that the abstract is omitted
+
+Also note that the type of parameter other is Object,
+
+which starts with a capital O
+
+Object is the ancestor of all classes
+
+we use and the parent of all new classes we define
+
+That is, if you set an Object type as a parameter,
+
+it becomes possible to receive a parameter
+
+of any class type as a parameter
+
+We will look at the Object type in more detail in Chapter 9
+
+The following below is also a method of abstract public boolean type
+
+Here, precedes means that it returns true
+
+when the caller object comes before the parameter
+
+other, and follows means that it returns true
+
+when the caller comes after the parameter other
+
+Therefore, the return value of o1.follows(o2)
+
+can be seen as the same
+
+as the return value of o2.precedes(o1)
+
+However, “ahead” and “follow” only imply semantics,
+
+and the criteria for determining
+
+the order of objects may vary
+
+depending on the classes that implement this interface
+
+Another thing to note about interfaces is that
+
+even if the semantic aspects of these methods
+
+and constants are described in comments,
+
+it is not an error if they are implemented in the class
+
+with methods or constants that have different meanings
+
+That is, as long as there are no grammatical errors, the program will run,
+
+and it is important to keep in mind that the meanings implied
+
+when defining an interface do not impose any restrictions
+
+on the implementation of the class
+
+Page 4
+
+Now, let's look at the process of implementing the Ordered
+
+Interface as a class
+
+The implements keyword is used after class Person
+
+to indicate that the interface Ordered is being implemented
+
+You should remember that this is different from the extends keyword
+
+used in class inheritance
+
+The Person class has two instance
+
+variables, private String name and int age
+
+There is a constructor that
+
+takes the initial values of two instance variables as parameters
+
+Below, we implement precedes, one of the two abstract methods of the Ordered
+
+interface, by overriding it
+
+Let's remember that for Person to be a concrete class,
+
+it must implement all the abstract methods of Ordered
+
+In the precedes method, we first test whether the other,
+
+which is received as a parameter of Object type,
+
+satisfies the condition “other instanceof Person”,
+
+which is true only when the original class type of other is Person
+
+or a descendant of Person
+
+In this implementation, we want to compare the age of the caller
+
+object (this) with the age of other and return true if this.age is less
+
+However, this implementation itself does not work
+
+because other may not have the instance
+
+variable age if it is not Person or a descendant of Person
+
+Now, if the condition test of (other instanceof Person) is true,
+
+the type of other is downcasted to otherPerson,
+
+which is a Person type
+
+This downcasting satisfies the possibility of downcasting
+
+because it is executed when the condition of the if statement “other instanceof Person” becomes true
+
+That is, it satisfies the condition
+
+that other's original class is Person or a descendant of Person
+
+Now, you just need to return the result of this.age < otherPerson.age 
+
+On the other hand, if the condition of the if statement is not satisfied,
+
+it means that the parameter of the correct type was not passed to other,
+
+so in this case, false is always returned
+
+Page 5
+
+This is a follows method implemented almost similarly to precedes
+
+I encourage you to follow along and see how it is implemented
+
+Page 6
+
+Here is a demo program that tests the Person class
+
+person1 and person2 are Person objects
+
+named “Alice” and “Bob” respectively
+
+When person1.precedes(person2) is executed,
+
+Alice’s age is less than Bob’s age,
+
+so it prints true
+
+For the same reason, person1.follows(person2) is false,
+
+person2.precedes(person1) is false,
+
+and person2.follows(person2) is true
+
+Page 7 Just like classes, interfaces can have a hierarchy
+
+The Base interface defines Shape,
+
+which includes the calculateArea() method
+
+as an abstract method
+
+The ColoredShape interface inherits Shape,
+
+using the extends keyword
+
+This is the same as class inheritance
+
+The ColoredShape interface adds one more abstract
+
+method called getColor()
+
+in addition to the Shape method calculatedArea()
+
+The TexturedShape interface inherits ColoredShape,
+
+but adds one more abstract method: getTexture()
+
+Page 8 The TexturedRectangle class
+
+implements the TexturedShape interface
+
+It has four private instance variables: width, height,
+
+color, and texture
+
+The constructor initializes the four instance variables
+
+Page 9 The TexturedRectangle class
+
+implements the TexturedShape interface,
+
+so it must implement all three
+
+abstract methods of
+
+the TexturedShape interface:
+
+calculatedArea(), getColor(), and getTexture()
+
+Page 10
+
+Now in the demo program, we first create a rectangle,
+
+which is an object of the TextureRectangle class
+
+width, height, color, and texture are initialized to 5,
+
+10, “Red”, and “Smooth” respectively
+
+Now, we call the three methods we implemented to print
+
+the area, color, and texture
+
+Page 11
+
+This time, we will learn about the Comparable interface
+
+in the java.lang package
+
+Since it belongs to java.lang,
+
+it can be used without importing
+
+The Comparable interface
+
+has only one abstract method
+
+It is abstract public int compareTo(Object other)
+
+Note that it receives an Object type as a parameter
+
+There are three cases for the return value
+
+If the calling object, that is,
+
+this comes before other (i.e., is smaller), it returns a negative integer
+
+Usually, it returns -1
+
+If this is exactly equal
+
+to other, return 0
+
+Returns a positive integer
+
+if this comes after (is greater than) other
+
+Normally it returns +1
+
+Page 12
+
+As such, Java has several interfaces
+
+provided with the basic package
+
+Among them, java.lang.Runnable has a method void run()
+
+java.util.Comparator has a method int compare(a, b)
+
+In particular, Comparator is similar to the Comparable interface
+
+we looked at earlier,
+
+but its method compare differs from compareTo in that it receives two parameters
+
+If the relationship between two parameters a and b is a < b, it returns a negative integer
+
+If a == b, it returns 0, and if a > b, it returns a positive integer
+
+Page 13
+
+Now let's see an example of using the Comparator Interface
+
+Since Comparator belongs to the java.util package,
+
+you must import it first
+
+The AgeComparator class implements the Comparator interface
+
+To implement the abstract method compare() , we use two parameters
+
+o1 and o2 of Object type
+
+Downcast o1 and o2 to the Human class that will be shown later,
+
+and compare the ages of h1 and h2 with Integer.compare and return them
+
+In fact, here too, before downcasting the Objects
+
+o1 and o2 to the Human class,
+
+you should first test o1 instanceof Human,
+
+o2 instanceof Human,
+
+and then downcast only if it is true
+
+However, you should note that in this example
+
+that code is omitted
+
+Page 14 Define a Human class
+
+to be used in Comparison
+
+It has name and age fields,
+
+a constructor
+
+and accessors,
+
+and overrides toString
+
+In page 15 main, we first create two Human objects named Alice and Bob,
+
+then create an AgeComparator
+
+and pass the two Human objects to the compare
+
+method of the comparator
+
+Prints an appropriate message depending on whether the result is negative, positive, or equal to 0
+
+Page 16 This time,
+
+let's implement the Selection sort algorithm
+
+Given an array, find the minimum value from array[position] to array[n-1]
+
+while increasing from position 0
+
+to n-1, and swap that minimum value with array[position]
+
+This process is repeated while increasing the position
+
+First, when position is 0, the minimum from array[0]
+
+= 64 to array[n-1] is 11
+
+Now if we swap 64 and 11, we get array[0] = 11 
+
+In the next step, we find the minimum from array[1] to array[n-1],
+
+which is 12, and exchange it with array[1] = 25 to confirm array[1] = 12
+
+In the next step, we find the minum from array[2] to array[n-1],
+
+which is 22, and exchange 25 and 22 to confirm array[2] = 22
+
+In the last step, the minimum from array[3] to array[n-1] is 25,
+
+so sorting is completed after array[3] = 25
+
+The selection sort algorithm seen on page 17 above
+
+is implemented in the sort()
+
+method of the SelectionSort class
+
+What you should notice here is that the parameter of the sort method is an array
+
+type of the Comparable interface
+
+Having an interface as a parameter
+
+means that all concrete classes that implement that interface
+
+can be received as parameters
+
+Since the Comparable interface has a compareTo() method,
+
+there is a means to test the relationship between two objects
+
+While increasing position i from 0 to n-1, for each position
+
+i, find the smallest object among j = i + 1
+
+to n-1 using the compareTo method
+
+Then, after the for loop over j ends,
+
+we exchange the two elements of array[i] and array[minIndex]
+
+Page 18
+
+This is the swap() method. For swapping,
+
+you must first assign one element,
+
+array[i], to a temp variable,
+
+then assign array[i] = array[j], and assign
+
+the temp you saved earlier to array[j]
+
+Page 19
+
+In this slide, an intArray,
+
+which is an array of Comparable, is given to test SelectionSort
+
+To sort the intArray, first create a sorter,
+
+which is a SelectionSort object,
+
+and then call sorter.sort(intArray) to obtain
+
+the sorted intArray
+
+The initial input array = {64, 25, 12, 22, 11}
+
+will be sorted into the output array = {11,
+
+12, 22, 25, 64}
+
+Page 20 In addition to the integer array, we defined the fruit name
+
+String array that can define the order relationship
+
+as a Comparable[] array type
+
+Sorting is performed by calling sorter.sort(stringArray);
+
+Page 21
+
+In this example, a constant with the same name, NUMBER,
+
+is defined in two interfaces, Inter1 and Inter2
+
+At this time, the InconsistentInterfaceDemo class is defined
+
+with multiple inheritance,
+
+inheriting both interfaces, Inter1 and Inter2
+
+After the keyword implements, you can see two interfaces, Inter1 and Inter2
+
+At this time, if you use a constant called NUMBER in this class,
+
+it exists in both inter1 and inter2, so
+
+you cannot know whether the value of NUMBER is 25 or 32,
+
+and therefore a compile error occurs
+
+However, even if you inherit both Inter1 and Inter2 as multiple,
+
+you will not get a compile error
+
+as long as you do not use the NUMBER constant
+
+Page 22 This time,
+
+we will explain polymorphism using interfaces
+
+Any instance of a class that implements an interface
+
+can be assigned to an interface variable
+
+First, consider the interface Fightable
+
+It has two abstract methods: move and attack
+
+The Fightable interface itself
+
+was used as a parameter for the attack method
+
+Now, we implement the Fightable interface with the Fighter class
+
+The body of the methods is omitted for convenience
+
+It is of course possible to create a Fighter class
+
+object with new Fighter() and assign it to the Fighter variable f
+
+It is also possible to assign the Fighter object
+
+created by new Fighter() to the variable f of the Fightable interface
+
+Page 23 You may remember that the parameters of the attack
+
+method of the Fightable interface
+
+were confident in the Fightable interface
+
+In this way, the interface type can also be used as a parameter
+
+type of a method
+
+Page 24 Interface type can also be used as the return
+
+type of a method
+
+This method specifies Fightable as the return type,
+
+but in reality, any class
+
+that implements Fightable can be returned
