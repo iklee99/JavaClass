@@ -8,5 +8,6 @@ public class SystemOutPrint {
         System.out.println("Boolean: " + true);
         System.out.println("Character: " + 'A');
         System.out.println("" + false);
+        System.out.println(false);
     }
 }
