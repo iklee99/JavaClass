@@ -1,0 +1,249 @@
+﻿I will lecture about Exception Class
+Page 2 First, we need to distinguish between
+Error and Exception
+Error refers to a serious error that cannot be handled by program code
+Compile-time errors occur in code
+that violates the grammar of a programming language
+and are errors that prevent compilation from running
+Run-time errors are not detected at compile time
+and are cases where the program terminates unexpectedly during execution
+For example, there are memory shortages, stack overflows, hardware failures,
+etc., but they have in common that they are unpredictable
+because they appear due to lack of system resources rather than program errors
+A logic error occurs when the program compiles and runs
+but does not produce the desired answer
+This occurs when the algorithm used in the program is designed incorrectly
+On the other hand, compared to Errors that are difficult to recover from, Exceptions
+are relatively minor errors that can be handled by adding exception
+handling code to the point in the
+program's code where their occurrence is expected
+So what does exception handling mean? It means
+preventing abnormal termination of a program through coding to maintain
+normal program execution
+Preventing abnormal termination here
+doesn't mean that the program will never terminate,
+but it does mean that the programmer can at least code it
+so that he knows why the program terminated here
+Let's learn about the types of exceptions
+on page 3
+First, a General Exception
+is also called a compile-time checked exception
+This refers to a case where the compiler
+checks for the presence of appropriate exception
+handling code while compiling, and generates a compile error
+if the exception handling code does not exist
+This can be said to be a case where handling of Exceptions
+is required quite strictly
+There is another type of Runtime Exception,
+also called compile-time unchecked exception
+For this exception type, the compiler
+does not check for the presence of exception
+handling code at compile time
+However, the programmer can also write exception
+handling code directly to handle
+exceptions of the Runtime Exception type
+When a runtime exception occurs,
+if there is already coded exception
+handling code, the exception is handled
+according to that code,
+and if there is no
+exception-handling code, the program stops immediately
+Page 4
+java.lang.Exception is the ancestor class
+among all exception classes
+All predefined exceptions, as well as user defined exceptions,
+are defined as descendants of the Exception class,
+which starts with a capital letter
+Among the child classes of Exception,
+those that are not java.lang.RuntimeException, such as ClassNotFoundException
+and java.io.IOException, belong to the General Exception
+defined in the previous slide, so the existence of exception
+handling code is checked at compile time,
+and the exception handling code must be coded together when coding
+Meanwhile, among the children classes of Exception,
+java.lang.RuntimeException belongs to the Runtime Exception
+defined in the previous slide
+java.lang.RuntimeException has many child classes,
+all of which are Runtime Exceptions,
+so the existence of exception
+handling code is not checked at compile time,
+and when an exception occurs at runtime,
+the exception is handled only when there is exception handling code
+Page 5
+Now, let's learn about the case where ClassNotFoundException,
+one of the General Exceptions, occurs
+To understand ClassNotFoundException, you need to understand
+the Class class,
+which starts with a capital letter
+This program defines a class TempClass0
+In the main method, an object t0 of TempClass0 is created
+t0.getClass() is called to return an object of java.lang.Class type
+This Class object starting with a capital letter
+contains information about a specific class
+within the currently running Java application,
+in this case TempClass0, which is the class of t0
+Looking at OUTPUT, the object
+returned from t0.getClass() was printed as class TempClass0
+Page 6
+As in the example in the previous slide,
+I created a TempClass0 object t0 and called t0.getClass()
+Then, we call Class.forName(“TempClass0”),
+and forName is a static method of Class,
+which finds the class with the name “TempClass0” and returns the Class object,
+which is its info
+That is, it should return
+the same Class object as t0.getClass() returns
+However, as you can see in the box below,
+this program will result in a compile error
+because there is no code to handle exceptions
+in case a class with that name does not exist
+in the current application when calling Class.forName(“TempClass0”)
+The reason why a compile error occurs like this is
+because ClassNotFoundException is a General Exception
+Page 7
+Now, we want to prevent compile errors
+by handling ClassNotFoundException properly
+We created t1, which is a TempClass1 object,
+and t1.getClass() was executed normally
+Next, I wrapped the part that runs Class.forName(“TempClass1”)
+in a try block
+Because of this handling code, no compile error occurred,
+and Class.forName(“TempClass1”) returns
+classInfo normally
+and prints the output as class TempClass1
+Again, the classInfo.getName() call returns
+the class name, String “TempClass1”
+I added code to catch the ClassNotFoundException
+that occurs
+if TempClass1 does not currently exist in the application
+and handle the exception in the catch block
+We will study the try-catch mechanism in more detail later
+Page 8
+In this example, some import statements have been omitted due to space constraints;
+please refer to the distributed code for the complete code
+Let's look at another General Exception, java.io.IOException
+When creating a FileReader object by opening the “example.txt” file,
+an IOException will occur if the “example.txt” file does not exist
+in the same folder as the .class file
+Since IOException is a General Exception,
+if you do not write handling code for IOException,
+a compile error will occur
+Therefore, in this case, you should also execute the creation of FileReader
+within the try block, and place the code to handle IOException
+if it occurs within the catch block
+In this example program, the file “example.txt” does not exist,
+so an IOException is actually thrown when creating the FileReader
+So, we handle IOException inside the catch
+block, and first print the message
+“An error occurred while reading the file” and “example.txt
+(No such file or directory)”,
+which is e.getMessage() that was already included in the IOException
+When we call e.printStackTrace(), a stack trace is printed
+that shows which methods were executed and called in sequence
+up to the point where the IOException occurred in the program
+If you look at the stack trace,
+you can see that
+java.io.FileNotFoundException occurs in the IOExceptionExample.main method on line
+9 of IOExceptionExample.java, which is the bottom line
+FileNotFoundException is a descendant of IOException
+The methods called in reverse order are listed above
+Page 9
+Now let's look at Runtime Exceptions
+NullPointerException is something we have already seen once
+when we first learned about reference types
+String str1 is only declared and does not reference any object, and String
+str2 is initialized to null
+Now, when coding str1.toString(), a compile error occurs
+This is because str1
+does not point to any meaningful object
+On the other hand,
+calling str2.toString() does not result in a compile error,
+because str2 is already initialized to something (in this case, null)
+However, since a null object cannot be dereferenced
+and does not have a meaningful toString() method, a runtime exception
+called NullPointerException will be raised
+when this instruction is encountered during execution
+However, since there is no handling code in this program
+to handle NullPointerException,
+the program stops immediately
+and a message like “Exception in thread
+“main” “java.lang.NullPointerException….” is printed in the box below
+We will look at handling such runtime exceptions in more detail
+in the following notes
+Page 10 This time
+we consider strArray, a String array of length 3
+“Korea” was assigned to the first element, strArray[0]
+Then, I tried to assign “Seoul” to strArray[3],
+but a java.lang.ArrayIndexOutOfBoundsException
+occurred during this execution
+Because strArray has a length of 3
+and strArray[2] is the last element
+The runtime exception that occurs
+when the index of an array is out of range is java.lang.ArrayIndexOutOfBoundsException
+In the box below, you can see the message that is printed after the program ends
+due to the exception occurrence
+Page 11
+This time, it's java.lang.NumberFormatException
+The string "132.68" is assigned to str1,
+and the string "abcde" is assigned to str2
+When we try to convert "132.68" to an int using the wrapper class
+Integer.parseInt(str1), a NumberFormatException occurs
+"132.68" is a String
+representing a real number with a decimal point,
+so converting it to an int is what causes the exception
+At this point the program stops immediately
+However, if Integer.parseInt() were not there,
+the line below Double.parseDouble(“abcde”)
+would also raise the same exception, NumberFormatException
+Because “abcde” cannot be converted to a double type number
+The message below shows what is printed after the program
+stops in Integer.parseInt()
+This program also does not do exception
+handling, and we will learn in detail
+how to do so in the next note
+Page 12
+This time, let's look at InputMismatchException
+This runtime exception occurs when the value input
+using Scanner is different from the type expected by the next…() method,
+or when the value read is out of range
+InputMismatchException is in the java.util package
+In the example code,
+we first import java.util.InputMismatchException and java.util.Scanner
+After creating a scanner object, scanner,
+I printed the prompt “Input an integer: “
+Here, if the user enters the input “abcd”,
+an InputMismatchException will occur
+when calling scanner.nextInt()
+Because “abcd” cannot be read as an integer
+At this point the program will stop immediately
+and print the messages in the box below
+The current state of the runtime stack
+is printed, with method calls displayed in order,
+starting from the main method at the very end of the message
+Page 13 java.lang.ArithmeticException
+is also another runtime exception
+A typical case where this exception occurs
+is when an arithmetic operation of division by zero is attempted
+In the example program, we tried to divide the dividend of 10 by a divisor value of 0,
+but the program stopped executing immediately
+and printed the message in the box below
+Let's look at java.lang.ClassCastException,
+which is a runtime exception on page 14
+The class Vehicle is defined, and class Auto and class Bicycle are children
+that inherit from Vehicle
+Auto and Bicycle objects were assigned to vehicle type variables
+vec1 and vec2, respectively
+At this time, it is possible to downcast vec1 to Auto types
+auto1 and auto2, because the original class
+of vec1 is Auto
+It is also possible to downcast vec2 to by, which is of type Bicycle,
+because the original class of vec2 is Bicycle
+However, downcasting vec2 to auto3, which is an Auto type at the very end,
+will cause a ClassCastException, because the original class
+of vec2 was Bicycle, not Auto
+As such, ClassCastException occurs
+when you try to assign objects
+that cannot be assigned in terms of hierarchy
+Page 15
+The message in this box
+shows the message printed when the ClassCastException occurred
