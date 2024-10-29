@@ -1,0 +1,122 @@
+﻿I will lecture about Object class
+Page 2 The java.lang package contains several important classes,
+and among them,
+we will learn more about the Object class
+Page 3
+The Object class is the ancestor class of all classes
+in all packages
+User defined classes also do not explicitly extend,
+but they automatically become descendants of the Object class
+Page 4 The Object class has important methods
+that all classes inherit
+We already know about equals() and toString()
+equals() tests whether reference values are the same if not overridden,
+and is often overridden and used to compare whether the contents of two objects are the same
+toString() returns information about an object as a String,
+which mainly includes the values of instance variables as information
+Page 5 The hashCode() method returns
+a unique number for each object
+Therefore, identical objects must return the same hashCode() value
+The hashCode() of the original capitalized Object
+class returns the memory address of the object
+When hashCode() is overridden, it creates a new
+hashCode value by combining the instance
+variable values of the object
+hashCode() is mainly used in hash-based collections
+such as HashMap, HashSet, and HashTable
+These collections will be discussed in more detail in the Collections chapter later
+The technique of multiplying the instance variable value by the prime number is often used
+because the newly generated hashCode value is a new hashCode value
+that has never been created before,
+which can prevent collisions between data locations in hash-based collections
+Page 6
+Now, let's look at the user
+defined class Person that inherits from Object
+Person has two private instance variables, name and age
+The constructor receives the name and age
+values as parameters and assigns them to the instance variables
+Since the instance variables are private,
+there is an accessor method
+getName() for name and an accessor method getAge() for age
+Page 7 equals
+method is overridden
+equals should take an Object type parameter
+as it originally existed in the Object class
+In equals, we first test whether the current object is null
+and whether the getClass() of the current object is different
+from the getClass() of the other object
+If even one of these conditions is satisfied, this
+and other can be judged to be different without even looking at the contents,
+so false is returned and the method ends
+Otherwise, other will be an object of Person class,
+so the first thing to do is to down cast other,
+which is a large Object type, to Person class type
+The reason why this down casting is possible is because in the test above,
+this.getClass() is equal to other.getClass(),
+so other was originally created as a Person class object
+If down casting is done, then all we have to do is test whether the values of the instance
+variables of both objects are the same
+If the age is the same and both names are null or not null,
+you can check if the two names are the same
+by using the equals method of the String class,
+which is already well defined
+Page 8 Overriding hashCode()
+is appearing for the first time
+The new hashCode value is calculated as 31 times the hashCode of name plus age
+Here, 31 is a prime number, and by multiplying the instance
+variable value by the prime number,
+we can reduce the probability that different objects will have
+the same hashCode
+toString() is overridden to display the instance variable values
+Page 9 This is the code
+to test the Person class
+First, I created three objects: person1, person2, and person3
+The correct result is that person1 and person2 are equal, and person1
+and person3 are not equal
+The hashCode of the three objects are all different, avoiding collisions
+Finally, I tested the toStrings
+Page 10
+This time, I will explain with an example
+the points to be careful about when implementing the equals method
+when considering polymorphism between classes with a hierarchy
+To briefly review the concept of polymorphism,
+it is that a descendant type object can be assigned to a reference
+variable of an ancestor type, and at this time,
+the method overridden in the descendant type class can be applied differently depending on the types
+Now let's consider AClass as a base class
+AClass has int x as its only instance variable
+Constructor is defined and equals is overridden
+by comparing this.x to other.x
+after performing appropriate tests
+Page 11 In BClass, a child of AClass,
+one int y is added
+as an instance variable
+In the overriding equals method, super.equals
+is used to check if x is equal,
+and this.y and other.y are also checked to see if they are equal,
+and the result is returned
+CClass is an independent class
+that does not belong to the hierarchy of AClass and BClass
+and has only one instance variable, String name
+Page 12 In the Main class, first,
+we created AClass objects a1 and a2
+and assigned 3 and 7 to the x values, respectively
+For BClass objects b1 and b2, x and y are assigned (3,
+5) and (7, 9) respectively
+Object c, which is a CClass, assigned “Korea” to the String name
+First, a1.equals(a1) is called, and since a1 is compared to itself,
+it is naturally equal, and the answer is true
+When calling a1.equals(b1), the parameter type of a1.equals is AClass,
+and since BClass is a child
+of AClass, polymorphism is applied so that b1,
+which is a BClass object, can be passed as a parameter
+Inside a1.equals, b1 is down-casted to AClass type,
+and only the x value is compared to see if it is the same
+Therefore, a1.equals(b1) returns true
+because x is 3 for both a1 and b1
+However, if you do a1.equals(b2),
+it will return false because the x value of b2 is 7
+On the other hand, a2.equals(c) is obviously false
+because a2, which is AClass, and c,
+which is CClass, are different classes, and c cannot be downcasted to AClass,
+so comparison is impossible

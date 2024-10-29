@@ -1,0 +1,226 @@
+﻿I'm going to lecture on Generics
+Page two
+What are Generics?
+There are many cases where you need to create multiple classes
+or methods that do the same thing,
+but have different types of instance
+variables and method parameters that make up the class
+For example, consider a simple class called class Test
+{ Integer x; }
+If you want to create a class where x is a Double instead of an Integer,
+you need to create a new class TestD { Double x; }
+To reduce the inconvenience of having to create a new class or method
+even when only the type has changed,
+you can use the Generics mechanism
+In Generics, the type itself is received as a symbol parameter
+such as , and when actually used, a concrete type is used instead of T
+For example, if you have a generic class called class Test { T x; }
+When using this, you can use it
+in the form Test
+t1 = new Test<>(); or Test t2
+= new Test<>(); Test t3 = new Test<>();
+In these three cases, the type of instance variable
+x of the generic class Test
+is Integer, Double, and Student, respectively
+Page 3 Generics expresses types
+as parameters
+This parameter is called a type parameter
+The name of the type parameter can be any identifier,
+but it is often a single capital letter of the alphabet, such as T, U, or S
+For example, interface BInterface type parameter U or class
+AClass type parameter S implements
+BInterface type parameter U 
+When using generics, you use the actual class type
+by assigning it to the type parameter
+For example, you can use String instead of class AClass type parameter S
+One thing to note here is that primitive types such as int, double, and boolean
+cannot be used as type parameters
+Therefore, you can use wrapper classes such as Integer, Double, etc
+instead of primitive types
+Page 4
+Now let's look at the first example of a generic class,
+the Box generic class
+We added a type parameter  after the class Box
+The type parameter T is used as the type of the instance variable item
+The constructor's parameter item is also defined as type T, so
+the parameter item is assigned to this.item
+T is also used in the return type of the accessor method getItem(),
+allowing it to return an item of type T, which is a private instance variable
+T is also used as a parameter for setItem(), which is a mutator
+Methods that use type parameters, such as getItem() and setItem(),
+are called generic methods
+In the main method of GenericClassExample,
+which is a driver class on page 5,
+an intBox object of class type Box is first created
+You can see that  is assigned to the type parameter
+ of the generic class Box to create a concrete class type
+In the constructor call Box<>(123); following new,
+the type parameter is left blank
+because the type of intBox was declared as Box earlier,
+so there is no need to repeat it
+However, there is no problem with the constructor call being Box(123)
+In the next line, we call the intBox accessor method
+getItem() and print the item's value, 123
+Below that, we created strBox, an object of type Box,
+with the type parameter set to String, and called str.getItem()
+Next, we created a doubleBox object of class
+type Box with the type parameter set to Double, and also called doubleBox.getItem()
+In the next line, we call the mutator method strBox.setItem
+to change the String value of the item to “New String Value”
+and check the changed String value with the accessor strBox.getItem()
+Page 6 In a generic method,
+the type parameter can be used as the type of the method parameter,
+the return type, or the type of the local variable
+Type parameter T will be replaced
+with a concrete type
+when a generic method call occurs during compilation
+Let's look at an example of a generic method
+on page 7
+In this program, the GenericMethodExample class is not generic,
+but the printArray method defined in it is defined as generic,
+so it receives arrays of different types as parameters and prints
+their contents using the for each statement
+In particular, for generic methods, you must indicate that you will use type parameter
+ between the access modifier,
+static, and return type (void), and this type
+parameter can be used as a type within the method
+In this way, even if the class itself is not generic,
+only the methods within it may be generic,
+and there may even be cases where the type
+parameters of the generic class
+and the generic methods within the class are different
+In the main method on page 8,
+we first create a Wrapper Integer array
+intArray and pass intArray
+as a parameter to printArray
+to print its contents
+When calling a generic method like this,
+you just need to naturally pass parameters of different types
+that match the format
+When initializing a Wrapper Integer array
+= We just used int literals like {1, 2, 3, 4, 5},
+and the reason this initialization is possible
+is because the Wrapper Integer type
+provides automatic boxing from int to Integer
+Secondly, we passed the strArray, which is an array of Strings,
+to the generic method printArray, and lastly,
+we printed the array of Wrapper Double type
+using the generic method printArray
+Page 9
+Here is an example of generics that use
+multiple type parameters
+Two type parameters K and V are used in the generic class Pair
+The type of the instance variable key
+is defined as K, and the type of the value is defined as V
+The constructor also uses two type parameters, K and V
+The type parameter K is used for accessors and mutators
+for instance variable keys
+Page 10 The accessor method getValue()
+and the mutator setValue()
+for instance
+variable value use
+the type parameter V appropriately
+Finally, toString is overridden,
+and there is no need to use the K
+and V type parameters here
+Because when key and value are concatenated with String,
+the toString of their type will be called automatically
+On page 11
+main, we first create a studentGrade
+object of the Pair class
+This class, as you can see from its initialization values, is a class that has the student's name
+and his score as key-value pairs
+Below that, we created a countryCapital, which is a Pair class object
+The key of this class is the country name,
+and the value is the capital city name
+The two objects were printed using their respective toStrings,
+and the studentGrade object's student
+was returned as an accessor, and the grade was also returned as an accessor
+method and printed in a different format
+Finally, we used mutator methods to change the key
+and value of the studentGrade
+object to “Bob” and 85
+Page 12
+This example program shows how to define
+and use a generic method within a generic class that takes a type parameter
+different from the class's type parameter
+The type parameter of the Container generic class
+is T, which is the type of the instance
+variable item, and is also used as the parameter type of the constructor,
+the return value of the accessor getItem() method,
+and the parameter type of the mutator setItem() method
+The last displayItemWithDetails method is a generic method
+that uses a different type parameter U
+instead of the type parameter T of the Container class
+It receives the parameter detail of type U and prints
+the values of the instance variable item and detail
+In this way, you can define and use type
+parameters that are different from the type
+parameters of the generic class in a specific generic class
+In the main method on page 13,
+we created a stringContainer
+object of type generic class Container
+and initialized the instance
+variable item with the initial value “Apple”
+The displayItemWithDetails method of this stringContainer object was called with the parameter 123
+At this time, the type parameter U of the displayItemWithDetails
+generic method is automatically set to the Integer type
+according to the type of 123
+The second object,
+integerContainer, is created as Container type,
+and when integerContainer.displayItemWithDetails(“Detail
+about 456”) is called, the type parameter U of the generic method
+displayItemWithDetails is automatically set to
+String type
+Page 14 There is a feature
+that allows you to bound (restrict)
+type parameters to meet certain conditions
+The parameter that is restricted at this time is called a bounded type parameter
+The restriction of the type parameter uses the “extends” keyword used in inheritance
+For example, class SomeClass { …
+} restricts the type parameter T to be the descendants of SuperClass
+Another example is class SomeClass> { … },
+which restricts the T type parameter
+to be one of the classes
+that implement SuperInterface
+For bounded type parameters, there is a class Number,
+which is a superclass of Integer, Double, Byte,
+Short, Long, and Float
+There is also an interface
+Comparable, and classes that implement this interface
+are classes that implement the abstract
+method compareTo
+The interface Runnable is also widely used,
+and has an abstract method void run()
+java.util.Comparator has an abstract method int compare(a, b)
+For more information
+about the Comparable and Comparator interfaces,
+please refer back to the interface section in Chapter 7
+In addition, there is the CharSequence
+interface, and classes that implement this interface
+include String, StringBuilder, StringBuffer, etc.,
+and they are mainly equipped with methods for reading
+String data, such as charAt(), length(), and subSequence()
+Page 15 Let's look at
+an example of a bounded type parameter
+NumberContainer is a generic class
+that is bound to one of the subclasses
+of class Number:
+Integer, Double, Byte, Short, Long, Float
+The last method doubleValue() returns the value that is
+the return value of number.doubleValue() multiplied by 2
+The doubleValue() method implemented in the class Number
+is a method that converts the original value
+to double type and returns it
+In page 16 main, first create an intContainer,
+which is an object of the NumberContainer
+class with the type parameter as Integer
+The initial value is 5, and the doubleValue value is 10.0
+The second object, doubleContainer, is of type NumberContainer with type parameter
+Double, and its initial value is 3.14
+and its doubleValue value is 6.28
+However, as you can see in the last commented part, if you try to define NumberContainer
+you will get a compile error
+This is because the type
+parameter of NumberContainer is bound to subclasses of the Number
+class, and String is not a subclass of the Number class

@@ -1,0 +1,731 @@
+﻿I will lecture about Stack
+
+Stack is a class that belongs to the List interface in Collection,
+
+as we will continue to talk about,
+
+and Stack is a class that is implemented
+
+based on Vector, that is, array
+
+We've heard a lot about stacks,
+
+but they are data structures that only push to one side
+
+and pop from the other side
+
+So when you push, it always goes to the top of the stack
+
+It's the top of the stack
+
+When popping, the topmost item is popped
+
+in order
+
+That's why this Stack is always called
+
+Last In, First Out, hence LIFO
+
+So what this means is that the last one to arrive
+
+is the first one to be popped
+
+So, if you look at the picture of pushing the stack,
+
+when it's empty,
+
+you push 20, and then the top becomes 20
+
+Then, if you do 13, 13 goes up to 20th place, and so on
+
+In this way, 13 89 is pushed to 22, and 90 11 45 18 is pushed in this way
+
+We always say that the top is where it is now,
+
+and how does the pop operation work?
+
+Always leaving from the top
+
+So when you do pop 18,
+
+18 will go out first and when it goes out, the top is now 45,
+
+and when you pop, 45 will go out
+
+and then 11 will go out, so it will go out from the top like this
+
+The Stack class is now basically implemented
+
+based on Vector, that is, array,
+
+but it has other methods
+
+So empty() returns true if the Stack is empty,
+
+and there are push() and pop()
+
+Push() pushes to the top of the Stack,
+
+and pop() basically removes
+
+When removing something from the top,
+
+the removed thing from the top is returned
+
+Next, peek() returns what is at the top,
+
+but does not remove it
+
+It leaves it as is. Peek is just looking at it
+
+What search(Object o) does is check
+
+if a given Object o is in the Stack, and if it is,
+
+it returns the index position, and if it is not, it returns -1
+
+Next, let's look at an example
+
+I created a Stack with Integer as the type parameter
+
+So if you ask, Is the Stack empty?,
+
+it will return true because nothing was pushed at first
+
+Then, push 78, 113 to the Stack, and then println
+
+Elements in Stack will be 78, 113
+
+Then, ask if it is empty
+
+If you print Stack empty again, it will be false
+
+This time, in the second example,
+
+we created it with Integer as the type parameter
+
+So 20, 13, 89, 90 At first,
+
+the Stack was empty [ ] and then
+
+when you print it the second time, it prints [20, 13, 89, 90]
+
+If you look closely, you can see that Stack is implemented based on arrays,
+
+but 20 is currently the first element
+
+So, whenever you push to Stack, it will always print like this
+
+The top comes first, and then
+
+when you pop the stack,
+
+what you return is what is currently at the top
+
+So 90 is returned
+
+Here, it's 20, 13, 89, 90, so 90 is on top now
+
+90 should be at the very end, right?
+
+Guys, which side of the array is easier to add to
+
+and which side is easier to remove from?
+
+In an array, it is much more efficient to always add and delete at the very end
+
+That's why the stack top should always be at the very end
+
+Naturally, after 90 is popped, only 0, 20, 13, and 89 will remain
+
+Here, when you do the second pop, 89 is deleted and the dog is returned
+
+So, since 89 is returned, only 20 and 14 remain on the stack at the end
+
+It would be good to code like this
+
+while thinking about what is going on inside
+
+Next is the Queue interface
+
+Queue is under Collection,
+
+and this Queue is also the parent of LinkedList
+
+This Queue interface also has a PriorityQueue
+
+as a child
+
+So, interface Queue provides First
+
+In First Out unlike Stack
+
+In other words, what comes in first is what comes out first
+
+So when it's added, it comes after what came in first,
+
+but when it comes out,
+
+it comes out in order from the very beginning
+
+It's fair. Then, data is always added to the end,
+
+and since it's in line,
+
+it's called offer, and a method called offer(data) is used
+
+Then, when removing data, it's called poll
+
+When you remove this, it will return
+
+Then, the one that only observes, that is, sees what is in it
+
+and does not remove it, is called a peek
+
+So, these three important operations are poll, peek,
+
+and then offer
+
+This means that LinkedList
+
+is often used to implement Queue
+
+So, in fact, there may be some concerns when implementing a Queue,
+
+whether to use ArrayList or LinkedList
+
+Because this Queue has both ArrayList and LinkedList
+
+having opposing pros and cons, since everything coming in comes from one end
+
+and everything leaving comes from the other end
+
+For example, when adding to tail, ArrayList can do it quickly
+
+But since LinkedList has to follow the tail first, it has to look at n-1 times
+
+But this is actually solved by having one pointer in the tail,
+
+so LinkedList is now solving it in that way
+
+Then, when polling to delete an element from the head, ArrayList
+
+inevitably has to move all of this data n-1 times
+
+because it is an array, but LinkedList can solve this problem quickly
+
+And I said earlier that if you have one pointer in the tail,
+
+it can be easily solved with that, so that's why LinkedList is often used
+
+The three important methods of the Queue
+
+interface that I mentioned earlier are
+
+offer said that this adds one by one to the queue behind it,
+
+and then peek said that it returns the item at the front
+
+but does not remove it,
+
+and what about poll? It returns the item at the front
+
+and removes it from the queue
+
+You need to know some of those important things,
+
+so here's an example of a Queue implemented with LinkedList
+
+As you can see here, it's Queue, LinkedList, right?
+
+What's interesting is that this Queue here is a Queue in the front,
+
+but a LinkedList in the back
+
+That's because Queue is an interface,
+
+so Queue can't actually instantiate itself like this
+
+Because it is an interface. So when instantiating a Queue,
+
+you have to instantiate it
+
+as a concrete class that actually implements it
+
+In this case, we used LinkedList,
+
+as I mentioned earlier, and instantiated the Queue using the Integer type parameter
+
+Then if you do queue.offer(5), then 1,
+
+2, 3, 4, offer, this is a push, not a push
+
+In a queue, when there is a queue,
+
+it starts from the beginning
+
+and continues to the back like this,
+
+so it becomes 5, 1, 2, 3, 4, so when you print it, it prints [5, 1, 2, 3, 4]
+
+Then I polled the Queue three times. While polling three times,
+
+I kept printing the return value of what was polled() here
+
+and what was Queue.poll() here
+
+And if we print the entire Queue and do that at the back,
+
+then 5 will be polled at the beginning, right?
+
+After exiting, the remaining queue is [1, 2, 3, 4]
+
+If you do the second poll, the first one, 1, will be removed and [2, 3, 4]
+
+Then the first one is 2, and then [3, 4], right?
+
+What about the next time you peek?
+
+When you peek, the first thing is returned, but not removed
+
+So it becomes like [3, 4]
+
+Now you know the difference between poll and peek
+
+Next is priorityQueue. PriorityQueue
+
+is a class that implements Queue in Queue
+
+It is a concrete class and has very unique characteristics
+
+So, the basic PriorityQueue is minimum PriorityQueue
+
+So minimum priority is default
+
+What this does when you keep inserting data
+
+is that it makes sure that the minimum of what has been entered so far is always at the head
+
+To be at the front
+
+But the unique thing is that the data is not completely sorted
+
+It's not sorted, but only the minimum is at the front
+
+So, how do we do that? We use a tree structure called heep
+
+You will learn about that in the data structure class
+
+So, here, what happens internally,
+
+but the characteristic is that PriorityQueue always has
+
+a minimum at the head
+
+So, after removing the head, one minimum is also removed
+
+But then, among the rest,
+
+the minimum is at the head
+
+It's always like that
+
+So when you first instantiate,
+
+you give it something like PriorityQueue Integer
+
+Then, you can do instancing by giving a type parameter
+
+like pq = new PriorityQueue
+
+and doing instancing in a general way
+
+But you can change this PriorityQueue to maxumum
+
+What maxumum means is that the Maximum data, not the Min data,
+
+is always at the head
+
+But still it is not sorted
+
+So, for example,
+
+this is PriorityQueue and new PriorityQueue
+
+and here Collections.reverseOrder(),
+
+which is a class that has a utility method, right?
+
+It's under java.util
+
+So, the reverseOrder() under Collections is now a Comparator,
+
+and if you give it this,
+
+this PriorityQueue will change from a Mean Queue to a Max Queue
+
+So maxumum is always in the head
+
+So, you can do a lot of useful things with this
+
+If you look at the methods of PriorityQueue,
+
+add, clear, contains, iterator, offer
+
+Offer adds one data to PriorityQueue
+
+Remove removes an object from the head
+
+and returns it
+
+Then, the Queue basically has peek and poll and things like that
+
+You can use things like peek and poll
+
+That's because PriorityQueue implements
+
+the interface Queue
+
+So when we have this PriorityQueue, let's take a look at it again
+
+PriorityQueue Here, we created a priority queue, which is a mean queue
+
+Since we didn't give it anything as the default,
+
+if we add 4 and print it, it will be [4]
+
+Then, if we add 7 and print it, it will be [4, 7]
+
+So in this case, 4 is always in the head
+
+because 4 is smaller now
+
+Then if you add 2, this time 2 becomes the head
+
+Because 2 is less than 4
+
+But the strange thing is that when it goes in,
+
+it doesn't become [2, 4, 7]
+
+If it does, it becomes difficult to maintain this heep
+
+I'll just talk about that to that extent
+
+So this whole thing is not sorted
+
+But minimum comes first
+
+Then if you put 5 in, you get [2, 5, 4, 7]
+
+Because 5 is not less than 2, it goes backwards
+
+But that doesn't mean it goes backwards because it's less than 4
+
+Then, if you put 9 in [2 5 4 7 9], 9 will go to the very end,
+
+but does that mean it is sorted now?
+
+That's not it either. Then, if you peek at the Queue,
+
+peek will take the item at the head and print it
+
+Up until here, we haven't popped it yet
+
+We haven't polled it, but we did a remove here
+
+So we do removing 2, and the 2 that peek returned is printed
+
+Why is 2 actually removed? It's printed because of the remove,
+
+and when we print the Queue here, it becomes [4, 5, 9, 7]
+
+After that, we simply use a for loop to do a for loop on the Queue,
+
+and if we attach the Queue and print it, 4 is returned like this,
+
+and it's removed at the same time
+
+So only [5, 7, 9] remains
+
+But if you look at it, 597 becomes 579, so 4 comes first and 5 comes first,
+
+so it's correct to maintain the minimum,
+
+but the order after this isn't necessarily sorted
+
+Okay, next I'm going to talk about an interface called iterator
+
+What it does is, when there is an order,
+
+it allows access to the data in the collection in order
+
+So, when generating an iterator, it is done like this
+
+If al is a collection,
+
+calling the iterator method on
+
+al will immediately create a new iterator
+
+Then, the methods that this iterator can call are hasNext,
+
+next, and remove
+
+hasNext checks if there are any elements left to read, and returns true
+
+if there are, and false if there are none
+
+Next reads the next element, and it is safe to call hasNext
+
+before calling next to check
+
+if there is an element to read
+
+Then, remove deletes the element read by next,
+
+so you have to call remove after calling next
+
+This means that you must call next first. If you look at an example,
+
+the iterator is also under java.util,
+
+and in order to use arrayList,
+
+I imported java.util arrayList
+
+And then I created an arrayList
+
+I created an arrayList, used new, and added C, A, E, B, D, F
+
+Original Content of al is now going around
+
+using an iterator and printing it
+
+I created a new iterator, and al called the iterator
+
+to create an iterator called itr
+
+ITR's hasNext returns a negative value,
+
+which returns whether there is a next one or not
+
+If hasNext exists, that is, Next,
+
+it enters the while loop and reads the element itr.next()
+
+Test hasNext first and then use next
+
+Then I used System.out.println to print
+
+the element like this
+
+In this way, the original content of al will be printed in the order
+
+in which they were entered: C A E B D F
+
+In fact, there is no difference between using a for loop and using get
+
+But now, what makes this iterator useful is that
+
+when you go to a Collection that has no order at the back,
+
+you have to traverse everything once to read it, but since there is no order, it becomes a bit difficult
+
+This is where iterators come in handy
+
+And ListIterator can be changed to bidirectional
+
+So next, previous, going back and going forward
+
+are all possible
+
+Then next index, previous index
+
+Then you can use add, remove, set to add
+
+or remove something new or change something
+
+Let's take a look at using ListIterator
+
+ArrayList al. I created that ArrayList
+
+I put C, A, and E in it
+
+First, we create a ListIterator and proceed in the next direction,
+
+going from front to back
+
+We proceed in the order of C, A, E, and read the elements as next
+
+Then, we set this as a string with a plus added to the current element
+
+Since we currently have C, A, and E, we will change them to E+, A+, and C+
+
+The order is reversed now
+
+Why is that? The list iterator called litr has now reached the end
+
+I want to go all the way to the end
+
+until hasNext is false and then go back in the opposite direction
+
+It calls has previous of litr
+
+and keeps going back to previous side, keeps reading
+
+with litr previous until the first element, and prints the element
+
+If you do this, the order here will be C, A, E,
+
+but since it goes back in reverse,
+
+it will be E, A, C, and since we set it earlier, + will be added,
+
+so E+, A+, C+ will be printed
+
+This means that ListIterator can be used to go back and forth
+
+in the forward and reverse directions
+
+Finally, we have a utility called Arrays
+
+We have a utility class, and it now has an s after Arrays
+
+These Arrays are a very useful utility
+
+So if you guys had known about this earlier, you probably would have tried to use these Arrays
+
+So, if you look at it, it's an array of double type, {1.0,
+
+1.1, 1.2}, and this is a 2D array arr, so it's entered like this
+
+If you directly do toString on this array called values, it will come out like this
+
+It has toString, but the reason it has it is
+
+because when these values become array,
+
+they become objects at that moment. So, we use Object's toString
+
+But, we can use this primitive type or any array
+
+type as an Object,
+
+but we can't override the methods of the Object class itself
+
+So this toString is printed strangely like this,
+
+and I can't change it
+
+In this case, you can use Arrays
+
+Arrays has a static utility method called toString
+
+So, if you put an array called values here,
+
+it will be printed just like the print
+
+and println that we used in Collections
+
+Next, Arrays.deepTostring is used to print
+
+multi-dimensional arrays of more than 2 dimensions
+
+like this:
+
+This is equals, but this is also when comparing two arrays,
+
+if we were to write something like equals ourselves,
+
+we would have to write a boolean method that does this
+
+by running two for loops,
+
+right? But that is also provided
+
+So when two arrays are the same, the contents of arr1 and arr2 are the same
+
+If the contents are the same, it will now return true
+
+Then deepEquals sets this to true because the two
+
+arr and arr3 in front here have the same content
+
+That is, deepEquals() is used to test the equality
+
+of a multi-dimensional array
+
+Then there is copyOf and copyOfRange
+
+CopyOf creates an area that goes into the original array
+
+So basically, when arr is 0, 1, 2,
+
+3, 4, it will have the size of length up to arr length, so it will all go in
+
+So, arr2 will be copied as 0, 1, 2, 3, 4, and if you do copyOf(arr, 3),
+
+only 0, 1, 2 from the front will be copied
+
+Then 7, since there are only 5 of these now, 2 are missing
+
+The missing parts are filled with 0 and copied to create arr4
+
+copyOfRange starts from 2 and goes up to 4,
+
+so it is 0, 1, 2, 3, 4, so the start index is endindex,
+
+and so it copies up to endindex-1
+
+This is also done like this, if this index exceeds,
+
+it will be filled with 0
+
+It's fill and setAll. When you want to fill all arr with the same element,
+
+fill is like this: 99999
+
+For setAll, you can specify the value that goes after it like this
+
+So if you do something like Math.random()
+
+* 5 + 1 , it will fill in a random number between 1 and 6
+
+Now, next, there is something called asList, which will create a List
+
+So, we put the array elements here like this
+
+We put them in like this. Then, we convert this into a list and return it
+
+So, what makes this convenient is that if you look at the constructors of these Collections,
+
+they all have ArrayList or LinkedList,
+
+which takes a List as a bunch and creates a List with that as data
+
+So is there no way to actually give data like this
+
+and do I have to add add add one by one?
+
+You may be thinking like this
+
+As you can see here, you can easily give the data like this,
+
+make it into a list
+
+like this, and pass it as a collection,
+
+so you can use it easily when initializing it like this
+
+Then, Sort and Binary Search are also implemented
+
+When you Sort on Arrays, you are basically sorting the Array
+
+Then [3 2 0 1 4]
+
+is printed as [0 1 2 3 4]. What is Binary Search?
+
+If there is 2 in arr, it returns the Index, otherwise it returns -1
+
+Let's do this
