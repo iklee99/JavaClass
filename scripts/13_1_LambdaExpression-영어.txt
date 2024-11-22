@@ -1,0 +1,237 @@
+﻿I will lecture on Lambda Expressions
+Page Two
+Here we will look at some terminology necessary
+to understand Lambda expressions
+In general programming terms, a function
+is a set of instructions that define a function or behavior
+Meanwhile, in Java, a method can be said to be a function
+defined within a class or interface
+Therefore, to create a function in Java, that is, to use a method, you must always create a class
+object first and then call the method with the created object
+Except for special cases like inheritance,
+even if there is a feature that is common to all classes,
+you will have to define that method in every class
+On the other hand, an interface that has only one abstract method
+is called a functional interface
+Labmda expressions can only be applied to this functional interface
+We will learn more details in the future
+Page 3 In general Functional Programming, not Object
+Oriented Programming, common functions
+can be defined independently
+as a single function
+and then called and used in different modules
+That is, instead of redundantly
+defining the common functionality in each module,
+you can call an independently defined function
+and use the functionality provided by that function in any module
+A programming style based on function
+calls like this is called functional programming
+Page 4
+However, since Java is an object-oriented language,
+all methods are defined inside a class or interface
+That is, it is impossible to construct an independent function externally
+A method must always exist as a method inside a class,
+and to use a method, you must first create an object of the class
+and then call the method
+Since all methods are located within a specific class,
+this is an inevitable process to use the function of that method
+As you can see in the figure, method
+abc is defined inside class A and method def is defined inside class B
+To call method def in class
+A, you can first create an object of class B,
+small b, and then call it with b.def()
+Similarly, if you want to call abc() inside class B,
+you can first create small
+a, an object of class A, and then call it with a.abc()
+However, this is far from the original functional programming,
+which defines a function with some functionality
+externally and performs a function by calling this function,
+and it may also seem cumbersome
+Page 5
+The method that came out to solve the above problem is 'lambda expression'
+Instead of defining a new function
+syntax, Java uses the syntax of existing interfaces to express lambda expressions
+You may remember that an interface that contains only one abstract
+method is called a functional interface
+The lambda expression is a new grammar
+that defines how to call and implement the functions of this functional interface
+In summary, lambda expressions can be thought of
+as a technique that enables functional programming within the existing object-oriented program system
+So, before we define lambda expressions grammatically,
+let's first
+take a quick look at how lambda expressions are applied within
+Java's object-oriented structure
+Here, the three cases demonstrate the process of creating an object that inherits a functional interface,
+implements an abstract method, and then calling the method, compared to the existing method
+and the method using lambda expressions
+In the first case, we create a class B that implements interface
+A with an abstract method abc()
+After that, an object is created using the constructor of class B,
+and a.abc() is called through the object's reference variable a
+In the second case, we create object a using an anonymous inner class
+without explicitly defining the class,
+and then call the a.abc() method through this object
+The last third case is a method that utilizes a lambda expression
+It takes only the body part of the method of an anonymous inner class,
+excluding the method name, and defines
+and calls the method with a lambda expression
+That is, considering only the grammatical meaning,
+a lambda expression can be said to be a shorthand expression
+for an anonymous inner class
+Page 6
+This is an example program
+that shows how to implement the three cases above
+Interface A has an abstract method
+abc(), and class B implements interface A as in case 1
+In the main method of the main class
+OOPvsFP, in case 1,
+first, object a1 of class B is created and method
+abc() is called using this object
+Page 7 Case 2 creates an object
+using an anonymous inner class
+rather than implementing the interface as an explicit class
+a2 is created as an object of an anonymous inner class,
+and abc() is called using a2
+In Case 3, object a3 was created
+using a lambda expression to follow the functional programming structure
+The execution result of this program was also printed well
+A lambda expression is a form that removes the previous part,
+including the method name inside the anonymous inner class definition
+That is, a lambda expression
+can be seen as a shortened form of an anonymous inner class
+If you understand this far, you can probably guess why only functional interfaces
+with only one abstract method inside
+can be expressed as lambda expressions, as mentioned earlier
+This is because lambda expressions omit the internal method name,
+so if there are two or more abstract methods to implement,
+it is impossible to distinguish which method has been implemented
+Page 8
+Now, let's take a look at the syntax for converting the method
+definition of a functional interface
+implemented inside a class into a lambda expression
+When expressing an implemented abstract method as a lambda expression,
+only parentheses ( ) and curly brackets { } are included in that order after the method name, and an arrow
+( -> ), which is a lambda expression symbol, is placed between them
+Parentheses indicate input parameters, and curly brackets indicate the body of the method
+Here's an example of conversion to an actual lambda expression:
+The first is for a void method with no parameters
+The second is for void methods with one parameter
+At this time, you can also specify the type of parameter in the lambda expression
+The third case is when there are no parameters and a return value
+In lambda expressions, the return type is not specified,
+and the body simply ends with a return statement
+The fourth is when it takes two parameters and returns
+a double value
+Page 9 Lambda expressions
+are a shorthand way of creating objects
+using anonymous inner classes
+This lambda expression can be expressed more concisely under certain conditions
+First, when there is only one statement to be executed within the curly brackets, the curly brackets can be omitted
+Obviously, if it contains more than two lines of code, it cannot be omitted
+Secondly, the type of the input parameter can be omitted
+The reason why this omission is possible
+is because the input parameter types are already specified in the abstract methods included in the functional interface,
+so the compiler can figure out the types of the parameters
+When there is only one input parameter, the parentheses can be omitted
+However, when omitting parentheses, the parameter type must be omitted
+Finally, if a method consists of only one return statement,
+return can be omitted
+However, when you omit return, you must also omit the curly brackets
+Page 10
+From now on, I will explain the usage of Lambda expressions
+by dividing them into three types
+Type 1, as we have seen so far,
+is used as a shorthand expression for the implementation method
+inside an anonymous inner class
+Type 2 is used for method references
+Here, referencing means that when implementing a method of a functional interface,
+instead of implementing it directly,
+we will use an existing function
+That is, in the shorthand notation of anonymous inner class,
+Type 2 is replacing the abstract method of the functional interface
+with an existing method instead of directly implementing it
+Finally, in Type 3, a lambda expression is used in a constructor reference
+A constructor reference is when the content of the implementation method is
+fixed to only the object creation code
+Ultimately, lambda expressions take these three forms
+depending on how they implement the abstract
+methods of the functional interface
+The abbreviated form of method
+implementation on page 11
+is what we have been seeing so far
+First, there is a functional interface
+As mentioned before, a functional interface
+can have only one abstract method
+In this example, there is an abstract method,
+method4, in interface A
+The simplest way we've used in the past
+to implement this functional interface
+was to use an anonymous inner class
+In this example, Anonymous inner class
+is used to create a, an object of Interface A
+Method 4 is also defined in this anonymous class
+This anonymous class can be further shortened
+using a lambda expression
+The method name, method4, is also omitted,
+and only the parameter list and body are present
+In fact, in this example,
+since there is only one statement in the body, return,
+the curly brackets and the return keyword can be omitted,
+and the parameter types in the parameter list can also be omitted
+Page 12
+Now let's look at an example code
+where a Lambda expression is actually used
+The functional interface
+Bftl2 has an abstract method method2
+method2 is a void method and has one parameter of int type
+Functional interface Dftl2's method4
+has two parameters, int and double,
+and the return type is double
+In the main method, object
+b2 of Bftl2 interface is created with lambda expression
+By executing b2.method2(3), output a = 3 is printed
+Object d4 of Dftl2
+is a greatly abbreviated version of lambda expression
+in which parameter type, return, and curly
+brackets are omitted
+When calling d4.method4(2, 3), output 5.0 is printed
+Page 13 When there is an abstract method abc() in interface
+A and a method bcd()
+is defined in class B,
+the role of the lambda expression that creates an object
+a2 of A is simply to create an object
+b of class B and call b.bcd()
+In this case, the lambda expression can be further abbreviated as A a3
+= b::bcd; Of course,
+in this case, the object b of B must be created in advance
+This expression means replace the a3.abc() call with the b.bcd() call
+Page 14 In interface A, there is an abstract method abc(),
+and this time, bcd()
+defined in class B is a static method
+The lambda expression that creates a2, an object of A, simply calls
+the static method B.bcd() of class B
+In this case, the lambda expression can be further abbreviated as A a3
+= B::bcd; , which means
+replace the a3.abc() call with the B.bcd() call
+Since bcd() is a static method,
+there is no need to create an object of B simply for the method call
+Page 15
+This time, the return type of the abstract method in interface
+A is an array
+The lambda expression that creates an object small a of this interface
+A is new int[len];
+A more concise way to express this
+lambda expression is A a = int[] :: new; 
+This expression replaces the a.abc(len) call with the new int[len]; call
+Page 16
+In this example, the role of the Lambda expression is to create and execute B(int k),
+which is the constructor of the B class
+At this time, the abbreviated representation of this lambda expression
+is A a = B :: new;
+Since there is no expression after new here,
+it is easy to misunderstand that the expression B :: new means
+a default constructor call of B
+However, method abc originally defined in interface
+A receives an int parameter
+Therefore, the expression B::new can be interpreted as meaning
+constructor B (int k)

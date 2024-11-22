@@ -42,6 +42,8 @@ public class FunctionToLambdaExpression {
         Bftl b4 = (a)->System.out.println("입력 O 리턴 x 함수"); //중괄호 삭제 가능 (한줄 명령일때만 가능)
         Bftl b5 = a->System.out.println("입력 O 리턴 x 함수"); //입력 매개변수가 하나인 경우 소괄호도 생략가능
 
+        b2.method2(3);
+
         //#3. 입력 X   리턴 O
         //@3-1 익명이너클래스 방식
         Cftl c1 = new Cftl() {
@@ -68,6 +70,8 @@ public class FunctionToLambdaExpression {
         Dftl d2 = (int a, double b)->{return a+b;};
         Dftl d3 = (a, b)->{return a+b;};
         Dftl d4 = (a, b)-> a+b;
+
+        System.out.println(d4.method4(2,3));
 
     }
 }

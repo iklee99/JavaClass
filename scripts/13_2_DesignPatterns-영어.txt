@@ -1,0 +1,132 @@
+﻿Let's learn about UML and design patterns
+These two are very important tools in object-oriented software design
+Page Two
+UML and design patterns are software design tools that can be applied
+regardless of programming language
+However, the language must provide object-oriented programming capabilities
+Let me first give a brief introduction to these two topics
+UML stands for Unified Modeling Language,
+a graphical language used to design and document software
+within an object-oriented programming framework
+A design pattern serves as a template
+or outline for a software task that can be implemented with different code across similar applications
+UML and design patterns improve the software design
+process, increase code
+reusability, and facilitate communication between developers
+It also demonstrates best practices in object-oriented programming
+Page 3
+Most people don't think of the solution to their problem as a programming language
+So computer scientists have been looking for more intuitive ways to express programs
+One of them is pseudocode, which mixes programming language and natural language
+Pseudocode has become a standard tool for programmers,
+but it remains limited to linear and algebraic expressions
+It has the limitation of lacking graphic elements
+Page 4
+In the past, there were various graphic representation methods such as flowcharts and structure diagrams,
+but most of them are now outdated
+A strong candidate for current graphical representation is UML
+Page 5 UML is designed to reflect
+the philosophy of object-oriented programming
+Although many companies are adopting UML for their software design projects,
+it is still in the evolving and validation phase
+Page 6 UML evolved
+along with object-oriented programming (OOP)
+As OOP became more widely used,
+several groups created their own versions of OOP design representations
+In 1996, Grady Booch, Ivar Jacobson, and James Rumbaugh
+published an early version of UML
+The goal of UML was to standardize a graphical representation for
+object-oriented design and documentation
+The current UML standard is maintained and certified by the Object
+Management Group, or OMG
+OMG is a non-profit organization that promotes the use of object-oriented technologies
+Page 7 UML class
+diagrams are the heart of object-oriented programming
+It provides a graphical representation of the class structure, making it easier to understand and use
+A class diagram consists of boxes divided into three parts
+The class name is located at the top, data specifications (instance
+variables) are located in the middle, and actions (methods) are located at the bottom
+Color coding is optional and not standardized
+Page 8 Class
+diagrams show access modifiers as symbols
+Minus indicates private, plus indicates public, sharp indicates protected,
+and tilde indicates package access
+A class diagram does not need to list all members
+Omitted members are indicated by ellipses (...)
+This is useful when focusing on a specific analysis
+Page 9 Class diagrams alone are of limited value
+UML provides a variety of ways to show
+interactions between classes
+For example, there are annotated arrows indicating information flow, package
+grouping, inheritance notation, etc
+UML can be extended to suit specific requirements
+These extensions are made within a defined framework,
+allowing different developers to understand each other's UML
+Page 10 Let's learn about inheritance
+diagrams in UML
+It is used to represent class hierarchies
+Let's use a university's records management software as an example
+The main features of an inheritance diagram are:
+Arrows point from the child class to the parent class,
+with empty arrow heads indicating an inheritance relationship
+Page 11 The arrows help you find
+method definitions
+For example, when looking for a method in the Undergraduate class,
+it first looks in the Undergraduate class, and if it's not there,
+it looks in the Student class, and if that's still not there, it looks in the Person class
+Let's take a look at Example 12 on page 12
+We create a Student object with Student s =
+new Student(); s.toString() and s.set(“Joe”, 4242)
+can be found in the class Student
+Since s.setName(“Josephine”) is not in Student,
+it goes up to its parent
+and can be found in the Person class
+Page 13
+Design patterns are design outlines
+that can be applied to a variety of software applications
+Patterns should be useful in many situations
+and include assumptions about the application domain to which they apply
+The container-iterator pattern is one of the well-known patterns
+A container is a class that holds multiple pieces of data,
+and an iterator is a structure that iterates over container items
+For example, an array index acts as an iterator for the array
+Page 14 The Adapter pattern transforms
+one class into another
+by adding a new interface without changing the existing class
+For example, you can create a stack data structure
+by adding a stack interface to an array
+You can also create a queue data structure
+by adding a queue operation to a linked list
+Page 15 MVC pattern is an abbreviation for Model
+View Controller Pattern
+This pattern separates the input/output operations of an application from the rest of the application
+The model is responsible for the core functionality, the view is responsible for displaying the output,
+and the controller is responsible for processing the input
+Page 16 A simple example of the MVC pattern would be a model,
+a container class like an array,
+a view would be responsible for displaying array elements,
+and a controller would be responsible for ordering
+the display of a specific index
+This pattern is particularly suitable for GUI design projects
+Page 17 Most efficient sorting algorithms follow
+a similar pattern
+This pattern uses a recursive approach to split the list,
+sort it, and then merge it back together
+Page 18
+This slide shows pseudocode for the divide-and-conquer sorting pattern
+This code shows a method to sort an array in ascending order
+The core of the sorting pattern is these four lines of code
+Split the array with the split method,
+sort it recursively, and then
+combine it again with the join method
+Page 19 The split method rearranges
+and splits an array segment
+The join method merges two sorted intervals
+Depending on how these two methods are implemented, various sorting algorithms are created
+The flexibility of this pattern lies in the different implementations of the split method
+It can be applied to various alignment strategies,
+such as simply dividing intervals or performing more complex rearrangements
+Page 20 Design patterns are a growing field
+in software engineering
+Although many patterns are known now,
+more will be discovered and refined in the future
