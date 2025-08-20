@@ -4,16 +4,17 @@ public class TryCatchDemo {
         int[] a = new int[3];
         for (int i = 0; i < 4; i++) {
             try {
+                System.out.print("a[" + i + "] = ");
                 a[i] = Integer.parseInt(str[i]);
-                System.out.println("Index " + i + " parseInt done");
+                System.out.print(a[i]);
             } catch(ArrayIndexOutOfBoundsException e) {
-                System.out.println("Array index exception at index " + i);
+                System.out.print("Array index exception");
             } catch(NumberFormatException e) {
-                System.out.println("Number format exception at index " + i);
+                System.out.print("Number format exception");
             } catch(Exception e) {
-                System.out.println("Other exception at index " + i);
+                System.out.print("Other exception");
             } finally {
-                System.out.println("finally index " + i + " done");
+                System.out.println(" done");
             }
         }
     }

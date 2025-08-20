@@ -1,0 +1,160 @@
+﻿This is the lesson plan for Object-Oriented Programming (CCO1102)
+Class hours are three hours per week
+Of these, two hours per week
+will be conducted as offline classes,
+and one hour, scheduled late in the evening,
+will be replaced with a video lecture
+The classroom for offline classes
+is room D504 in the 4th Engineering Building
+The lecture is taught by Professor Lee In-kwon of the Department of Computer Science
+His email address is iklee@yonsei.ac.kr
+Professor Lee In-kwon's lab
+is in room D719 of the 4th Engineering Building
+Interview times are generally available
+one hour before or after class,
+but please make reservations via email if possible
+Please take advantage of the brief
+individual interviews available during the practical training time during offline classes
+In addition to the professor, there are two TAs
+Please check the TA's email address in the notes
+TAs reside in the Computer Graphics Lab, Room
+D712, Engineering Building 4
+This course uses the Java programming language
+and provides theory
+and practice of object-oriented programming
+This course is not intended for beginners,
+but for students who already have programming experience
+Object-oriented programming, or OOP for short,
+is a term used to describe
+the basic concepts of OOP,
+including class, object,
+inheritance, polymorphism, and encapsulation
+Through these concepts,
+you will learn how to design
+and implement efficient software systems
+that are robust,
+reusable, and maintainable
+Throughout the course, you will learn
+the skills needed to solve real-world
+programming problems using the Java language
+This course is intended for students
+who have experience learning
+at least one programming language
+Looking at the introductory programming courses
+offered at Yonsei University,
+there are a wide variety of courses
+listed in this slide
+Of course, in addition to this,
+it is also possible to learn through other channels
+such as basic programming
+courses offered by each college
+or department, or online lectures
+even if the course is not offered
+In other words, although
+this course covers the basic programming part,
+it is not suitable for those who are new to programming
+because it progresses very quickly
+I hope these facts will help you decide
+whether to take the course or not
+There is no separate textbook;
+classes are conducted solely with lecture notes and video lectures
+In fact, there are many good textbooks covering the Java language
+and object-oriented programming,
+and there are many good lectures,
+both paid and free, on the Internet
+Among them, if we look at the recently
+well-received reference materials,
+there is a Korean textbook called "This is Java"
+and among the English textbooks, there is Christian Uhlenboom's "Java:
+The Comprehensive Guide to Java Programming for Professionals"
+I will introduce the class progress method
+Students watch video lectures and lecture notes
+provided each week,
+and complete quizzes
+Additionally, students are given two or three programming assignment
+problems each week
+Students can discuss and solve these problems with other students in their team
+during the practical training sessions held during offline class hours
+Any problems that were not solved during the practical training period
+must be submitted by midnight the day before the offline class the following week
+Programming practice and assignment
+submissions are conducted through an auto-judge server
+The auto-judge server automatically grades
+the programs
+submitted by students, and accepts assignments
+if the submitted programs function properly
+and satisfy all the requirements of the problem
+The midterm and final exams, which carry the most weight in grading,
+are closed-book written exams
+and include various types of questions, such as coding,
+subjective, short answer, and multiple choice
+Let me tell you about the grading criteria
+that you're most interested in
+This subject is a relative evaluation subject
+Therefore, the maximum ratio of A and B grades is limited
+For reference, I have been giving almost the maximum ratio of A and B grades
+unless there are any special circumstances
+The detailed grading criteria are: midterm and final exams are 35% each,
+Programming assignments will be graded at 15%, quizzes at 10%, attendance
+at 3%, and Q&A participation at 2%
+All questions and answers are answered through LearnUs' Q/A board
+Students can ask and answer questions
+anonymously and share useful information
+Engagement scores are based on engagement with answers
+or useful information, not questions
+In addition to attendance, this course uses a designated seating system
+From the second week onwards, three members of the same team will sit together
+Therefore, attendance check will be done by TA
+Also, attendance for one hour of the night class will be automatically checked
+based on whether or not you watch the video lecture,
+so please be sure to watch the lecture video
+Let's take a quick look at the weekly study schedule
+First, in the first week,
+we will set up the programming environment with an introduction to
+object-oriented programming and the Java language
+Any lectures that were not completed during the offline
+class must be viewed as video lectures and submitted by midnight
+the day before the next offline class
+Starting from the second week,
+video lectures and quizzes will be uploaded every week
+Students will watch the video lectures
+and take the quizzes by midnight the following Thursday
+During offline classes,
+programming practice assignments are given
+based on the content learned in the video lectures the previous week
+Students can discuss and solve problems with their teammates
+during lab time,
+and freely ask questions to TAs and professors
+Answers to the practical assignments must be submitted to the auto-judge
+server and accepted before midnight the day before the offline class the following week
+The learning content for the second week
+includes basic Java programming before OOP concepts,
+i.e., Operator, Control Structure, Screen Input/Output, and String class
+In the third week, we will learn about reference types,
+arrays, and enumeration types that we need to know
+before learning about full-fledged OOP concepts
+In the fourth and fifth weeks, we will learn about classes, which are the most basic concepts in OOP
+However, due to the large amount of material, we split it over two weeks
+In the 4th week, we will learn about
+the concepts of class, object, instance,
+fields such as variables and constants, and constructors
+In week 5, we will learn about methods,
+the difference between instance and static members, packages, and access modifiers
+In week 6, we will learn about inheritance,
+a very important concept in OOP
+We will learn about the concepts of type conversion and polymorphism,
+and the meaning of abstract classes
+In week 7, we will learn about interfaces,
+which have a higher degree of freedom than classes,
+and about nested classes and nested interfaces
+There will be a midterm exam in the 8th week
+In week 9, you will learn about exception
+handling mechanisms that can handle avoidable software errors
+In week 10, we will introduce the Object class,
+which is the ancestor of all classes, and generics,
+which can be used by swapping types
+In Week 11, you'll learn about the Collection Framework, a powerful fundamental data structure provided by Java
+In Week 12, you'll learn about recursion. In Week 13, you'll learn about Java's multithreading capabilities,
+which allow you to perform multiple tasks simultaneously while controlling their order
+In Week 14, you'll learn about Lambda Expressions and design patterns, which allow you to create anonymous functions for concise processing
+Final exams are held in the last week

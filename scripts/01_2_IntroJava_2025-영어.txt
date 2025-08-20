@@ -1,0 +1,303 @@
+﻿In this lecture, we will briefly introduce the Java language
+that will be used in this course
+First, I think it's necessary to explain why
+we chose Java for our OOP course
+Java can be seen as a pure Object
+Oriented Language itself
+Therefore, it is an ideal language
+for studying the main concepts of OOP
+For example, in Java programs,
+all variables and methods must belong to some class
+Code without a class cannot exist in Java
+If you look at this Java program,
+all the code is implemented within the class IdealOOP
+Therefore, Java programming can be said
+to be a continuous process of implementing classes
+Another reason we use Java in our course is that,
+although it is an older language,
+it is still widely used
+For example, it is widely used in implementing large-scale
+enterprise systems, server implementations,
+the Android operating system, and the implementation of cloud systems
+This is the TIOBE index,
+which ranks programming languages
+based on how frequently they are used
+Here, Java, highlighted in orange,
+has been hovering between the first and second places
+in rankings since 2002 to the mid-2010s
+Python, shown in blue, began to gain traction in the mid-2010s
+with the advent of deep learning, and as of 2024,
+it holds the undisputed top spot
+Below that, you can see the traditionally used languages
+C, C++, and Java
+Let's briefly introduce the history of the Java language,
+focusing on its application areas
+In the early 1990s, Java was developed by Sun Microsystems
+as a programming language for consumer electronics
+Java was officially released in 1995,
+and with the philosophy of "Write Once, Run Anywhere,"
+it was initially used primarily for developing applications
+that ran on the web, i.e. applets
+It began to be used for corporate application development in the late 1990s
+and into the 2000s, and from the mid-2000s,
+it emerged as the main language for large-scale
+corporate system development
+In the mid-2000s, it also began to be used in the field
+of mobile application development,
+and was widely used in the development of feature
+phone applications in the pre-smartphone era
+In the 2010s, the Android system was implemented in Java,
+establishing it as the main language for Android app development
+Java is still being used in various fields today,
+including web servers, enterprise systems, Android apps, Hadoop,
+a technology that processes large amounts of data by connecting multiple computers to process
+big data, and device control for the Internet of Things (IoT)
+It is predicted that Java will continue to be widely used in the future
+The Java language is expected to continue to play a role in the development of various applications that run on the cloud,
+its use in the fields of artificial intelligence and machine learning is gradually expanding,
+and its importance in microservice architecture is expected to continue,
+so reusable classes that take charge of detailed functions
+are gradually increasing, and through interoperability
+with other JVM languages that compile to byte code (Kotlin, Scala,
+etc.), the Java ecosystem itself is expected to expand
+and its competitiveness is expected to continue through performance improvements
+and support for new hardware architectures
+Java is a cross-platform programming language
+"WORA", or "Write Once Run
+Anyware," is the acronym for this Java feature
+To run a program written in the Java language, you compile it with the javac compiler,
+which produces a ".class" file expressed in "Byte Code",
+an intermediate language that is the same
+for all types of processors or operating systems
+These .class files run in a software virtual machine
+called the Java Virtual Machine (JVM)
+In other words, bytecode can be viewed as the machine language of the JVM
+Of course, JVM is a
+platform-dependent software that is implemented differently on each platform,
+but since byte code has a very simple format,
+the difficulty of implementing JVM is not that high
+This program is a simple program that adds the values of two integers
+a and b and prints them using a class called Add
+I will explain in more detail later,
+but in order for a class to run as a program,
+it must have a ‘main’ method,
+and the program will run from the main method
+First, assign 5 and 3 to two variables
+a and b of Integer type, respectively
+Another integer type variable, result,
+will have the value of adding a and b,
+and the resulting value, result, will be printed on the screen
+The JVM has a simple stack machine architecture
+As you can see in the picture, in Stack, input and output occur in only one direction
+When the stack is empty, the TOP index, which teaches the Stack Top, is -1
+When one piece of data is pushed onto the stack, the TOP index is increased by one, and the data is stored in stack[TOP]
+Here, you can see that the TOP index is increased by one from -1 to 0, and the data '1' is stored in stack[0]
+In this way, the push operation stacks new data
+one by one
+on top of the existing top element
+The pop operation removes the current top element
+and decreases the top index by one
+This program is an example of a Byte Code program
+obtained as output by compiling Java source code using javac
+Each line of Byte Code has a line number,
+and each line can be represented by either a single byte
+(i.e., 8 bits) or two hexadecimal digits
+Before the byte code program starts, the JVM's variable
+array and stack are initialized
+At line 0, the bypush instruction (operation) is encountered
+This command pushes the data (operand) of the immediately
+following byte onto the stack
+The figure on the right shows the state of Variable memory and the stack
+after execution up to Line 1
+As you can see in the picture, 5 is pushed onto the Stack,
+and the TOP index is 0
+In Line 2, the top element of the Stack is popped
+and stored in V[0]
+In Line 3, constant 3 is pushed onto the Stack
+In Line 4, the top element of the Stack is popped
+and stored in V[1]
+In Lines 5 and 6, V[0] and V[1] are pushed onto the Stack
+Line 7 pops two elements from the Stack, adds them,
+and then pushes the result back
+That is, here, 3 and 5 are popped, added,
+and the result, 8, is pushed
+In line 8, the top element of the stack is popped
+and stored in V[2]
+Lines 9 to 12 display the result, V[2], i.e., 8
+The byte code in the previous slide
+is executed in an interpreter called JVM
+The compiler first completely
+translates the source program into target code
+and saves it as an output target code file
+However, unlike the compiler,
+the interpreter executes commands one by one
+That is, it does not create an output file
+that has completed the translation like a compiler
+Because JVM is relatively simple, it can be implemented without difficulty
+Here, we implemented JVM in Python
+This “main” part should actually be placed later
+in a Python program,
+but let’s look at it first for easier understanding
+To define the JVM's stack and variable as a list,
+their sizes were set to 100
+Stack pointer sp has an initial value of -1,
+but maintains the index of the current stack top
+And all the elements of the stack and variable list
+are initialized to 0
+As explained above, the bytecode program
+is stored as a list of two-digit hexadecimal numbers
+These hexadecimal numbers are read in order,
+changing the state of the JVM and executing the program while interpreting it
+The function responsible for execution is jvm_execute
+After execution is complete, print the value of v[2] as the result
+The jvm_push function is a function
+that pushes a given value onto the stack
+Increments the value of the current stack pointer
+(sp) and assigns a value to that index in the stack list
+The jvm_pop function returns the current stack's top,
+That is, by returning the value of stack[sp],
+it decreases the value of sp and decreases the top index of the stack by one
+The jvm_execute function receives a list of bytecode programs
+as a parameter, interprets the commands
+one byte at a time, and executes them
+The global variable sp refers to the JVM's stack
+pointer, and v is a variable array within the JVM
+PC is an abbreviation for "program counter," and is an index
+used to read each instruction of a bytecode program,
+increasing as the program is read
+In the body of the while statement,
+the entries in the bytecode list are interpreted one by one
+and the corresponding tasks are performed
+For example, 0x3c is the “istore_0” instruction,
+which moves the value at the top of the stack to v[0]
+The remaining commands were also explained in the previous slides
+Please try following the bytecode program and check it out
+This table shows the differences between Compiler and Interpreter
+First, in terms of translation time,
+the compiler must finish compiling before the target
+code is executed
+However, the interpreter translates line-by-line
+during execution
+In terms of execution speed, the compiler is faster than the interpreter
+Because the compiler executes the program
+after translation is complete,
+it's significantly faster than the interpreter,
+which executes the program line by line
+While the compiler can find all errors at compile time,
+the interpreter can only find errors
+in the currently executing line
+Compilers produce executable files, but interpreters execute code line by line,
+so no executable files are created
+Representative languages that use compilers include C and C++, and in Java,
+the process of converting source code to bytecode is called compilation
+Representative interpreting languages include the process of executing
+bytecode in Java,
+Python, JavaScript, and Ruby
+If we look back at the execution
+process of a Java program, at compile time,
+the compiler translates the Java source code into a bytecode program
+This bytecode program is executed line by line,
+interpreted within the Java Virtual Machine (JVM),
+which is implemented in software
+Because the interpretation process is relatively slow,
+various devices have been researched to improve speed
+JVM has a device called JIT,
+or Just-In-Time Compiler, to speed up interpretation
+JIT compiles the byte code
+parts that are likely to appear frequently in advance into the machine
+language of the actual computer on which the JVM is running
+Later, when the byte code part actually appears again,
+it uses a
+pre-compiled machine language version to enable fast execution
+Now, let's summarize the features of the Java language
+First, Java is an
+object-oriented language with classes as its basic unit
+Additionally, the same source code can be executed
+regardless of the type of computer hardware
+or OS through a mechanism using bytecode and JVM
+This characteristic is called “platform independence.”
+The Java language automatically collects
+and reuses memory that is
+no longer being used during program execution
+This function is called “automatic garbage collection.”
+This feature makes Java easy to learn,
+as it doesn't require complex pointers
+or dynamic memory management like C++
+Because it uses static typing, strict data type rules must be followed,
+which helps prevent programmer errors
+Java also has the ability to program jobs to run concurrently,
+which are smaller than processes, called threads
+Java provides excellent networking capabilities and, with JIT and other features,
+overcomes the limitations of interpreters, enabling fast execution
+As long as JVM is implemented,
+it can be easily run on new platforms, and many useful standard libraries are provided
+To get a quick overview of Java's features,
+let's look at the differences between the Java and Python languages
+First, let's look at the program structure
+Python allows you to write programs without using classes
+Of course, the Python language also has OOP concepts
+and can define classes,
+but it is not mandatory to use classes
+However, in Java programs,
+everything must belong to a class
+In the case of this example program, one class called PythonVSJava
+makes up the entire program
+From a type system perspective,
+the type of a variable is not fixed in Python
+In this example, variable x becomes an “integer” type
+the moment the value 5 is assigned,
+and when “Hello” is assigned to x again,
+x changes to a String type
+However, in Java, such free type change is not possible
+All variables have their type fixed before they are used,
+and the type of a variable cannot be changed during program execution
+Also, in Python, there is no need
+to declare the type of a variable before it is used
+However, in Java, a variable must be used after it has been declared
+In Python, functions are defined using the “def” statement
+In Java, functions are implemented as methods within a class
+Python also has a class structure
+A class contains variables and functions
+In this example, variables called name and age
+are included in the class, and __init__ and say_hello are functions
+In particular, __init__ is a constructor that is automatically executed
+when a Class object is created
+In Java, the entire program consists of one or more classes
+In this example, the class Person has two data, name and age,
+and has a constructor method, Person,
+and a sayHello() method
+Python has a list structure that is similar to the concept of a traditional array
+The List structure is much more flexible than an array
+and has many more features
+Java has a mechanism to create an array for each type
+Also, if you use a collection framework like ArrayList,
+you can use many more features
+For code blocks, Python does not use any special delimiters
+and instead expresses the same block with spaces
+In the case of Java,
+the begin and end are clearly indicated with braces { }
+In Python, the for loop performs
+repeated operations on the elements in a list
+In this example, we perform repeated operations on the fruits in the list
+called fruits and on the integers from 0 to 4
+Similarly, in Java, the for loop allows you to perform
+repeated operations on each element in an array
+Additionally, you can perform operations while incrementing the integer
+i from 0 to 4
+Since both Python and Java use interpretation, program
+execution is inherently slow
+However, in the case of Java,
+we can use mechanisms such as JIT to make the execution speed faster
+Python has a relatively simple syntax and is easy to learn
+In comparison, Java has a very strict grammar,
+which prevents programmers from unknowingly writing programs
+that contain errors
+Python includes library functions
+widely used in science and engineering,
+while Java has a rich standard library provided by default
+and many third-party libraries for enterprise applications
+Therefore, Python is widely used for prototyping, data
+analysis, and machine learning in research fields
+where performance speed is not important, while Java is widely used for enterprise solutions
+such as server implementation,
+cloud implementation, and Android application implementation

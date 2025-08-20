@@ -1,0 +1,140 @@
+﻿In this lecture, we'll set up
+the software environment necessary
+for developing Java programs
+Installation and use are easy, so please follow along
+The Java Development Kit
+(JDK) contains not only the JVM
+but also various tools for Java program
+developers, such as the Java compiler
+and byte code interpreter
+A subset of the JDK intended only for program users,
+not developers, is called the Java
+Runtime Environment (JRE)
+Since users are not the ones who develop programs,
+the JRE can be seen as a tool
+that is used only for development, excluded from the JDK
+Sometimes, when you try to install and run a program developed in Java,
+you will be prompted to download JRE if you do not have it
+This is because JRE is essential for running programs
+developed in Java
+JDK and JRE can be downloaded from
+Oracle's Java Technology Site,
+the owner of Java
+To download the JDK, go to the Oracle Technology site
+and click on the latest version of JavaSE
+Depending on whether your OS is Windows, macOS
+M Chips, or macOS
+Intel chips, download and install the appropriate JDK
+To check if the JDK is properly installed,
+open a console window and run the command java -version 
+If the Java version is displayed,
+the JDK is correctly installed
+Documentation for the APIs
+included in the JDK is available online from Oracle
+Visit docs.oracle.com/en/java/javase and click on the JDK version
+you have installed
+Select API Documentation in the left menu area
+Search by typing the name of the desired class in the search box
+on the API Documentation page
+For example, you can search for a class called 'System'
+Documentation for the 'System' class will be displayed
+Above the class name, the name of the package to which the class belongs will be displayed
+For example, the System class is in the java.lang package
+Fields contain descriptions of instance
+variables or constants belonging to the class
+Below that, the methods belonging to the class are listed
+so you can see how to use them
+You can see the method's return type, parameters, and what it does
+Clicking on each method
+name will show a more detailed explanation
+Before using the IDE that will be installed later, i.e
+the Integrated Development Environment,
+let's look at the process of compiling
+and running a Java source program in the Console window
+Write the source code of the Java program
+using a suitable text editor
+In this example, we created a class source file
+called FirstProgram.java 
+The class name and the source file
+name must match
+To compile the source code into byte code, type
+the command “Javac FirstProgram.java”
+in the console
+If compilation is successful, you can see that a bytecode program called
+FirstProgram.class has been generated
+To see a list of files in the current folder,
+you can use the “dir” command on Windows
+or the “ls” command on macOS
+Now, to run the byte code program,
+run the JVM interpreter command “java FirstProgram.”
+Be sure to type the command
+with the byte code program
+file name, FirstProgram.class,
+excluding the .class extension
+As the JVM runs, you will see the output
+“Hello World!” printed to the console
+Now let's install the IDE, i.e
+IntelliJ IDEA, the Integrated Development Environment
+Download and install the "Community Edition" of IntelliJ IDEA
+from the JetBrains website
+The Community Edition is free
+and has sufficient features for the level of learning we're pursuing
+After installing IntelliJ IDEA, launch it
+and click the New Project button
+Enter a name for your project
+and select a folder location to save the project files
+If you use Git, you can check “Create Git
+repository” to automatically upload the completed source codes to GitHub
+Let's not select this option here
+If you have multiple JDK versions installed,
+you can select the JDK you want
+Usually, you can just select the latest version of the JDK that you have installed
+The “Add sample code” option
+is a feature that allows IntelliJ IDEA to automatically generate sample code,
+but we will not select this option here
+Once all inputs are complete,
+click the “Create” button at the bottom to create a project
+You will now be taken to the project screen you just created
+Since we haven't created any source code
+yet, the src folder is empty
+Place the mouse pointer over the src folder
+and right-click to bring up a pop-up menu
+Select New from the menu,
+then select Java Class from the submenu that appears
+When the New Java Class window appears,
+type the name of the class you want to create at the top and press Enter
+Here, we entered the class name “TestClass”
+The “TestClass.java” source file will now be created
+It’s important to emphasize once again
+that the class name and the source file name must be identical
+Now, just type your program source into the source input window
+To compile the source file into bytecode,
+select Build Project from the Build menu
+The shortcut is Ctrl + F9 on Windows and Command + fn
++ F9 on macOS
+You can now see that an “out”
+folder has been created in the file navigator on the left
+“TestClass” is created under the out >
+production > TestProject folder,
+which represents the TestClass.class file, which is a bytecode file
+To verify that the bytecode file was actually created,
+check that the TestClass.class file was created
+under the out folder in Explorer (Windows) or Finder (macOS)
+To run a bytecode program using the JVM interpreter,
+select Ctrl + r or click the triangular Run button
+You'll see the program's output
+appear in the terminal window
+at the bottom of IntelliJ
+After you are finished working, you can close the project
+by selecting the “File > Close Project” menu
+After closing the project, you can see a list of all the projects you have
+created and enter the project
+by selecting each project with the mouse
+This time, we will learn how to import
+already written source files into IntelliJ
+Source files must be in the format of having java source files under the src folder
+under the folder with the project name
+From the Main menu, select File >
+Open and select the prepared project folder
+When the project is read and created by IntelliJ,
+the source files are placed under the src folder

@@ -1,0 +1,99 @@
+﻿In this lecture, we will learn about the concepts of object-oriented programming
+What is Object-Oriented Programming,
+abbreviated as OOP?
+OOP is a programming paradigm
+based on the concept of objects
+Here, an object refers to a unit that combines data
+and the operation
+(or method, function) that processes it
+OOP was developed in the 1960s
+to increase the maintainability
+and reusability of code
+It was first introduced through languages
+such as Smalltalk
+and was later widely adopted by languages such as C++ and Java
+Most programming languages today
+have OOP language features
+Examples include Java, C++, Python, C#, Ruby, Swift, Kotlin, Javascript,
+Dart, and Go
+What are the advantages of using OOP?
+First, modularity
+Code management becomes easier by dividing the code
+into independent objects
+Second, reusability
+Once an object is created,
+it can be reused in multiple programs
+Third, scalability
+Even large-scale programming
+projects can be managed systematically
+Fourth, it is easy to maintain
+This means that debugging and updating are easy
+Let's compare
+Procedural Programming and
+Object-Oriented Programming
+Procedural programming is a style of programming that focuses on writing
+code around functions and procedures,
+and is primarily structured in a top-down manner
+On the other hand,
+OOP writes code centered around objects and their interactions
+Objects allow us to model real-world
+objects more naturally
+Let's look at some Python code
+using procedural programming techniques
+First, prepare a list
+called student_grades to store students' names and grades
+Define a function called "add_student_grade"
+that receives student names and grades as parameters
+and adds them to the student_grades list
+The list's "append" function is used for this
+Function "get_average_grade" calculates
+the average of all grades
+in the current list
+As you can see so far,
+the lists and functions used in the program are all defined independently
+Now, we complete the desired task
+by executing the procedures, or functions
+First, we call add_student_grade twice
+to store the grades of two students,
+Alice and Bob, in the student_grades list
+Next, we call the get_average_grade function
+to calculate the average score
+and print it on the screen
+The second Python program we will
+look at demonstrates the characteristics of OOP well
+You can see that Classes representing Objects
+are defined
+First, the Student class has two variables
+called name and grade as data,
+which represent a single entry
+object that stores the student's name and grade
+The Classroom object has a list of students as data
+In the constructor, the list is initialized
+to an empty list
+In addition to the data,
+the Classroom class also has functions that handle data
+First, the add_student function
+adds an entry to the students list
+with the given student name and grade parameters
+The get_average_grade function calculates the average score of all entries
+in the current list
+In this way, in OOP, data
+and functions (or methods) come together to form a single object
+Program execution consists of creating objects
+with appropriate data and calling their methods
+Here, we create an object of the Classroom class
+and then call its add_student function twice
+to add two data entries to the list
+Notice that the data entry
+parameters are Student class objects
+After the data is added,
+we call the Classroom object's get_average_grade
+function to calculate the average and display it
+on the screen
+This example might seem to be
+similar to procedural programming
+and object-oriented programming
+However, I want to emphasize that in OOP, Student and Classroom
+are classes composed of a combination of data and functions,
+and these classes are easy to use
+and maintain by porting their code to other programs
