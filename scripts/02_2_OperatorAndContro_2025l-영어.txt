@@ -1,0 +1,227 @@
+﻿In this lecture, we will learn about operators and control structures
+in the Java language
+Arithmetic operators are operators that perform mathematical calculations
+These operators include addition, subtraction, multiplication, division,
+remainder, increment by 1, and decrement by 1
+Let's look at an example of an arithmetic operation
+I initialized the Int type a to 11 and b to 5. Sum, difference, and product are simple
+For division, division between ints discards any decimal places
+a divided by b, that is, 11 divided by 5, is 2.xxx,
+so if we leave only the integer part, it becomes 2
+Remainder, that is, for the remainder operation, in the case of integer division of 11 divided by 5,
+the quotient will be 2 and the remainder will be 1
+So the remainder is 1
+In c = a++, the value of a is first assigned to c,
+and then the value of a is increased by 1
+Therefore, c retains its original a value of 11, and a is increased by 1, so
+now the a value is 12
+Then d = ++a is a prefix increment,
+so it first increments the value of a and then assigns that value to d
+Therefore, both the d value and the a value become 13
+Similarly, b— and —b decrement the value of b by 1
+in different orders, postfix and prefix decrement
+Note that the values of e and f are 5 and 3, respectively
+Comparison operators test the magnitude of two values
+and return the result as a boolean value
+Equal to uses two equal signs in succession and returns true
+if the two values are the same
+Not equal to is true if the values are different
+Greater than is true if the left side is greater
+Less than is true if the left side is less
+Greater than or equal to is true if the left side is greater than or equal
+Less than or equal to is true if the left side is less than or equal
+This example demonstrates the use of the comparison operator
+Logical operators primarily return a boolean value
+that is the result of combining two boolean expressions
+There are three types: AND, OR, and NOT,
+and the results of these operations are calculated based on the truth table
+The assignment operator assigns the value on the right side
+to the variable on the left side
+Compound assignment is a combination of an arithmetic operator
+and an assignment
+For example, a += 5 means a = a + 5
+In the Java language, the binary representation of negative integers uses 2’s complement
+First, we start with a positive integer a and find its 1’s complement
+Then all bits of a are inverted, so 0 becomes 1 and 1 becomes 0
+After that, if we add 1 to the 1’s complement result, we get the final negative representation
+Looking at the example program,
+a is given as a positive number 5
+~a is used to find the 1’s complement of a
+Then, we add 1 to get the 2's complement
+If we print the 2's complement of -5 and 5 in binary,
+we can see that the two expressions are the same
+One thing to observe is that all
+positive numbers start with the leftmost bit
+as 0, and negative numbers start with 1
+Therefore, the leftmost bit is called the sign bit
+So how can we figure out what integer
+a negative number represented in 2’s complement
+actually represents?
+You can do this by calculating it
+in the reverse direction of finding 2’s complement
+First, subtract 1 from the negative expression
+Invert it to make it a positive integer
+Then, we can find out what the original negative integer was by adding -
+Let's look at an example
+Let's say A's expression was 11111011
+This starts with 1, so it's clearly a negative integer
+Here, A minus 1 is 11111010
+And if we reverse this, it becomes 00000101,
+which represents +5
+So we can see that the original number A was -5
+Bitwise operators do not perform calculations on variable values,
+but rather perform logical and shift operations on the bit representation of the value
+Here are the logical operations and, or, xor,
+not, as well as Left shift and Right shift
+Let's see an example in the next slide
+a is initialized to 5 and b is initialized to -3,
+and their binary representations are 00000101 and 11111101, respectively
+First, a bitwise and (&) b results in a 1 bit only
+if both corresponding bits are 1
+So the result is 000000101
+Next, a bitwise or (|) b results in a 1 bit if at least
+one of the corresponding bits is 1
+So the result is 11111101
+Next, a bitwise xor (^) b
+results in a 1 bit only if each corresponding bit is different
+So the result is 11111000
+Next, not (~) a inverts the bits of a, i.e.,
+finds 1’s complement
+So the result is 11111010
+The following a << 1 shifts bits to the left
+one by one while preserving the leftmost sign bit
+The new bit coming in on the right is 0
+So the result is 00001010
+When doing the next b << 1,
+we need to check whether the leftmost bit is preserved as 1
+Fortunately, 1 is preserved, so if we push it to the left one by one
+and add a new 0 to the right end, it becomes 11111010
+One thing to note is that b >> 1
+At this time, the new bit coming in from the left must be 1, not 0
+This is because the original number b was negative, so the sign bit was 1
+So the value of b >> 1 becomes 11111110
+The following a >> 2 and b >> 2
+are simply two consecutive right shifts of a and b, respectively
+Please check the results carefully
+The Ternary Operator is a simplified representation of an if-else statement
+It is in the form (Condition) ? (true_part) : (false_part)
+If condition is true, true_part is returned, otherwise false_part is returned
+If we change this to if-else,
+it becomes If (Condition) true_part else
+false_part 
+In the example program, if the condition that a is greater than b is true,
+a is assigned to max, otherwise b is assigned
+The body of the if statement is executed if the condition is true
+The first part executes the body inside the block if the condition that num is greater than 5 is met
+In the second part, if the condition that num is greater than 5 is true,
+the above block is executed, but if the condition is not satisfied,
+that is, if the result of calculating the condition is false, the else block below is executed
+This multiple if-else statement selects one of several conditions
+to be executed
+If Condition A is true, it performs U and then jumps to Z
+If Condition B is true, it performs V and then jumps to Z
+If Condition C is true, it performs X and then jumps to Z
+If none of A, B, or C are true, it performs Y and then proceeds to Z
+You can think of it as performing a similar role to the switch statement that follows
+Let's look at an example that demonstrates how to use the Switch statement
+I imported the java.util.Scanner package to utilize the Scanner class object
+used to receive keyboard input
+We declared an int score variable to receive and store scores,
+and a character grade variable to store the grade text
+We created a Scanner object to receive keyboard input and displayed the prompt
+"What is your score?" on the screen
+When the user enters a score via the keyboard, we accept it as a score
+We'll go into more detail about keyboard input in the next slide notes
+Now, we divide the score by 10 and store the quotient in scoreOverTen,
+creating single-digit scores like 9, 8, 7, etc
+The case is set with the value of scoreOverTen,
+which is the condition following the Switch keyword
+If scoreOverTen is 10 or 9, that is, if the score is between 90 and 100,
+an A grade is given and break is encountered, exiting the switch statement
+If scoreOverTen is 8, that is, if the score is in the 80s,
+a B grade is given and break is encountered, exiting the switch statement
+If neither of the two cases above applies, the default case is performed
+and a C grade is awarded
+Finally, print your scores and grades
+This part shows that the switch statement can use String
+type as condition
+Let's choose between Americano and Cafe
+Latte and enter the name of the coffee
+We'll initialize the Sales variable to 0,
+so we'll add the price of the incoming order to today's sales
+If the String variable menu that stores the input is “Americano,” 3500
+is added to sales
+and the break statement is encountered, thus exiting the switch statement
+If the menu is “CafeLatte,”
+4500 is added to sales and the break statement is encountered,
+thus exiting the switch statement
+If the input is anything other than the two cases above,
+it will print that the coffee order is incorrect
+and force the program to end
+The command used to forcefully terminate a program is System.exit(0)
+After exiting the switch, print the current sales value
+For loop is convenient to use when the number of repetitions is predetermined
+A basic for loop consists of an initial value for the variable that serves as the index,
+a condition for maintaining repetition, and an expression for changing the index
+For example, in this case,
+the value of i starts at 0, and iterates continuously
+as long as i is less than 5, increasing i by 1 for each iteration
+So the output will be 0, 1, 2, 3, 4
+Below that is a nested for loop
+As i increases by 1 from 1 to 3, for each
+i, j increases by 1 from 1 to 3
+So the System.out.println statement in the middle will be executed nine times,
+meaning 3 times 3 is 9
+If you look at the output, you can see that while i is 1, j changes to 1, 2, 3 in that order,
+and then while i is 2, j changes again
+The for loop also has the ability to perform a given
+task sequentially for each element within an array
+In this example, the numbers array has the values 1, 2, 3, 4, 5
+If you use the for each function and say for (int n: numbers),
+it will loop through all the elements in the numbers array in order,
+and the variable n
+will have the values 1, 2, 3, 4, 5 in that order
+So the output of the above example would be 1, 2, 3, 4, 5
+The while loop is the control structure
+with the highest degree of freedom in constructing iteration statements
+After initializing i to 0,
+the body of the while loop is executed
+while the condition of i < 5 is satisfied
+while increasing i by 1
+So the output will be 0 1 2 3 4
+I initialized i to 0 again and made the second
+while loop execute an infinite loop
+by setting the condition in the parentheses
+to true
+Instead, if i inside the body is greater than or equal to 5,
+the while loop is exited by executing break
+Therefore, the output of the second
+while loop is 0 1 2 3 4,
+just like the first while loop
+The do while loop is different from the while
+loop in that the while and condition are at the bottom
+i is initialized to 0, and the do keyword,
+which starts the do while loop, appears
+Inside the body, i is printed and i is increased by 1
+While and condition are located
+at the end of the body
+Here, we test the condition i < 5, and if this condition is satisfied,
+we go back to do and repeat the body
+So the output of the first do while loop is 0 1 2 3 4 
+I set i back to 0 before the second do while loop
+The characteristic of the do while loop is that the body must be executed at least once
+Therefore, the String “printed at least once”
+is printed the first time the body is executed
+However, since i is immediately increased to 1
+and the while condition below is
+(i < 0), the do while loop is exited at the first comparison when i becomes 1
+This example demonstrates the functionality of the break and continue statements
+In the first for loop, when i increases from 0 to 5, break is executed
+and the for loop is exited
+So the output is 0 1 2 3 4
+In the second for loop, if the remainder of dividing i by 2 is 0,
+that is, if i is an even number,
+the continue statement is executed, and the print command below it is not executed
+and the loop jumps to the line with the for statement
+Therefore, the output of the second for loop is 1 3 5 7 9
+because it is printed only when i is odd

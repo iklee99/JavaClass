@@ -1,0 +1,71 @@
+﻿본 강의에서는 객체지향기법을 본격적으로 다루기 전에
+Java의 reference type에 대해 알아보도록 하겠습니다.
+이전에 봤던 Java 언어의 data type에 대해 다시한번 review를 해 보겠습니다.
+먼저 primitive type에는
+integer를 나타내는 byte, char, short, int, long 등이 있고
+real number를 표시하는 float, double과
+character를 나타내는 char,
+logical type인 boolean이 있습니다.
+이 primitive type은 value만 하나를 가지는 단순한 type인데
+그 value는 이와 같이 memory에 저장이 됩니다. 
+Reference type은 reference (주소) 를 저장함으로써
+object나 array등으로 모여있는 데이터의 집합을 가리키고 있습니다.
+reference variable들의 value는
+간단히 말해, 그 variable이 access하고 있는 object 주소 입니다.
+Java에서 모든 literal들은 따로 관리되고 있습니다. 
+그림에서 str1의 "Korea" 라는 literal의 주소는 0x93AB 입니다. 
+str2는 literal “Seoul” 인데 주소는 0x867A 입니다. 
+str3에 literal “Korea”가 다시 나오는데 
+이 때 리터럴은 한번 출현한 것은 다시 생성되지 않으며,
+이미 있는 literal을 가리키게 합니다
+따라서 str3는 str1과 같은 주소를 가지게 됩니다
+반면에 new로 생성하는 object는 heap area에 뉴를 콜할때마다 생성됩니다
+먼저 str4의 “Korea” 는 new로 생성되었으며, 주소 0x472C를 가집니다. 
+그리고 str5도 new로 생성되었는데
+str1, str3, str4와 같은 내용의 String이기는 하지만
+new를 사용했기 때문에 완전히 다른 새 object로 생성됩니다. 
+따라서 str5는 주소 0x68D3를 가리키게 됩니다.
+primitive type variable들에서 == (이퀄)과 != (낫이퀄)의 의미는
+두 variable들의 value가 같은지 아닌지를 테스트 하는 것입니다.
+이 예에서는 x가 3, y가 2일 때 x와 y의 value가 같은지
+x와 (y+2) 의 value가 같지 않은지를 테스트하고 있습니다
+Reference type variable들에 대해서 == 이나 != 은
+value들이 나타내는 reference (주소)가 같은지 아닌지를 테스트 합니다. 
+즉, 두 reference variable이
+같은 address를 참조하고 있는지 아닌지를 나타내는 것입니다.
+프로그램에 출현하는 String variable a, b, c, d, e 가
+어느 곳의 무엇을 가리키게 되는지 주의 깊게 살펴보도록 합시다.
+new String(“test”) 로 create되는 a와 b는
+String의 내용이 a, b가 모두 “test” 이기는 하지만
+이 들은 모두 별개로 생성된 object들 이므로
+차지하고 있는 memory 영역이 다릅니다.
+c와 d는 String literal을 assign 받는데, literal은 같은 것일 경우 하나만 만들어지고
+같은 내용의 literal을 두번 만들지는 않습니다.
+e는 a를 그대로 assign 했으므로 a와 같은 reference value를 가집니다.
+이에 따라 아랫부분의 a, b, c, d, e 간의 equal 여부는
+그 reference (주소)가 동일한 지의 여부에 따라 결정됩니다.
+true가 나오는 경우는 a == e 와, c == d, 두 가지 경우 뿐입니다. 
+null은 아무 object도 가리키지 않는 reference를 나타냅니다.
+class variable을 declare하지만 그 object를 create할 수 없는 상황에서
+일단 initial value를 null로 해 놓을 수 있습니다.
+이렇게 해 놓으면 variable이 valid한 object를 가리키고 있는지 아닌지를
+null과의 이퀄리티 테스트에 의해 쉽게 결정할 수 있습니다.
+한편 null reference를 가진 class variable s가 있을 때
+s가 valid한 object를 가리키고 있다고 착각하여
+s.length() 처럼 method를 call하거나
+s.x 처럼 instance variable을 access하려 하는 것은 (dereferencing 시도)
+NullPointException을 발생시킵니다.
+exception은 error와는 종류가 다르며
+exception이 있을 것을 대비한 code를 개발자가 미리 준비해 둘 수 있습니다.
+exception handling에 대해서는 추후 더 자세히 알아볼 것입니다.
+여기서는 str이 아무런 initialization이 되어 있지 않기 때문에
+str이 null과 같지 않냐는 테스트는 true로 통과하게 되어 있고
+따라서 true part의 str.length() 를 시도하는 순간
+exception이 발생하게 될 것입니다.
+그래서 아랫부분에서 처럼
+str을 일단 null로 초기화해 놓고
+이 문제를 str이 null 이 아닌지를 테스트하는 것은 정확하기 때문에
+else part에서 “str is null” 을 프린트하게 됩니다.
+한편 str을 “Hello” 로 초기화 해 놓는다면
+정상적으로 str 낫이쿠얼 null 이 true가 되고
+“Length of str: “ 과 함께 str.length() 가 프린트 욉니다.

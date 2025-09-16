@@ -1,0 +1,111 @@
+﻿In this lecture, we will learn about arrays
+An array is a data structure that contains data elements of the same type, occupies
+a continuous space in memory,
+and each element can be accessed using an index
+As you can see in the picture, the scores array contains 30 integers,
+and each element can be accessed using an index from 0 to 29
+When reading each element from the right end or writing a value to an element,
+you can refer to individual elements by putting the index in brackets [ ]
+There are two ways to declare an array
+There are two ways: the first is to use Type followed by an empty bracket,
+followed by the array variable, and the second is to use Type followed by the variable name, followed by an empty bracket
+It doesn't matter which one you use,
+but the first method is more commonly used
+Another thing to note is that in the case of an array of reference
+types, memory for each element has not yet been allocated,
+i.e., has not been allocated, even though it has only been declared
+There is a way to initialize data while declaring an Array
+Write an equal sign after the variable in the declaration,
+open the brace {, list the elements one by one, and then close the brace }
+You can initialize String, int, double array, etc. in this way
+Alternatively, you can use the explicit
+new operator to allocate memory
+Looking at example 1, 5 int type memories are allocated to the a1 array,
+and the values of the array can be initialized in the form of a1[0], a1[3]
+In example 2, references to three Strings are initialized in str, and str[0]
+can have references to Strings such as “Seoul”,
+str[1] can have references to “Tokyo”, etc
+Each array element is initialized to the default initialization value even if it is not initialized separately
+For example, when an int a[3] array with a size of 3 is captured in memory,
+the values of a[0], a[1], and a[2] are all initialized to 0
+If we look at the default
+initialization values by type, the initial values of integers such as byte,
+short, and int, as well as float and double, are all 0 (or 0.0)
+The char type becomes the null character
+Boolean becomes false, and reference types including String
+are automatically initialized to null
+An array has a length field, which contains the size value of the array
+This value is read only
+Naturally, the value of length cannot be changed
+The length of an int array initialized with {10, 20, 30} is 3
+You may remember that the String type had a length() method that returned its size
+However, in the case of an array, length is a variable, not a method
+There is an array parameter in the header of the main method
+that we have been using without much thought
+args is an array of Strings containing the command line
+arguments that follow the program name
+For example, args[0] is the argument immediately following the program
+name, args[1] is the argument following it
+For example, when you run the command ‘ls -l’ in the terminal,
+ls is the program name and -l is args[0]
+However, if you try to use args[0], args[1]
+without providing command line arguments,
+the program will stop with an exception
+called “ArrayIndexOutOfBoundsException”
+To use command line arguments in IntelliJ IDEA,
+click the three-dot menu button next to the play
+button and select “run with parameters.”
+In the menu that appears here,
+enter command line arguments in the blank spaces
+In this example, ‘Seoul’ and “Korea’
+are given as args[0] and args[1] respectively
+And then press the ‘run’ button
+This will allow you to input args[0] and args[1] as if you were typing them in the terminal
+This slide shows an example of defining a multidimensional array
+array1 is a 2 x 3 multidimensional array with 2 rows and 3 columns
+A nested for loop is used to fill in the element
+values of the array
+Each element array1[i][j] is filled with i + j
+As you can see in the picture,
+the array1 reference variable points to the first row's reference array1[0]
+Note that array1[0] and array1[1] are references representing the first dimension,
+and they exist in contiguous memory
+array1[0] points to array1[0][0], and from here,
+three elements belonging to the same row are contiguous
+Also, the three elements pointed to by array1[1], array1[1][0],
+array1[1][1], and array1[1][2] are also in contiguous
+memory space
+However, array1[0][2] and array1[1][0] do
+not necessarily have to be contiguous
+array2 has three rows,
+but each row has a different number of columns
+In Java, multidimensional arrays of this kind, like this, are possible
+To consider an array of class objects,
+we first define a simple Data class with a single instance
+variable called int x 
+When creating an array of this Data class, first
+create an array that will contain references to the Data objects
+After that, iterates through the elements of the reference array
+one by one and creates Data objects individually
+For arrays with class objects as elements,
+these two steps are required
+An enumeration type is a type that can have
+one of the values of an enumeration constant
+First, an enumeration type called Day
+was defined, and constants representing each day of the week
+from SUNDAY to SATURDAY were defined in this type
+In the program, the today
+variable is declared as an enumeration of type Day
+and is initialized as Day.WEDNESDAY
+When the today variable is printed, WEDNESDAY is printed
+In the switch statement below, if today is SATURDAY or SUNDAY,
+it prints weekend, and if it is
+any other day of the week, it prints weekday
+Here's the code to print all the days of the week
+The day.name() method of the enumeration type day converts the enumeration
+constant into a String and returns it
+day.ordinal() returns the element number, starting from 0
+If you try to print day itself,
+it will be converted to a String and printed, just like day.name()
+The valueOf method returns
+an enumeration value whose name is the given String

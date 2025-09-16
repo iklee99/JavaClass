@@ -1,0 +1,71 @@
+﻿In this lecture, before we delve into object-oriented techniques,
+we will learn about Java's reference types
+Let's review again the data types in the Java language that we looked at previously
+First, primitive types include byte, char, short, int, long, etc.,
+which represent integers; float, double,
+which represent real numbers;
+char, which represents characters; and boolean,
+which is a logical type
+This primitive type is a simple type that has only one value,
+and that value is stored in memory like this
+The reference type points to a collection of data,
+such as an object or array, by storing a reference (address)
+The value of reference variables
+is simply the address of the object that the variable is accessing
+In Java, all literals are managed separately
+In the figure, the address of the literal "Korea" in str1 is 0x93AB
+str2 contains the literal "Seoul" at address 0x867A
+The literal "Korea" appears again in str3, but
+once a literal appears,
+it is not created again and points to an existing literal
+So str3 will have the same address as str1
+On the other hand, objects created with new are created in the heap area every time new is called
+First, “Korea” in str4 was created with new and has the address 0x472C
+And str5 was also created with new,
+and although it is a String with the same contents as str1, str3, and str4,
+it is created as a completely different new object because new was used
+Therefore, str5 points to the address 0x68D3
+In primitive type variables, == (equal) and != (not equal)
+mean testing whether the values of two variables are the same or not
+In this example, when x is 3 and y is 2,
+we are testing whether the values of x and y are equal
+and whether the values of x and (y+2) are not equal
+For reference type variables, == or != tests
+whether the references (addresses) indicated by the values are equal or not
+In other words, it indicates whether two reference variables refer to the same address or not
+Let's take a close look at what the String variables
+a, b, c, d, and e that appear in the program point to
+a and b created with new String(“test”)
+have the same content as “test” in both Strings,
+but they are objects created separately,
+so they occupy different memory areas
+c and d are assigned String literals. If the literals are the same,
+only one is created, and literals with the same content are not created twice
+Since e is assigned to a as is, it has the same reference value as a
+Accordingly, whether a, b, c, d, and e in the lower part are equal
+is determined by whether their references (addresses) are the same
+The only cases where true is a == e and c == d
+null represents a reference that does not point to any object
+In situations where you declare a class variable
+but cannot create an object, you can set the initial value to null
+This way, you can easily determine whether a variable points to a valid object or not
+by testing for equality with null
+On the other hand, when there is a class variable s with a null reference,
+calling a method like s.length()
+or accessing an instance variable like s.x under the illusion
+that s points to a valid object
+(attempting dereferencing) will result in a NullPointException
+Exceptions are different from errors,
+and developers can prepare code in advance to handle exceptions
+We'll delve into exception handling in more detail later
+Here, since str has not been initialized, the test
+whether str is not equal to null passes as true,
+and therefore, an exception
+will occur when str.length() of the true part is attempted
+So, as in the lower part,
+we initialize str to null first
+Since testing whether str is not null is correct, the else
+part prints “str is null”
+On the other hand, if str is initialized to “Hello”,
+str.length() will be printed
+along with “Length of str: “, as normal

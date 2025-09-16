@@ -1,0 +1,251 @@
+﻿In this lecture, we will cover the basic programming part
+before the object-oriented part in the Java language
+First, let's look at the general structure of a Java program
+A Java program must define a class anyway,
+because everything must be part of a class
+In this example, a class called HelloWorld1 is defined
+public is a keyword called an access modifier,
+which means that this class can be used by any other class
+class is a keyword that defines a class type
+After that comes the class name, which in this example is HelloWorld1
+As mentioned before, the class name
+must match the name of the java source file
+The class body begins with a left brace
+{ and the class ends with a right brace }
+Inside the class body, there are various fields that represent data belonging to the class
+and methods that represent operations
+The class in this example has no data, i.e., no fields
+It only has one method, main
+The Main method is the first method executed when the program starts
+Therefore, if it is an executable program (class),
+it must have a Main method
+The first thing that appears in the header of the main method
+is the access modifier, public
+This public can be understood
+as allowing the OS to call main to run the program
+The static that follows indicates that the main method
+is a static method within this class
+Simply put, this means that all objects created
+using this class as a template share a single main method
+It may be difficult to fully understand the meaning of static yet,
+but we will learn more about it later
+void means that the main method has no return value
+A method, or function, may or may not return a value
+If there is a function f such that f(a, b)
+= a + b,
+the return value could be a + b
+However, some functions (methods) may only execute a series of tasks sequentially
+without returning a value
+main refers to the name of the method
+The String[] args inside the parentheses after that
+are the type and name of the parameter
+In the previous example, the function
+f(a, b), or method, takes two parameters
+a and b and performs some calculation
+For the Main method,
+these parameters are called Command line arguments,
+which are parameters attached to the command that runs the program
+For example, if you run a program called “javac -version”,
+javac is the program name and -version is passed to the program
+as a command line argument
+However, we're not using these command line arguments yet
+The brackets in String[]
+indicate that args is an array of Strings
+For example, if we consider running the program “foo 3 Seoul 7”,
+args[0] = “3”, args[1] = “Seoul”, args[2] = “7”
+Comments in Java have the same format as in C or C++
+First, there are multi-line comments that start with
+/* and end with */
+You can also start with /**, in which case you can use JavaDoc,
+one of Java's utilities, to automatically
+create API documentation
+However, we will not discuss this further in this course,
+and you are encouraged to consult other reference materials if necessary
+A single-line comment starts with // and everything on the same line
+until the end is considered a comment
+The following is about statement blocks,
+which start with a left brace { and close with a right brace }
+This block serves to group
+multiple statements that make up the body of an If,
+for, or while statement, while creating a new scope for local variables
+Of course, the beginning and end of an entire method can be considered a single block,
+as can the beginning and end of an entire class
+We'll discuss variable scope in more detail later
+Next is the identifier, that is, the identifier
+An identifier is simply a name that a programmer must create,
+such as a variable, constant, method, parameter, or class
+Java's identifiers follow the case sensitive rule
+That is, if uppercase and lowercase letters of the alphabet are used, they are recognized as different identifiers
+Also, keywords used in Java grammar cannot be used as identifiers
+For example, class, public, void, etc
+There are only two rules that must be followed when naming an identifier:
+it cannot start with a numeric character (i.e., a number),
+and no special characters
+other than the dollar sign ($) and the underscore (_) can be used
+However, there is a convention for naming identifiers in the Java language
+It is recommended that variables and methods be named camelCase,
+that is, starting with a lowercase letter and capitalizing the first letter
+when the word changes, and class names be named PascalCase,
+that is, starting with an uppercase letter
+and capitalizing the first letter
+when the word changes
+There are two main types of data in Java:
+the first is the Primitive type
+and the second is the Reference type
+Primitive types, such as integers and real numbers,
+are types that basically have only one value
+Therefore, primitive types are not treated as classes
+On the other hand, reference types refer to all classes
+such as String and types such as Array and enumeration
+Strictly speaking, a reference is a concept similar to a memory address,
+and can be seen as having the address of memory where complex data
+such as a class are gathered as its value
+We will learn more about reference types later
+There are four types of primitive types:
+integer, real number, character, and boolean
+There are four types of integers:
+byte type of 8 bits (i.e
+1 byte), short type of 16 bits (2 bytes), int type of 32 bits
+(4 bytes), and long type of 64 bits (8 bytes)
+There are 32-bit float and 64-bit double types for floating-point numbers
+The character type is char, which is 16 bits
+Among Boolean types, there's the boolean type,
+which can have only one value: true or false
+Let's look at an example program for this data type
+First, I declared myNumber, which is an int type, and initialized its value to 10
+In the case of yourNumber,
+declaration and initialization are sometimes done at the same time
+Literal refers to numbers, characters, strings, etc. that are directly given here
+When assigning a literal to float type f1,
+you must add f at the end of the number to distinguish it from double
+Instead, when assigning a literal to a double type,
+you can just use the number
+Let's look at a case where the value of a variable of a different type is assigned to
+a variable of a different type
+myInt is of int type
+The value of myInt was assigned to myDouble, which is a double type
+The reason why you can just assign without any other device at this time
+is because the data range of the double type is much wider than that of int
+This method is called implicit conversion
+The value 10 in myInt becomes 10.0 when assigned to a double
+On the other hand, when assigning myDouble to myInt,
+you must explicitly convert it by adding the casting operator (Int)
+When casting from double to int, the decimal point is discarded
+and only the integer part remains
+Therefore, the double value 9.78 is converted to the int value 9
+Named constants represent specific values as identifiers,
+allowing programs to use names instead of numbers
+while clarifying their meaning
+In this example, the value INCHES_PER_FOOT is defined as 12,
+and since 1 foot equals 12 inches,
+this value can be set as a constant
+RATE is fixed at 0.14, and you can expect it to represent some specific rate,
+such as an interest rate
+In this way, once a named constant is defined,
+its value cannot be changed within the program
+Any attempt to change
+it will result in a Compile error
+Keywords such as public static final are attached,
+and here the meaning of final is constant
+and indicates that the value cannot be changed again
+When naming identifiers that represent named constants,
+we generally use only uppercase letters
+and use underscores (_) between words
+The String type is a class type included in the basic package provided by Java
+It is a reference type used to handle text strings
+The three Strings greeting, firstName, and lastName are initialized to “Hello World!”,
+“John”, and “Doe”, respectively
+Strings can be concatenated, or joined together,
+using the plus operator
+In the example, you can see the value of the concatenated fullName String
+printed on the screen
+In the case of String concatenation, in addition to concatenating Strings,
+you can also concatenate integer literals
+such as 42 to create a single String, as in this program
+You can also concatenate variables of primitive type or class
+type, such as int type k
+We'll learn more about what makes this possible
+as we study the class
+From another perspective, a string can be viewed as a collection of characters
+However, this does not mean that a String is the same as an array of char types
+In C or C++, these two are equivalent,
+but in Java, String is not
+However, each character that makes up a Java
+String has an index
+The 0-based index is useful in several String methods
+that we will see later
+Note that blank spaces
+are also considered characters
+The String class has several methods
+First, let's assume that the value of the str String is "Hello, World!"
+length() returns the length of the String
+If we look at it from the index side of the previous page,
+the index of the last character of the String + 1 is equal to the length
+charAt(index) returns the character at the index position in the string
+In this example, charAt(0) returns the uppercase character H
+substring(int) returns a substring from the given parameter index
+to the end of the String
+In the case of “Hello, World!”,
+substring(7) returns “World!” because it starts from index
+7, ‘W’, and ends
+substring(0, 5) returns a substring from begin index 0 to end index 5
+equals(String other) tests whether the contents of the parameter
+other are the same as the String that called equals,
+and returns true or false
+equalsIgnoreCase is like equals, but returns true
+if they are the same regardless of case
+str.compareTo(String other) returns a minus value
+if str is less than other, 0 if they are equal,
+or a plus value if they are greater,
+according to the lexicographical order
+str.indexOf(“World”) returns the starting index of the first substring named “World”
+in the String str
+str.lastIndexOf(“o”) returns the starting index of the last occurrence of “o”
+in the string “o”
+str.contains(“Hello”) returns true if the substring “Hello” exists in str
+str.replace() has several versions, and replaces characters,
+substrings, etc
+that appear in str with a second version
+str.toUpperCase() returns str with all uppercase letters,
+and str.toLowerCase() returns
+str with all lowercase letters
+str.trim() removes all spaces from the beginning and end of a string
+This method is conveniently used when receiving text input in a UI such as the web
+String.join(a, b, c) concatenates three Strings in the order b, a, c
+String.valueOf(123) returns the integer 123 as the String “123”
+Similarly, String.valueOf(true) returns the boolean value true
+as a String “true”
+str.startsWith(“Hello”) returns true if str starts with “Hello”
+str.endsWith(“!”) returns true if str ends with “!”
+str.isEmpty() returns true if str is an empty String
+Escape Sequence is used when you want to
+print characters that are used for special purposes in the program,
+and when you want to print invisible special characters
+Double quotes, single quotes, and backslashes are characters used for special purposes,
+while newlines, carriage returns, and tabs are invisible special characters
+In this example, the escape sequences backslash,
+new line, double quote, Tab, and single quote are used for printing
+Java String is immutable, which means the contents of a String cannot be changed
+If you want to change the contents, use a StringBuffer object instead of a String
+Of course, it is possible to change the contents of a String using assignment
+This example shows assigning the contents of name to “Soprano”
+and then changing it back to “Anthony Soprano”
+Strictly speaking, in this case, the memory originally allocated to name is maintained
+and the contents of that memory do not change
+The principle that String is still immutable
+is maintained because new memory space is allocated each time a new assignment is made
+The ASCII character set is the most widely used in existing computer systems
+This character set contains all the characters found on the English keyboard,
+plus some special characters
+Since there are 128 characters in total,
+the ASCII set can be represented easily with 8 bits
+Based on this judgment, in programming languages
+prior to Java,
+the size of the Character type was often defined as 8 bits (1 byte)
+C and C++ are representative examples
+However, since it was impossible to represent all foreign language characters and various symbols
+other than the English alphabet
+with only 8 bits, Java represented each character with Unicode, which is 16 bits instead of 8 bits
+So, as you can see when you try it, in Java programs,
+it is possible to have variable names in Korean
+Of course, this course does not recommend using Korean variable names
