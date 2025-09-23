@@ -1,0 +1,181 @@
+﻿I will lecture on Package and Access Modifier
+A package is a collection of classes, and classes
+included in the same package
+are in the same folder
+Classes with the same name cannot exist within a package
+Therefore, when grouping them into packages,
+even if classes with the same name
+belong to different packages,
+they can be distinguished by the package name
+The class name, which takes the package name into account,
+is expanded to parent_package.child_package.class_name,
+making distinction possible
+In this example, MyClass is contained in the com.company1 package,
+and YourClass is contained in the com.company2 package
+If you want a Java class to be included in a specific package,
+there must be a Java source file,
+for example, MyClass.java, in a child package folder
+under a parent package folder
+under a src folder under the project folder
+The top line of a Java source
+file must contain the keyword ‘package’ and the package name,
+for example, com.company
+That is, the top line of all Java source
+files belonging to the same package must contain the package name to which they belong
+So, let's look at
+how to create a new package in IntelliJ IDEA
+and create a new class source file in that package
+In the file navigator,
+right-click on the src folder under the project
+name to pop up the menu, select New,
+then Package, and enter the package name in the pop-up that appears
+Here, com.company1 is written as the package name
+Right-click on the newly created package
+name to open the menu and select New >
+Java Class to create a new class
+Here, we created a class called MyClass
+under the com.company1 package
+When you want to use a class
+that does not belong to the same package, use the import statement
+If you want to import all classes
+belonging to com.company1,
+you can do import com.company1.*,
+and if you want to import only one specific class,
+you can import only one class,
+for example, import com.company2.YourClass
+Let's look at the PackageTest.java program
+There are MyClass
+and Product classes in the com.company1
+package, and YourClass
+and Product classes in the com.company2 package
+Here you can see that
+both packages contain a class called Product
+First, I imported all classes
+from com.company1 and com.company2
+In the main method of the PackageTest class,
+I created mClass,
+an object of MyClass, and yClass, an object of YourClass
+Now, we are going to create objects of the Product
+class in different packages
+one by one, but since the Product classes have the same name,
+we need to write the full path of the package
+However, until now, when defining a class,
+we have mostly just defined it without specifying the package
+to which the class belongs
+If we don't specify the package to which the class belongs,
+then to which package will this class belong?
+The answer is default package
+The default package refers to the src folder,
+not under any other sub folder
+Here's an example of this class structure:
+MyClass and Product are under the com.company1 package,
+YourClass and Product are under the com.company2 package,
+and ClassInDefaultPackage1, ClassInDefaultPackage2,
+and PackageTest classes
+are in the src folder, not under com
+These three classes belong to the default package
+Let's learn about some of the most commonly used
+built-in packages provided by Java
+First, java.lang contains the most basic classes
+The java.lang package is imported by default even if you do not import it
+Representative classes include Object,
+String, Math, System, and Thread
+The java.util package contains data structures and utility classes
+Classes include Scanner, ArrayList, HashMap, Date,
+Calendar, and Collections
+The java.io package consists of classes that provide input
+and output functionality
+It consists of classes such as File, InputStream, Reader, and Writer
+Besides these, many packages are provided in Java
+Now let's learn about access modifiers
+Instance variables, methods, and classes with the public modifier
+are accessible from anywhere,
+even outside the same package
+Protected variables are accessible within the same package
+or from child classes
+We'll delve into child classes in more detail in the "Inheritance" chapter
+If the private modifier is attached, access is only possible within the same class
+If default or package is attached
+(or nothing is attached), access is possible within the same package (folder)
+The Venn diagram shows the inclusion relationships of access modifiers
+Private access has the narrowest access scope, with default,
+protected, and public access increasing in scope
+As an example of using access modifiers,
+let's look at an example
+using a class with default (package) access
+First, the com.company1 package
+contains four classes:
+MyClass, NotPublicClass, Product, and PublicClass
+Among these, NotPublicClass has no access modifier,
+so it is the default, i.e., package access
+PublicClass has the public access modifier in front of it,
+so it is a public class
+Now we have imported all the classes of com.company1 into the Product
+class of the com.company2 package
+And I tried to create an object of NotPublicClass and PublicClass
+At this time, NotPublicClass is not a public class,
+so it cannot be accessed outside of its own package
+Therefore, a compile error occurs
+However, in the case of PublicClass,
+since it is a public class, it can be freely accessed from other packages
+Among the instance variables of AClass, x is public, y is private,
+and z is package access
+In the default constructor, the values of x, y, and z are assigned to 2, 3, and 4, respectively
+Below that, there are three methods: publicMethod()
+with public access, privateMethod()
+with private access, and packageMethod() with package access
+Now, in the main method of AClassTest,
+we create an object of AClass called ac
+At this time, the default constructor is executed,
+so ac's x, y, and z have initial values of 2, 3, and 4, respectively
+ac.x is printed normally, but when I try to print ac.y,
+a compile error occurs
+This is because ac.y is a private instance
+variable in AClass
+That is, y can only be used within AClass
+ac.z has package permissions, so it can be freely accessed by the AClassTest class
+within the same folder (package)
+Also, the public method ac.publicMethod()
+and the package method
+ac.packageMethod() can be called freely
+However, since the private method
+ac.privateMethod() can only be used within the same class,
+a compile error will occur if called externally
+In terms of the concept of information hiding,
+it is recommended to declare all members within a class as private
+This serves to prevent incorrect use of members outside of the class
+Instead, you should create separate public methods that can read or change
+the values of private members
+An accessor, also called a getter, is a public method
+used to read the value of a private variable of a class from outside the class
+For example, the accessor for private int x; would be public int getX()
+and the accessor for private String str; would be public String getStr() 
+What this accessor method does is really simple:
+it returns the value of the private variable as is
+Meanwhile, Mutator, also called Setter,
+is a public method that writes a value to a private variable
+For example, void setX(int); void setStr(String); etc
+are possible
+The role of a mutator is also very simple: to assign
+a given parameter value to a private instance variable
+However, you can first test whether the parameter value is invalid data
+and then assign it to a private variable
+For example, the 'month' in a date may be filtered out in the test
+because it is not valid unless it is an integer between 1 and 12
+Now let's look at some practical examples of using accessors and mutators
+Both int x and String str in class
+B are private instance variables
+The initial values of x and str are
+assigned in the constructor
+public int getX() and public String getStr() are accessor methods
+What accessors do is read the value of an instance variable and return it
+Mutators setX and setStr are public methods
+that assign new values to x and str
+In particular, in setStr, instead of assigning the given parameter String
+as is, a new String object is created and assigned
+This will prevent privacy leaks
+We will study privacy leadk in detail in 05_3 Copy Constructor
+At first, in the constructor, I initialized x and str to 3
+and “Korea” and read them with the accessor and printed them
+I changed the x and str values to 5 and “Seoul”
+using a mutator, and then read them again using an accessor and printed them

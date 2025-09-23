@@ -1,0 +1,92 @@
+﻿여기서는 Java Virtual Machine의 memory 구조에 대해 알아보겠습니다.  
+JVM의 memory는 크게 Method area, Heap, Stack, PC Register, Native Method Stack의 다섯가지 구역으로 나눌 수 있습니다. 
+Method area에는 하나의 class에서 생성되는 모든 object들이 함께 공유하는 정보가 저장됩니다. 
+예를 들면, static variable들, constant들과 같은 것들입니다.
+또한 하나의 프로그램 내에 출현하는 모든 String literal들을 저장해 놓은 String constants pool도 여기에 존재합니다.  
+Heap에는 object별로 달라지는 정보들이 저장됩니다. 
+예를 들면 instance variable의 value나 array value 등 입니다. 
+Stack에는 어떤 method가 call 될 때마다 하나의 block이 생겼다가 method가 수행을 끝내면 그 block은 해제됩니다. 
+method가 call되는 순서에 따라 block들이 쌓여가는 것이 stack 구조의 LIFO 형태가 됩니다. 
+method block에는 parameter와 local variable들의 value들이 저장됩니다. 
+PC Register 구역에는 현재 수행되고 있는 명령어 주소인 Program Counter, 즉, PC가 저장됩니다. 
+PC에 대해서는 01_2_IntroJava 의 p.15에서 다룬 적이 있으므로 참고하기 바랍니다. 
+마지막으로 Native Method Stack 구역에는 Java 언어 이외에 다른 언어로 구현되어 있는 library들
+예를 들면 C, C++ 등으로 짜여진 것들을 call할 때 사용됩니다. 
+앞에서 설명한 JVM Memory의 다섯가지 구역에 대한 내용을 여기에 정리하였습니다. 
+이제 실제 example program을 보면서 어떤 순간에 어떤 데이터가 JVM Memory의 어느 구역에 저장되는지를 파악해 보도록 하겠습니다. 
+Class Student는 학생의 데이터를 가지고 있는 class입니다. 
+String name은 학생의 이름을 가지는 instance variable 입니다. 
+int id는 학생의 학번을 가지는 instance variable 입니다. 
+University univ는 학생이 다니는 대학의 정보를 가지는 University class type의 instance variable입니다. 
+대문자 CONST는 named constant로서 static final로 정의되었으며, 그 값은 365 입니다. 
+Student의 set method는 name2, id2, univ2 라는 세 개의 parameter를 받아 student object의 name, id, univ에 assign 해 주는 method입니다. 
+info method는 Student object의 name과 id, 그리고 univ 정보를 프린트 해 주는 method입니다. 
+univ의 정보는 University class의 hello() method를 call하여 university의 정보를 String으로 return 받았습니다. 
+한편 University class는 매우 간단한데, 먼저 university의 이름인 String name instance variable이 있고
+Student class의 info() method에서 사용된 hello()가 있습니다. 
+hello() method는 “Hello” 라는 String 뒤에 학교의 이름을 붙여서
+하나의 String으로 만들어 return합니다. 
+이제 실행 class인 Test class의 main method가 실행됩니다. 
+class Test가 등장했으므로, Method area에는 먼저 class Test의 구역이 생겨납니다. 
+Test.main()이 static method 이므로, 그에 대한 정보는 Method area에 저장됩니다. 
+static variable이나 static method는 class 전체에서 유일하게 존재하며
+생성될 모든 object들이 공유하게 됨을 다시 강조합니다. 
+한편, Test.main method가 OS에 의해 실행되면서, 이를 위해 Stack에 method block이 만들어 집니다. 
+main의 parameter인 args는 null 값을 가지며, 이것은 Stack의 main block 안에 저장됩니다.  
+main의 local variable u1이 new University()로 생성됩니다. 
+u1은 생성된 University object의 reference 값을 가집니다. 
+University u1이 생성되면서, class University의 구역이 Method area에 생성됩니다. 
+u1이 새로운 object이므로, Heap에 u1 object를 위한 구역이 생성됩니다. 
+Stack의 Test.main() block에는 local variable u1의 reference value가 새로 생성된 object의 reference로 assign됩니다. 
+마찬가지로 Stack의 Test.main() block의 local variable u2는 새로 생성된 University class의 object의 reference를 가지게 됩니다. 
+Heap에 새 object u2를 위한 공간이 마련됩니다. 
+아직 u1과 u2 object들의 instance variable인 name의 값은 assign되지 않았습니다. 
+u1과 u2의 name이 각각 “Yonsei”와 “Korea” 로 assign됩니다. 
+이 때 Heap에 있는 각 object의 instance variable들,
+즉, u1.name은 “Yonsei”라는 value를 가지게 되고,
+u2.name은 “Korea”라는 value를 가지게 됩니다. 
+한편, "Yonsei"와 "Korea"는 모두 String literal들이므로 Method area의 String Constant Pool에 저장됩니다. 
+그래서 실제로 u1과 u2의 value는, Method area의 String Constant Pool에서 literal "Yonsei"와 "Korea"의 주소를 각각 나타냅니다. 
+이제 Student s1과 s2 object가 생성됩니다. 
+Heap에 두 object s1과 s2를 위한 구역이 할당되었으나 
+instance variable들인 name, id, univ의 value는 아직 assign되지 않았습니다. 
+Student class가 처음 출현하였으므로 Method Area에 class Student가 등록됩니다. 
+class Student의 모든 object들이 공유하는 constant CONST는 365의 값을 가지며 Method Area의 class Student 영역에 저장됩니다. 
+Test.main()에서 s1.set() 이 call 됩니다. 
+Stack에 s1.set()을 위한 새로운 block이 할당되고
+s1.set()의 세개의 parameter들인
+name2, id2, univ2의 값이 그 block에 저장됩니다. 
+s1.set() 내에서 s1 object의 세 instance variable들인
+name, id, univ의 값이 assign되므로
+Heap의 Student s1 영역에 그 값들을 저장할 수 있습니다. 
+여기에서는 s1.set() 이 실행을 모두 마친 순간의 memory 상태를 보여줍니다. 
+Stack에서 s1.set() method에 할당되었던 block은 s1.set() method가 실행을 마치는 순간 해제됩니다. 
+Heap에는 u1, u2, s1, s2 의 네 개의 object들을 위한 구역들이 할당되어 있습니다. 
+아직 s2의 instance variable들의 값은 정해지지 않은 상태입니다. 
+이제 Test.main()에서 s2.set()을 call합니다. 
+Stack에 s2.set()을 위한 block이 생성됩니다. 
+s2.set() method block의 parameter 값들은
+각각 “Jane”, 65342, 0x464A7 입니다. 
+s2.set() method 내에서
+Student s2 object의 instance variable들이 assign 됩니다. 
+이것은 s2.set() method이 실행을 모두 마친 순간의 memory 상태를 보여줍니다. 
+Stack에서 s2.set() block은 pop 되어 제거됩니다. 
+이제 Test.main()에서 s1.info() method가 call됩니다. 
+s1.info() method의 block이 생성되어 Stack에 push됩니다. 
+s1.info() 안에서 s1.univ.hello() method가 연속적으로 call됩니다. 
+따라서 s1.univ.hello() 의 block이 새로 Stack에 push됩니다. 
+한편 University class의 hello() method에는 
+“Hello” 라는 String literal이 출현하므로
+이 “Hello” String literal을
+Method Area의 String Constant Pool에 새로 추가합니다.
+지금 이 상태는 s1.info() method가 막 실행을 끝낸 상태일 때의 상황입니다. 
+s1.univ.hello() method와 s1.info() method가 순서대로 실행이 끝나게 되고
+그 method들을 위한 block들은 Stack에서 pop 됩니다. 
+s2.info() method가 call 되었을 때도
+s1.info() method 때와 비슷한 형태의 동작이 일어납니다. 
+s2.info() 안에서 s2.univ.hello() 를 call하게 되어
+그 method를 위한 block이 Stack에 push됩니다. 
+이제 최종적으로 Test.main()의 실행이 모두 끝나면
+현재 Stack 안에 유일한 block인 Test.main() block을 pop 합니다. 
+이제 Stack은 empty 상태가 되었고, 
+이렇게 되면 프로그램 실행이 모두 끝난 것입니다. 

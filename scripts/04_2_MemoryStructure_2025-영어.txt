@@ -1,0 +1,93 @@
+﻿Here, we'll explore the memory structure of the Java Virtual Machine
+JVM memory can be broadly divided into five areas: the method area, heap, stack, PC register, and native method stack
+The method area stores information shared by all objects
+created from a class, such as static variables and constants
+There's also a String constants pool, which stores all String literals appearing in a program
+The Heap stores information that varies by object, such as the values of instance variables or array values
+Each time a method is called, a block is created on the Stack,
+and when the method completes execution, the block is freed
+The stack structure's LIFO structure builds up blocks in the order in which methods are called
+Method blocks store the values of parameters and local variables
+The PC Register area stores the Program Counter (PC),
+which is the address of the currently executing instruction
+Please refer to p. 15 of 01_2_IntroJava for more information on the PC
+Finally, the Native Method Stack area is used when calling libraries implemented in languages
+other than Java, such as C or C++
+The five areas of JVM memory discussed above are summarized here. Now,
+let's look at an actual example program and determine which data is stored
+in which area of JVM memory at which moment
+The class Student is a class that contains student data
+The String name is an instance variable containing the student's name
+The int id is an instance variable containing the student's student ID
+The University univ is an instance variable of the University class type
+containing information about the student's university
+The uppercase CONST is a named constant defined as static final, with a value of 365
+The Student set method receives three
+parameters—name2, id2, and univ2—and assigns them to the Student object's name, id, and univ
+The info method prints the Student object's name, id, and univ information
+The univ information is returned as a String by calling the hello() method of the University class
+The University class is very simple. It first contains a String name instance variable,
+which is the university's name, and then the hello() method used in the Student class's info() method
+The hello() method appends the school's name to the String "Hello" and returns it as a single String
+Now, the main method of the Test class, which is the executable class, is executed
+Since the Test class has been introduced, a section for the class Test is created first in the Method area
+Since Test.main() is a static method, its information is stored in the Method area
+It should be emphasized again that static variables and methods are unique within the entire class
+and are shared by all objects created
+Meanwhile, when the Test.main method is executed by the OS, a method block is created on the Stack for it
+The main parameter, args, has a null value, which is stored in the main block on the Stack
+The local variable u1 in main is created with new University()
+u1 holds a reference value to the newly created University object
+When University u1 is created, a section for the class University is created in the Method area
+Since u1 is a new object, a section for the u1 object is created on the Heap
+In the Test.main() block on the Stack,
+the reference value of the local variable u1 is assigned as a reference to the newly created object
+Similarly, the local variable u2 in the Test.main() block on the Stack
+holds a reference to the newly created University class object
+Space is made available on the Heap for the new object u2
+The name instance variable of the u1 and u2 objects has not yet been assigned a value
+The names of u1 and u2 are assigned as “Yonsei” and “Korea”, respectively
+At this time, the instance variables of each object in the Heap,
+that is, u1.name, will have the value “Yonsei”, and u2.name will have the value “Korea”
+Meanwhile, since both “Yonsei” and “Korea” are String literals,
+they are stored in the String Constant Pool of the Method area
+Therefore, the values of u1 and u2 actually represent the addresses of the literals
+“Yonsei” and “Korea” in the String Constant Pool of the Method area
+Now, Student objects s1 and s2 are created. Areas for the two objects
+s1 and s2 are allocated in the Heap,
+but the values of the instance variables name, id, and univ have not yet been assigned
+Since this is the first time the Student class has appeared,
+the class Student is registered in the Method Area
+The constant CONST shared by all objects of the class Student has the value 365
+and is stored in the class Student area of the Method Area
+In Test.main(), s1.set() is called. A new block is allocated on the Stack for s1.set(),
+and the three parameters of s1.set()—name2,
+id2, and univ2—are stored in that block
+Since the three instance variables of the s1 object—name, id, and univ—are assigned within s1.set(),
+they can be stored in the Student s1 area of the Heap
+This shows the memory state at the moment s1.set() completes execution
+The block allocated to the s1.set() method on the Stack is deallocated the moment s1.set() completes execution
+The Heap contains allocated areas for four objects: u1, u2, s1, and s2
+The values of the s2 instance variables have not yet been determined
+Now, in Test.main(), s2.set() is called. A block for s2.set() is created on the Stack
+The parameter values of the s2.set() method block are “Jane”, 65342, and 0x464A7, respectively
+The instance variables of the Student s2 object are assigned within the s2.set() method
+This shows the memory state at the moment when the s2.set() method has completed execution
+The s2.set() block is popped off the Stack and removed. Now, the s1.info() method is called in Test.main()
+The block of the s1.info() method is created and pushed onto the Stack
+The s1.univ.hello() method is called sequentially within s1.info()
+Therefore, the block of s1.univ.hello() is newly pushed onto the Stack
+Meanwhile, the hello() method of the University class contains the String literal “Hello”,
+so this “Hello” String literal is newly added to the String Constant Pool of the Method Area
+This is the situation
+when the s1.info() method has just finished executing
+The s1.univ.hello() and s1.info() methods execute sequentially,
+and the blocks for those methods are popped off the stack
+When the s2.info() method is called, a similar behavior occurs
+s2.univ.hello() is called from within s2.info() ,
+and the blocks for that method are pushed onto the stack
+Finally, when Test.main() completes execution,
+the only block on the stack, Test.main() , is popped off
+The stack is now empty,
+
+and program execution has ended
