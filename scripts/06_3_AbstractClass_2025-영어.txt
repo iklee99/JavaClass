@@ -1,0 +1,253 @@
+﻿I will lecture about Abstract classes
+
+The classes we have created and used so far are called concrete classes
+
+An abstract class is a class that can be created by extracting common properties,
+
+such as fields or methods, from multiple concrete classes
+
+An abstract class may or may not contain abstract methods
+
+An abstract method is a method that only has a signature and no body
+
+You cannot create an object with an Abstract class
+
+regardless of whether or not the Abstract method exists
+
+Let's look at an example of actually creating and using an abstract class
+
+Define an abstract class
+
+by adding the keyword ‘abstract’ before the class keyword
+
+This abstract class cannot create objects
+
+An abstract class can have abstract methods,
+
+and in this case, ‘makePayment’ is an abstract method
+
+An abstract method only has a signature and no body
+
+The transactionDetails() below is a regular method
+
+The fact that an abstract class cannot create objects, or instances,
+
+means that the descendant class that inherits
+
+the abstract class must be defined as a concrete class and used
+
+Here, the ‘CreditCardPayment’ class is defined as the first concrete subclass
+
+and inherits the abstract class Payment
+
+To become a concrete subclass like this,
+
+the parent abstract class must complete the definition of the abstract method
+
+that has not yet been defined
+
+Here, we implemented the body of makePayment
+
+and printed a message that the payment amount was made
+
+via credit card
+
+In a similar way, we now implement the PayPalPayment
+
+concrete subclass as a child of Payment
+
+This time, a message was printed
+
+stating that makePayment was made using ‘PayPal’
+
+Another concrete subclass is BankTransferPayment
+
+Here, we have completed
+
+the implementation of the abstract method makePayment,
+
+which prints a message that the amount will be paid
+
+using Bank Transfer
+
+Now we have implemented the demo program
+
+using the class hierarchy defined earlier in PaymentDemo
+
+First, we tried to create an object of the abstract class Payment,
+
+but this resulted in an error
+
+This is because we cannot create an instance of an abstract class
+
+Now, we have created objects of the concrete
+
+child classes of Payment, CreditCardPayment,
+
+PayPalPayment, and BankTransferPayment, one by one
+
+And for each object, the transactionDetails() method is called,
+
+and then the makePayment method is called to output
+
+the payment message
+
+This is the output of the demo program above
+
+The figure shows the class hierarchy of this program,
+
+with the abstract class Payment indicated by a dotted line
+
+Here we have an abstract class called Player
+
+We have an instance
+
+variable currentPos that represents the current playing position
+
+The default constructor initializes currentPos to 0
+
+And there are two abstract methods play and stop
+
+The play() method at the end is not abstract
+
+but a concrete method, and is overloaded differently from the abstract
+
+method play(int pos) above
+
+Note that the parameters of the two methods are different
+
+inherits Player To become a concrete class,
+
+it must implement all the abstract
+
+methods of its parent abstract class
+
+Therefore, both methods,
+
+play(int pos) and stop(), are implemented
+
+VideoPlayerGroup inherits Player, but
+
+does not implement the abstract methods,
+
+so it itself becomes an abstract class again
+
+In addition, I added one more
+
+abstract method, displayOn()
+
+If you look at the class hierarchy in the figure,
+
+Player and VideoPlayerGroup are marked with dotted lines
+
+as abstract classes,
+
+and the three classes
+
+AudioPlayer, TV, and VideoPlayer are concrete classes
+
+In particular, the two concrete classes
+
+TV and VideoPlayer must implement the abstract method displayOn()
+
+along with play(int pos) and stop()
+
+Here, we show the process of organizing classes
+
+hierarchically by grouping similar types of classes
+
+and making their common variables
+
+and methods owned by the parent class
+
+The classes Marine, Tank, and Dropship
+
+are all characters that appear in a game and have their current location
+
+x, y, and the move(int x, int y) method that indicates how to move at once
+
+And they all have a common stop()
+
+method that stops the movement at the current location
+
+In this case, if you create a parent
+
+for these three classes and group the common parts,
+
+you can efficiently manage the definitions of the classes
+
+while eliminating overlapping parts
+
+However, there are cases where the parent class
+
+created in this way is not suitable for creating its own object
+
+For example, when the parent of Cat, Dog, Horse, Lion, etc
+
+is Animal, there is no need to create an Animal object
+
+In this case, it seems appropriate
+
+to make the parent an abstract class
+
+so that objects cannot be created
+
+Now we have created an abstract parent class called Unit
+
+as the parent of Marine, Tank and Dropship
+
+Unit has three child classes that have int x, int
+
+y, and an abstract method move in common,
+
+and it also has a concrete method stop
+
+The remaining three child classes,
+
+excluding the common parts,
+
+each have additional variables or methods that they need,
+
+and in particular, they must implement the abstract method move
+
+to create an object of an abstract class,
+
+let's look at an example
+
+where you can use an abstract class variable as a method parameter
+
+to receive an object of your descendant class as a parameter
+
+First, we have an abstract class called Document,
+
+which has an abstract method called printContent()
+
+PDFDocument is a subclass of Document that implements printContent
+
+and thus becomes a concrete class
+
+WordDocument is also another subclass of Document
+
+that implements printContent
+
+has a method called printDocument,
+
+which receives the Document abstract class
+
+as a parameter and calls doc.printContent()
+
+Here, we first create two Document objects
+
+The original class of pdf is PDFDocument
+
+and the original class of word is WordDocument
+
+And then I created a printer object,
+
+printer, and called printer.printDocument,
+
+passing pdf as a parameter once and word as a parameter another time
+
+In this way, when an abstract class is used as a parameter,
+
+its child concrete classes can be passed as parameters and used
